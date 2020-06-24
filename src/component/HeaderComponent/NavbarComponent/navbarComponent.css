@@ -1,0 +1,23 @@
+.navbar{
+    background-color: brown;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+    align-content: center;
+    color: black;
+    margin:0 60px
+
+}
+.logo{
+    flex:1;
+    background-color: chartreuse;
+    
+}
+.navs{
+    flex:11;
+    background-color: coral;
+    
+
+
+}
