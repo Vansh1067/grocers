@@ -1,13 +1,38 @@
-import React from 'react';
-
+import React,{useState} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBars,faTimes} from '@fortawesome/free-solid-svg-icons'
 import './navbarComponent.css'
+import BrandComponent from '../BrandComponent/brandComponent'
 import Hoc from '../../../Hoc/hoc';
 const NavbarComponent=(props)=>{
+    const [isOpen,setIsOpen]=useState(false);
+    const [styles,setStyles]=useState({});
+    const [icon,setIcon]=useState(faBars);
+
+
+ 
+    const toggleHandler=()=>{
+        setIsOpen(!isOpen)
+        if(!isOpen){
+            setStyles({display:'block'})
+            setIcon(faTimes)
+
+        }else{
+           setStyles({})
+           setIcon(faBars)
+
+        }
+    }
     return(
         <Hoc className="navbar">
-            <div class="navs">
-           <ul class="nav-ul">
-               <li><a href="">Categories</a>
+            <FontAwesomeIcon className="bars" onClick={toggleHandler} icon={icon}/>
+            <div class="navs" style={styles}>
+                <div class="brandMenu">
+                <BrandComponent></BrandComponent>
+
+                </div>
+           <ul class="nav-ul" >
+               <li><a href="#">Categories</a>
                <ul class="nest-ul">
                    <li><a href="">Baby Care</a></li>
                    <li><a href="">Beverages</a></li>
@@ -29,7 +54,7 @@ const NavbarComponent=(props)=>{
 
                <li><a href="">About us</a></li>
                
-               <li><a href="">My Account</a>
+               <li><a href="#">My Account</a>
                <ul>
                    <li><a href="">Login</a></li>
                    <li><a href="">Register</a></li>

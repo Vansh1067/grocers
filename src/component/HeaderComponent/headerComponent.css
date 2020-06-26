@@ -4,6 +4,7 @@
     color:white;
     display: flex;
     flex:wrap;
+  
    
 }
 .brand{
@@ -11,7 +12,13 @@
    height: 100%;
 
 }
+
 .nav{
 flex:10;
     
+}
+@media screen and (max-width:768px){
+   .header{
+       flex-direction: column;
+   }
 }

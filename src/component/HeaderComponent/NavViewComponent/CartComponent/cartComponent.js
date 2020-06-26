@@ -7,8 +7,14 @@ const CartComponent=(props)=>{
     return(
         <Hoc className="cart">
             <div class="cartbox">
-            <FontAwesomeIcon className="icon" icon={faShoppingCart}/>
-        <p>My Cart</p>
+                <div class="icon" >
+                    
+                <FontAwesomeIcon icon={faShoppingCart}/>
+
+                <span class="k">5</span>
+
+                </div>
+                <p>My Cart</p>
             </div>
        
         </Hoc>

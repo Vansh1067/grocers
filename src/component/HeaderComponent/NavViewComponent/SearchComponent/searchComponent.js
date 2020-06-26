@@ -24,7 +24,7 @@ class SearchComponent extends Component{
                 </select>
                 </div>
                 <div class="searchArea">
-                <input type="text" placeholder="Select products in your City"></input>
+                <input type="text" placeholder="Search products "></input>
         
                 </div>
                 <div class="searchBtn">

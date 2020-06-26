@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faAddressCard,faEnvelope,faPhoneAlt,} from '@fortawesome/free-solid-svg-icons'
 import './footerDetailComponent.css'
 import Hoc from '../../../Hoc/hoc'
 import FooterCardComponent from './footerCardComponent/footerCardComponent'
@@ -8,11 +9,14 @@ const FooterDetailComponent=(props)=>{
         <Hoc className='footerDetail'>
             <FooterCardComponent title="Contact Us">
                 <div>
-                    <p>Ram Bhawan Satti Street</p>
-                    <p>Roorkee Uttrakhand</p>
-                    <p>vanshtandon1067@gmail.com</p>
-                    <p>9760300288</p>
-                    <p>grocers@company.com</p>
+                    <address> 
+                    <FontAwesomeIcon className="footerIcon"icon={faAddressCard}/> Ram Bhawan Satti Street<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roorkee Uttrakhand
+                    </address>
+              
+                    <p>   <FontAwesomeIcon className="footerIcon" icon={faEnvelope}/> vanshtandon1067@gmail.com</p>
+                    <p><FontAwesomeIcon className="footerIcon" icon={faPhoneAlt}/> 9760300288</p>
+                    <p><FontAwesomeIcon className="footerIcon" icon={faEnvelope}/> grocers@company.com</p>
                 </div>
                 
             </FooterCardComponent>
