@@ -6,12 +6,36 @@ const NavbarComponent=(props)=>{
     return(
         <Hoc className="navbar">
             <div class="navs">
-           <ul>
+           <ul class="nav-ul">
+               <li><a href="">Categories</a>
+               <ul class="nest-ul">
+                   <li><a href="">Baby Care</a></li>
+                   <li><a href="">Beverages</a></li>
+                   <li><a href="">Cleaning &amp; Household</a></li>
+                   <li><a href="">Daily Needs</a></li>
+                   <li><a href="">Dairy &amp; Bakery</a></li>
+                   <li><a href="">Fruits</a></li>
+                   <li><a href="">Oil &amp; Spices</a></li>
+                   <li><a href="">Personal Care</a></li>
+                   <li><a href="">Rice Grains</a></li>
+                   <li><a href="">Snaks &amp; Foods</a></li>
+
+               </ul>
+               </li>
+
                <li><a href="">Home</a></li>
+               <li><a href="">Specials</a></li>
+               <li><a href="">Brand</a></li>
+
                <li><a href="">About us</a></li>
-               <li><a href="">Fruits &amp; Vagetables </a></li>
-               <li><a href="">Grocery &amp; Staples</a></li>
+               
                <li><a href="">My Account</a>
+               <ul>
+                   <li><a href="">Login</a></li>
+                   <li><a href="">Register</a></li>
+                  
+
+               </ul>
                </li>
                <li><a href="">Contact</a></li>
                
