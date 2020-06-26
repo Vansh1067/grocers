@@ -1,4 +1,26 @@
 .cart{
-    flex:1;
-    background-color: darkgreen;
+    flex:3;
+ 
+ 
+ 
+}
+.cartbox{
+    display: flex;
+    align-items: center;
+   
+    padding-left: 10px;
+    flex-wrap: wrap;
+}
+.icon{
+    font-size: 40px;
+    background-color: white;
+ border-radius: 50%;
+ padding: 10px;
+}
+.cart p{
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 10px;
+
+
 }

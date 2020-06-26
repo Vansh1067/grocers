@@ -3,7 +3,12 @@
     flex-wrap: wrap;
     text-align: center;
     justify-content: space-around;
-    align-content: center;
+    
+    align-items: center;
     color: black;
-    margin:0 60px
+    margin:0 60px;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+    padding:30px 0
+
 }

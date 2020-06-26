@@ -1,10 +1,10 @@
 .navView{
-background-color: violet;
 display: flex;
 flex-wrap: wrap;
 text-align: center;
 justify-content: space-around;
-align-content: center;
+align-items: center;
+
 color: black;
-margin:0 60px
+padding: 20px 0;
 }

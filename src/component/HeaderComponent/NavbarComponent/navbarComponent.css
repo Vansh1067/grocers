@@ -1,23 +1,29 @@
 .navbar{
-    background-color: brown;
+   
     display: flex;
     flex-wrap: wrap;
     text-align: center;
     justify-content: space-around;
-    align-content: center;
+    align-items: center;
     color: black;
-    margin:0 60px
+}
 
-}
-.logo{
-    flex:1;
-    background-color: chartreuse;
-    
-}
 .navs{
-    flex:11;
-    background-color: coral;
-    
+    flex:12;
+    text-align: left;
+    padding: 10px 0;
+}
+.navs ul li{
+    list-style: none;
+    display: inline;
+    margin-left:20px;
+   
 
-
+}
+.navs ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
+    letter-spacing: 0px !important;
+    font-weight: bold;
 }

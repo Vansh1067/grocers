@@ -1,0 +1,22 @@
+.footerCard{
+    text-align: left;
+  min-width: 250px;
+   padding: 10px; 
+
+   margin: 20px 5px;
+   color: grey;
+}
+.footerCard h3{
+    margin-bottom: 10px;
+    color: white;
+}
+.footerCard ul li{
+    list-style: none;
+}
+.footerCard ul li a{
+    padding: 5px;
+    text-decoration: none;
+    color: grey;
+    
+    cursor: pointer;
+}

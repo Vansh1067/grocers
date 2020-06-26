@@ -1,12 +1,13 @@
 import React from 'react';
 
 import './brandComponent.css'
-import Hoc from '../../../../Hoc/hoc'
+import Hoc from '../../../Hoc/hoc'
+import Logo from '../../../assest/logo.png'
+
 const BrandComponent=(props)=>{
     return(
-        <Hoc className="brand">
-            <p>brand</p>
-            
+        <Hoc className="logo">
+            <img src={Logo} />
         </Hoc>
     );
 }

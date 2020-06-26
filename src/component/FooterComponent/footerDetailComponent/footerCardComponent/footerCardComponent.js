@@ -4,7 +4,8 @@ import './footerCardComponent.css'
 import Hoc from '../../../../Hoc/hoc'
 const FooterCardComponent=(props)=>{
     return(
-        <Hoc>
+        <Hoc className='footerCard'>
+            <h3>{props.title}</h3>
             {props.children}
         </Hoc>
     );

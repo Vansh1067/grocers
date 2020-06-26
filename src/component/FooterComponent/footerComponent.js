@@ -5,11 +5,12 @@ import Hoc from '../../Hoc/hoc'
 import FooterDetailComponent from './footerDetailComponent/footerDetailComponent';
 import FooterSocialComponent from './footerSocialComponent/footerSocialComponent'
 const FooterComponent=(props)=>{
+    
     return(
         <Hoc className='footer'>
             <FooterDetailComponent></FooterDetailComponent>
             <FooterSocialComponent></FooterSocialComponent>
-            <p>Copyright</p>
+            <p class="copy">Copyright <span >&copy; </span>2020 </p>
         </Hoc>
     );
 }
