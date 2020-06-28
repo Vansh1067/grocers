@@ -1,0 +1,13 @@
+.cardBody{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height:400px;
+    overflow-x: scroll;
+    justify-content:left;
+    align-items: center;
+   
+}
+.cardBody::-webkit-scrollbar {
+    display: none;
+}

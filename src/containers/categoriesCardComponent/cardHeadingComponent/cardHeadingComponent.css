@@ -1,0 +1,41 @@
+.cardHeading{
+    border-bottom: 1px solid gray;
+    padding: 10px 0px;
+    text-align:left;
+    display: flex;
+    justify-content: space-between;   
+    align-items: center; 
+}
+.heading {
+    flex:3;
+    padding-left: 10px;
+   border-left: 10px solid orange;
+}
+
+.filter{
+    flex:8;
+   
+    text-align: right;
+}
+.arrow{
+    text-align: center;
+    flex:1;
+    
+    display: flex;
+    justify-content: space-around;
+    
+}
+.arrow > *{
+    cursor: pointer;
+}
+@media screen and (max-width:768px){
+    .filter{
+        display: none;
+    }
+    .heading{
+        flex:9
+    }
+    .arrow{
+        flex: 3;
+    }
+}
