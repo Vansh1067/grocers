@@ -5,7 +5,16 @@
     height: auto;
     padding: 5px;
     margin: 15px;
+    position: relative;
     
+}
+.Offer{
+    position: absolute;
+    background-color: rgba(4, 65, 4, 0.808);
+    padding:4px 3px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
 }
 .imgBody{
     width: 100%;
@@ -35,6 +44,26 @@
     border-radius: 5px;
     
 }
-#cart{
-    background-color: orange;
+.Cart{
+ display: flex;
+ width: 100%;
+ align-items: center;
+ flex-direction: row;
+
+}
+.Cart p{
+    color: red;
+}
+.Cart input{
+    width:50%;
+    padding:3px;
+    text-align: center;
+    margin:0 5px
+}
+.Cart:last-child{
+cursor: pointer;
+}
+.discount{
+    color:gray;
+    text-decoration: line-through;
 }
