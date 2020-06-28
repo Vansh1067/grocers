@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes,faCartArrowDown,faCaretRight} from '@fortawesome/free-solid-svg-icons'
 import './userCartComponent.css'
 import Hoc from '../../Hoc/hoc'
+import CartProduct from './cartProductComponent/cartProductComponent'
 const userCartComponent=(props)=>{
     return(
         <Hoc>
@@ -13,9 +14,18 @@ const userCartComponent=(props)=>{
                 <FontAwesomeIcon className="userIcon" icon={faTimes}/>
                 </div>
                 <div class="ProductArea">
+                <CartProduct/>
+                <CartProduct/>
+                <CartProduct/>
+                <CartProduct/>
+                <CartProduct/>
+                <CartProduct/>
+                <CartProduct/>
+                <CartProduct/>
+                <CartProduct/>
 
                 </div>
-                <div class="priceSummary">
+        <div class="priceSummary">
                     <div>
                         <p>Sub Total</p>
                         <p>$900</p>
