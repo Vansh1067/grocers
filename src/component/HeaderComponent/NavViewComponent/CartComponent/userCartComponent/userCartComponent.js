@@ -3,7 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes,faCartArrowDown,faCaretRight} from '@fortawesome/free-solid-svg-icons'
 import './userCartComponent.css'
-import Hoc from '../../Hoc/hoc'
+import Hoc from '../../../../../Hoc/hoc'
 import CartProduct from './cartProductComponent/cartProductComponent'
 const userCartComponent=(props)=>{
     return(
@@ -11,7 +11,7 @@ const userCartComponent=(props)=>{
             <div class="userCart">
                 <div class="cartheader">
                 <h3>My Cart <span >(5 item)</span></h3>
-                <FontAwesomeIcon className="userIcon" icon={faTimes}/>
+                <FontAwesomeIcon className="userIcon" onClick={props.click} icon={faTimes} />
                 </div>
                 <div class="ProductArea">
                 <CartProduct/>

@@ -2,8 +2,8 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes,faCheckCircle} from '@fortawesome/free-solid-svg-icons'
 import './cartProductComponent.css'
-import Hoc from '../../../Hoc/hoc';
-import img from '../../../assest/Capture.PNG'
+import Hoc from '../../../../../../Hoc/hoc';
+import img from '../../../../../../assest/Capture.PNG'
 const CartProduct=(props)=>{
     return(
         <Hoc>

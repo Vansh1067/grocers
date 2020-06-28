@@ -15,6 +15,7 @@
     position: absolute;
     top:10px;
     right: 20px;
+    cursor: pointer;
 }
 .cardImage{
     flex: 4;
@@ -44,7 +45,7 @@ margin-left:15px
 
 }
 .Offer{
-    position: relative;
+    position: relative !important;
     width: max-content;
     text-align: center !important;
 }
