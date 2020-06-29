@@ -1,0 +1,58 @@
+.detailsContainer{
+
+    flex:7;
+    margin: 20px;
+    text-align: left;
+
+ 
+
+}
+.detailsContainer h1{
+ border-bottom: 1px solid black;
+}
+.details{
+    margin:30px 0px;
+ border-bottom: 1px solid black;
+ padding-bottom: 20px;
+
+
+}
+.details div{
+    justify-content: space-between;
+    display: flex;
+    max-width: 200px;
+    align-items: center;
+    
+}
+
+.price{
+    color:gray;
+    line-height: 40px;
+}
+.price p{
+    line-height: 20px;
+}
+.price h4 span{
+    color: black;
+    text-decoration: line-through;
+}
+.price h2 span{
+    color: green;
+}
+.detailsContainer button{
+    background-color: orangered;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    margin: 30px 0;
+}
+
+.ad h4{
+    margin-bottom: 10px;
+}
+.ad .adBox h5{
+    margin:5px 0;
+    color: orange;
+}

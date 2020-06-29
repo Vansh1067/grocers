@@ -1,0 +1,13 @@
+.detailContainer {
+    display: flex;
+    flex-direction: column;
+
+  }
+  .detailContainer >div{
+      flex:12;
+      display: flex;
+      flex-wrap: wrap;
+  }
+ 
+  
+ 
