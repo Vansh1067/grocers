@@ -5,8 +5,10 @@ import Hoc from '../../../Hoc/hoc'
 
 
 const CardBodyComponent=(props)=>{
+
+  
     return(
-        <Hoc class="cardBody">
+        <Hoc class="cardBody" {...props}>
           {props.children}
         </Hoc>
     );

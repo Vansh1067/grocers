@@ -1,0 +1,53 @@
+.FilterBox{
+   border: 1px solid black;
+   border-radius: 4px;
+    height: 50px;
+    width: 100%;
+    margin:10px 0;
+    padding: 20px 10px ;
+    display: flex;
+    align-items: center;
+    justify-self: left;
+    align-self: left;
+
+}
+.displayOpt{
+    flex:4;
+    text-align: left;
+}
+.displayOpt > *{
+    padding: 2px 7px;
+    font-size: 2.5rem;
+    margin: 0 5px;
+  
+    cursor: pointer;
+
+}
+.show{
+    color:black;
+    background-color: orange;
+    border-radius: 5px;
+    
+
+}
+.options{
+    flex:8;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+
+    
+}
+.options p{
+    font-size: 18px;
+
+}
+.options select{
+    width: 200px;
+    background-color: transparent;
+    padding: 5px;
+    margin-left: 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+}

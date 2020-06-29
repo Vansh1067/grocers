@@ -11,12 +11,7 @@ const CategoriesComponent=(props)=>{
                 return  <p key={i}>{link}</p>
                 })
             }
-        
-        
-        
-         
-
-        </Hoc>
+    </Hoc>
     );
 }
 export default CategoriesComponent;

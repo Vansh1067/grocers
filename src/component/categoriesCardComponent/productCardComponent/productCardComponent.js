@@ -16,17 +16,19 @@ const ProductCardComponent=(props)=>{
                {product.discPrice?<p class="Offer">Save {offer.toFixed(0)}%</p>:null}
                 <div class="imgBody">
                     <img src={(Math.random()>0.5?img:img2)}/>
-                    <p>{product.title}</p>
                 </div>
                 <div class="priceBody">
+                    <p>{product.title}</p>
+                    <p> anflhjlh akjbnkja acn kancs snalnl alaj al ajlkj lkkl akja lkjkl alkjcakl</p>
                     {product.price?(<div>
                         <p>${product.price}  {product.discPrice?<span class="discount">${product.discPrice}</span>:null}  </p>
-                        <button>Buy Now</button>
                         <div class="Cart">
                         <p>Qty</p>
                         <input type="text" value="1"/>
-                        <FontAwesomeIcon icon={faCartPlus}/>
+                        <FontAwesomeIcon className={'cartIcon'}icon={faCartPlus}/>
                         </div>
+                        <button>Buy Now</button>
+
                         </div>):null}
                     
                 </div>

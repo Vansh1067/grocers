@@ -1,0 +1,22 @@
+.cardBodyList{
+    display: block;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.Card{
+    width: 100%;
+    display: flex;
+}
+.imgBody{
+    flex:2
+}
+.priceBody{
+    flex:9;
+    text-align: left;
+    margin-left: 10px;
+   
+}
+.Cart{
+    justify-content: start;
+}
