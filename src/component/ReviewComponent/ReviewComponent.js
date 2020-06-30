@@ -6,7 +6,7 @@ import './ReviewComponent.css'
 const ReviewComponent=(props)=>{
     return(
         <Hoc class="reviewContainer">
-            <p>1</p>
+            <p>Reviews</p>
             
         </Hoc>
     );

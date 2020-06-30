@@ -1,5 +1,15 @@
-.reviewContainer{
-    background-color: rgb(221, 11, 228);
-    grid-area:review;
+.reviewContainer p{
+    border-bottom: 1.5px solid black;
+    padding-bottom:5px ;
+    margin-bottom: 15px;
+    font-weight: bold;
    
+}
+.reviewContainer{
+    flex:12;
+    text-align:left;
+    padding:15px;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
 }

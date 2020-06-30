@@ -15,8 +15,12 @@ const ProductDetailComponent=(props)=>{
             <DetailComponent/>
            </div>
             
-          <div>
+           <div>
           <DescriptionComponent/>
+
+          </div>
+          <div>
+          <ReviewComponent/>
 
           </div>
           
