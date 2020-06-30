@@ -6,12 +6,14 @@ import FooterComponent from './component/FooterComponent/footerComponent';
 import SectionComponent from './containers/sectionComponent/sectionComponent';
 import ProductListContainer from './containers/productListContainers/productListContainer'
 import ProductDetailtContainer from './containers/ProductDetailContainer/ProductDetailContainer';
-import Backdrop from './component/backdrop/backdrop'
+import Backdrop from './component/backdrop/backdrop';
+import AccountComponent from './component/accountComponent/accountComponent'
 
 function App() {
   return (
     <div className="App">
       <Backdrop/>
+      <AccountComponent/>
       <HeaderComponent></HeaderComponent>
     
     {/* <SectionComponent></SectionComponent> 
