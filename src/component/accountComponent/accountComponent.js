@@ -1,7 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes} from '@fortawesome/free-solid-svg-icons'
-import Hoc from '../../Hoc/hoc'
+import Hoc from '../../Hoc/hoc';
+import img from '../../assest/Draft-1593116874166.png'
 import './accountComponent.css'
 const AccountComponent=(props)=>{
     return(
@@ -9,7 +10,7 @@ const AccountComponent=(props)=>{
             <div class="acc">
             <FontAwesomeIcon className="accIcon"icon={faTimes}/>
             <div class="image">
-                <p>d</p>
+                <img src={img}/>
                 </div>
                 <div class="form">
                 <h3>Register Now !</h3>
