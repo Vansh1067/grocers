@@ -12,8 +12,8 @@ import AccountComponent from './component/accountComponent/accountComponent'
 function App() {
   return (
     <div className="App">
-      <Backdrop/>
-      <AccountComponent/>
+     {/*  <Backdrop/>
+      <AccountComponent/> */}
       <HeaderComponent></HeaderComponent>
     
     {/* <SectionComponent></SectionComponent> 
