@@ -1,6 +1,25 @@
 .descriptionContainer{
-    background-color: lightseagreen;
-    
-flex:12
+   
+    flex:12;
+    text-align:left;
+    padding:15px;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
 
+
+}
+.descriptionContainer > p{
+    border-bottom: 1.5px solid black;
+    padding-bottom:5px ;
+    margin-bottom: 15px;
+    font-weight: bold;
+    
+}
+.descriptionContainer > div{
+   display: flex;
+
+   flex-wrap: wrap;
+   justify-content: center;
+ 
 }

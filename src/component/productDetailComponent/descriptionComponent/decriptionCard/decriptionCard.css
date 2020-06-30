@@ -1,0 +1,25 @@
+.head{
+    font-size: 15px;
+    border-bottom: 1px solid gray;
+    width: 100%;
+    padding-bottom: 5px;
+    color:orange;
+}
+.descriptionCard{
+    margin:0px 10px;
+    width: 45%;
+    text-align: left;
+
+}
+.descriptionCard > :last-child{
+   
+    margin: 5px 0;
+}
+@media screen and (max-width:768px){
+    .descriptionCard{
+        
+        width: 100%;
+        
+    
+    }
+}
