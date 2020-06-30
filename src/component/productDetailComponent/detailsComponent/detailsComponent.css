@@ -1,29 +1,18 @@
 .detailsContainer{
 
-    flex:7;
+    flex:6;
     margin: 20px;
     text-align: left;
+    min-width: 200px;
 
  
 
 }
 .detailsContainer h1{
  border-bottom: 1px solid black;
+ padding-bottom: 10px;
 }
-.details{
-    margin:30px 0px;
- border-bottom: 1px solid black;
- padding-bottom: 20px;
 
-
-}
-.details div{
-    justify-content: space-between;
-    display: flex;
-    max-width: 200px;
-    align-items: center;
-    
-}
 
 .price{
     color:gray;
@@ -39,6 +28,17 @@
 .price h2 span{
     color: green;
 }
+.availabel p {
+    margin:10px 0;
+   
+}
+.availabel span{
+    padding: 5px;
+    border:2px solid brown;
+    border-radius: 5px;
+    margin: 25px 5px;
+    cursor: pointer;
+}
 .detailsContainer button{
     background-color: orangered;
     width: 150px;
@@ -47,6 +47,7 @@
     padding: 10px;
     font-size: 20px;
     margin: 30px 0;
+    cursor: pointer;
 }
 
 .ad h4{

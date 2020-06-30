@@ -8,6 +8,7 @@ const ImageComponent=(props)=>{
     return(
         <Hoc class="imageContainer">
           <img src={img}/>
+          
         </Hoc>
     );
 }
