@@ -40,10 +40,17 @@
 }
 .reviewForm button{
     width: 100%;
+    margin: 0 auto;
     margin-top: 10px;
     background-color: orangered;
     font-size: 15px;
     cursor: pointer;
+
+}
+
+.socialhandler >p{
+    margin: 10px 0;
+    text-align: center;
 }
 #checkbox{
   display: flex;
@@ -70,6 +77,21 @@
     margin:0 10px;
     cursor: pointer;
 }
+.socialhandler .buttons >  button{
+    width: 100%;
+    margin: 0;
+}
+.socialhandler .buttons >  button:first-of-type{
+    background-color: rgb(13, 82, 230);
+    }
+.socialhandler .buttons >  button:nth-last-of-type(2){
+        background-color: rgb(129, 13, 13);
+        margin:0 10px
+
+        }
+.socialhandler .buttons >  button:nth-last-of-type(1){
+            background-color: rgb(14, 128, 136);
+            }
 @media screen and (max-width:768px){
     .image{
         display: none;

@@ -18,14 +18,25 @@ const AccountComponent=(props)=>{
                     <input placeholder="Enter Your Name" type="text"></input>
                     <label>Password</label>
                     <input type="text"></input>
-                    <label>Confirm Password</label>
-                    <input placeholder="Give your review a title " type="text"></input>
-                    <button type="submit">Create Your Account</button>
-                    <div id="checkbox">
-                    <input type="checkbox" /><p> I Agree with Term &amp; Condition</p>
+                    {/* <label>Confirm Password</label>
+                    <input placeholder="Give your review a title " type="text"></input> */}
+                    <button type="submit">Enter To your Account</button>
+             </form>
+                <div class="socialhandler">
+                    <p>Or Login with your social profile</p>
+                    <div class="buttons">
+                    <button>Facebook</button>
+                    <button>Google</button>
+                    <button>Twitter</button>
 
                     </div>
-                </form>
+                </div>
+                 {/*  <div id="checkbox">
+                    <input type="checkbox" /><p> I Agree with Term &amp; Condition</p> 
+                    </div>*/}
+                <div id="checkbox">
+                    <input type="checkbox" /><p> Remeber Me</p> 
+                </div>
                 <div class="buttons">
                     <button>Login</button>
                     <button>Register</button>
