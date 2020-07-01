@@ -11,7 +11,9 @@ padding: 5px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    overflow-y: scroll;
+    height: 600px;
 }
 .details .form{
     margin-top: 0;
@@ -23,15 +25,16 @@ padding: 5px;
 .details .form .reviewForm{
     display: flex;
     flex-direction: row;
- 
     flex-wrap: wrap;
     justify-content: space-between;
+  
 }
 .details .form .reviewForm div{
     display: flex;
     flex-direction: column;
-    min-width: 40%;
     margin: 5px;
+    min-width:40%;
+  
 
 }
 .reviewForm label::before{
@@ -40,6 +43,7 @@ padding: 5px;
 .details .form .reviewForm div select{
  
     height: 30px;
+  
 }
 .details .form .reviewForm div input,.details .form .reviewForm div select,.details .form .reviewForm div textarea{
         padding: 5;
@@ -49,6 +53,7 @@ padding: 5px;
         border: 1px solid black;
         color: black;
         resize: none;
+
 }
 .textarea{
     width: 100%;
@@ -85,3 +90,12 @@ padding: 5px;
       margin-left: 10px;
       font-size: 15px;
   }
+
+ @media screen and (max-width:600px){
+    .details{
+        box-shadow:none
+    }
+    .details .form .reviewForm div{
+        width: 100%;
+    }
+} 

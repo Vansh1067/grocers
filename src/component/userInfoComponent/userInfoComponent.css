@@ -2,8 +2,19 @@
     box-shadow: 2px 2px 10px black;
 
     margin: 30px auto;
-    width:70%;
+    width:80%;
     display: flex;
+    flex-wrap: wrap;
   
     
+}
+@media screen and (max-width:768px){
+    .userInfo{
+        width: 90%;
+    }
+}
+@media screen and (max-width:425px){
+    .userInfo{
+        width: 100%;
+    }
 }

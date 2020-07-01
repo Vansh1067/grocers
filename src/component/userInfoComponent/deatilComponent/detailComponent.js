@@ -10,9 +10,9 @@ const DetailComponent=(props)=>{
 
     return(
         <Hoc class="details">
-            <ProfileForm/>
-           {/*  <AddressForm/> */}
-          {/*  <div class="wishList">
+           {/*  <ProfileForm/> */}
+            {/* <AddressForm/> */}
+           <div class="wishList">
 
            {
                
@@ -21,7 +21,7 @@ const DetailComponent=(props)=>{
 
                })
            }
-           </div> */}
+           </div>
         </Hoc>
     );
 }
