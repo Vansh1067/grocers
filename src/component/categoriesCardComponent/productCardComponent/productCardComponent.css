@@ -28,6 +28,9 @@
     height: 150px;
     
 }
+.priceBody{
+    align-items: center;
+}
 .priceBody> p:first-child{
     margin: 5px;
     font-weight: bolder;

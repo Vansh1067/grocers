@@ -1,10 +1,10 @@
 .cardBodyList{
-    display: block;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
-.Card{
+.LCard{
     width: 100%;
     display: flex;
 }
@@ -13,10 +13,6 @@
 }
 .priceBody{
     flex:9;
-    text-align: left;
     margin-left: 10px;
    
-}
-.Cart{
-    justify-content: start;
 }

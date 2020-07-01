@@ -19,7 +19,7 @@ const ProductCardComponent=(props)=>{
                 </div>
                 <div class="priceBody">
                     <p>{product.title}</p>
-                    <p> anflhjlh akjbnkja acn kancs snalnl alaj al ajlkj lkkl akja lkjkl alkjcakl</p>
+                  
                     {product.price?(<div>
                         <p>${product.price}  {product.discPrice?<span class="discount">${product.discPrice}</span>:null}  </p>
                         <div class="Cart">
