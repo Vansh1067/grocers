@@ -1,54 +1,27 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faShoppingCart} from '@fortawesome/free-solid-svg-icons'
+
 import Hoc from '../../../Hoc/hoc'
 import './detailComponent.css'
+import ProfileForm from './profileForm/profileForm'
+import AddressForm from './addressForm/addressForm'
+import ProductCardComponent from '../../categoriesCardComponent/productCardComponent/productCardComponent'
 const DetailComponent=(props)=>{
+    const product=[{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Oil',price:250},{title:'Chips',price:5},{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Oil',price:250},{title:'Chips',price:5}]
+
     return(
         <Hoc class="details">
-            <div class="form">
-                <h3>My Profile</h3>
-                <form class="reviewForm">
-                    <div>
-                    <label>First Name</label>
-                    <input placeholder="Enter Your Name" type="text"></input>
-                    </div>
-                 <div>
-                 <label>Last Name</label>
-                    <input type="text"></input>
-                 </div>
-                   <div>
-                   <label>Phone</label>
-                    <input placeholder="Give your review a title " type="text"></input>
-                   </div>
-                   <div>
-                   <label>Email Address</label>
-                    <input placeholder="Give your review a title " type="text"></input>
-                   </div><div>
-                   <label>Country</label>
-                    <input placeholder="Give your review a title " type="text"></input>
-                   </div><div>
-                   <label>City</label>
-                    <input placeholder="Give your review a title " type="text"></input>
-                   </div><div>
-                   <label>Zip Code</label>
-                    <input placeholder="Give your review a title " type="text"></input>
-                   </div><div>
-                   <label>State</label>
-                    <input placeholder="Give your review a title " type="text"></input>
-                   </div><div class="textarea">
-                   <label>Address</label>
-                    <textarea placeholder="Give your review a title " rows={5} type="text"></textarea>
-                   </div>
-                   <div id="btn">
-                   <button type="submit">Cancel</button>
-                    <button type="submit">Save Changes</button>
-                   </div>
-                    
+            <ProfileForm/>
+           {/*  <AddressForm/> */}
+          {/*  <div class="wishList">
 
-                  
-                </form>
-            </div>
+           {
+               
+               product.map((product)=>{
+                return <ProductCardComponent  product={product}/>
+
+               })
+           }
+           </div> */}
         </Hoc>
     );
 }
