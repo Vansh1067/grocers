@@ -19,7 +19,7 @@ padding: 5px;
     margin-top: 0;
     padding: 0;
 }
-.form h3{
+.form h3,.order h3{
     padding: 15px;
 }
 .details .form .reviewForm{
