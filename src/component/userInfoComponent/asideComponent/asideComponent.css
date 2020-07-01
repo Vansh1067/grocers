@@ -1,11 +1,11 @@
 .aside{
- 
+    padding: 10px;
     flex:4;
     height:100%
 }
 .asideHeader{
 
-    height: 40%;
+    height: 300px;
     align-items: center;
     justify-content: center;
     display: flex;

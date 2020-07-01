@@ -1,3 +1,67 @@
 .details{
-flex:8
+flex:8;
+box-shadow: -1px 0px 10px black;
+text-align: left;
+margin-left: 10px;
+padding: 5px;
+
+
+}
+.details .form{
+    margin-top: 0;
+    padding: 0;
+}
+.form h3{
+    padding: 15px;
+}
+.details .form .reviewForm{
+    display: flex;
+    flex-direction: row;
+ 
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.details .form .reviewForm div{
+    display: flex;
+    flex-direction: column;
+    min-width: 40%;
+    margin: 5px;
+
+}
+.reviewForm label::before{
+    content: '';
+}
+.details .form .reviewForm div input,.details .form .reviewForm div textarea{
+        padding: 5;
+        padding-left: 15px;
+        box-shadow: none;
+        background-color: transparent;
+        border: 1px solid black;
+        color: black;
+        resize: none;
+}
+.textarea{
+    width: 100%;
+}
+#btn{
+    display: flex;
+    flex-direction: row !important;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 15px 5px;
+}
+.reviewForm button{
+    width:120px;
+    padding: 5px;
+    border: none;
+    margin: 0px 5px;
+    border-radius: 10px;
+}
+.reviewForm button:first-child{
+    background-color: red;
+
+}
+.reviewForm button:last-child{
+    background-color: rgb(0, 225, 255);
+
 }

@@ -1,9 +1,9 @@
 .userInfo{
-    background-color: orangered;
-    height: 550px;
+    box-shadow: 2px 2px 10px black;
+
     margin: 30px auto;
     width:60%;
     display: flex;
-    padding: 10px;
+  
     
 }
