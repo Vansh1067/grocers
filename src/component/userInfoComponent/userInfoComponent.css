@@ -1,8 +1,9 @@
 .userInfo{
     background-color: orangered;
-    height: 600px;
+    height: 550px;
     margin: 30px auto;
     width:60%;
     display: flex;
+    padding: 10px;
     
 }

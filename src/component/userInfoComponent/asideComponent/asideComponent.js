@@ -11,6 +11,18 @@ const AsideComponent=(props)=>{
                     <img src={img}></img>
                     <h3> Hi, Vansh</h3>
                 </div>
+            <div class="linklist">
+                <ul>
+                    <li><a href="">My Profile</a></li>
+                    <li><a href="">My Address</a></li>
+                    <li><a href="">Wish List</a></li>
+                    <li><a href="">Orders</a></li>
+                    <li><a href="">Logout</a></li>
+                    <li><a href="">ContactUs</a></li>
+
+
+                </ul>
+            </div>
         </Hoc>
     );
 }
