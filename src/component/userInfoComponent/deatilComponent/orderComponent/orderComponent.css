@@ -1,4 +1,4 @@
-.orderHeader{
+.orderHeader,.orderFooter{
    display: flex;
    flex-direction: row;
    justify-content: space-between;
@@ -46,4 +46,16 @@
 }
 .iconth{
     text-align: center;
+}
+.pagination a{
+   
+    margin: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.show{
+    background-color: rgb(60, 129, 60);
 }

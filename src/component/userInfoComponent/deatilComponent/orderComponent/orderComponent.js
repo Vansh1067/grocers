@@ -36,14 +36,6 @@ const OrderComponent=(props)=>{
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                    <th>#243</th>
-                                    <th>Dec 8,2017</th>
-                                    <th>Canceled</th>
-                                    <th>$150</th>
-                                    <th class='iconth'><FontAwesomeIcon className="eyeIcon" icon={faEye}/></th>
-
-                                </tr>
                                 <tr>
                                     <th>#243</th>
                                     <th>Dec 8,2017</th>
@@ -51,23 +43,19 @@ const OrderComponent=(props)=>{
                                     <th>$150</th>
                                     <th class='iconth'><FontAwesomeIcon className="eyeIcon" icon={faEye}/></th>
 
-                                </tr><tr>
-                                    <th>#243</th>
-                                    <th>Dec 8,2017</th>
-                                    <th>Canceled</th>
-                                    <th>$150</th>
-                                    <th class='iconth'><FontAwesomeIcon className="eyeIcon" icon={faEye}/></th>
-
-                                </tr><tr>
-                                    <th>#243</th>
-                                    <th>Dec 8,2017</th>
-                                    <th>Canceled</th>
-                                    <th>$150</th>
-                                    <th class='iconth'><FontAwesomeIcon className="eyeIcon" icon={faEye}/></th>
-
                                 </tr>
+                             
                             </tbody>
                         </table>
+                </div>
+                <div class="orderFooter">
+                    <p>Showing 1 to 10 of 15 entries </p>
+                    <div class="pagination">
+                        <a href="" class="show">1</a>
+                        <a href="">2</a>
+                        <a href="">3</a>
+
+                    </div>
                 </div>
             </div>
         </Hoc>
