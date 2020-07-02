@@ -2,13 +2,12 @@
   
     box-shadow: 2px 1px 10px rgba(0, 0, 0, 0.322);
     width:180px;
-    height: auto;
+    height: max-content;
     padding: 5px;
     margin: 15px;
  position: relative;
     
 }
-
 .Offer{
     position: absolute !important;
     background-color: rgba(4, 65, 4, 0.808);
@@ -36,16 +35,18 @@
    margin: 5px;
    font-weight: bold;
    color: green;
+   text-align: center;
 }
 .priceBody button{
     background-color: indigo;
     color: white;
     padding: 5px 10px;
-    width: 140px;
-    margin: 10px 0;
+    width: 100px;
+   
+    margin: 10px auto;
     border: none;
     border-radius: 5px;
-    
+   
 }
 .Cart{
  display: flex;

@@ -7,16 +7,16 @@ import AddressForm from './addressForm/addressForm'
 import ProductCardComponent from '../../categoriesCardComponent/productCardComponent/productCardComponent'
 import OrderComponent from './orderComponent/orderComponent'
 const DetailComponent=(props)=>{
-    const product=[{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Oil',price:250},{title:'Chips',price:5},{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Oil',price:250},{title:'Chips',price:5}]
+    const product=[{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Baby Care',price:25}]
 
     return(
         <Hoc class="details">
-            <ProfileForm/>
+            {/* <ProfileForm/>
             <AddressForm/>
-            <OrderComponent/>
-         {/*   <div class="wishList">
-                <h4>wishList</h4>
-                <div>
+            <OrderComponent/> */}
+           <div class="wishList">
+                <h3>WishList</h3>
+                <div class="wishProduct">
 {
                
                 product.map((product)=>{
@@ -26,7 +26,7 @@ const DetailComponent=(props)=>{
            }
                 </div>
            
-           </div> */}
+           </div>
         </Hoc>
     );
 }
