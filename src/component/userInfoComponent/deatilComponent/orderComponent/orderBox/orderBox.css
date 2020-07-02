@@ -1,0 +1,62 @@
+.Card{
+    background-color: white;
+    box-shadow: 2px 1px 10px rgba(0, 0, 0, 0.322);
+    width:100%;
+    height: auto;
+    padding: 10px;
+    margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}
+
+.imgBody{
+ min-width: 150px;
+    flex: 3;
+    margin: 0;
+}
+.imgBody img{
+    
+    height: 150px;
+    
+}
+.priceBody{
+    align-items: center;
+    flex:4;
+ min-width: 200px;
+ margin: 0;
+
+}
+.priceBody> p:first-child{
+    margin: 5px;
+    font-weight: bolder;
+    color: black;
+}
+.priceBody p{
+  
+   font-weight: bold;
+   color: green;
+}
+.priceBody button{
+    background-color: indigo;
+    color: white;
+    padding: 5px 10px;
+    width: 140px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    
+}
+
+
+.sumDetail{
+    flex: 5;
+    min-width: 200px;
+   
+
+}
+.sumDetail h4{
+    margin-right: 50px;
+    color: red;
+}

@@ -3,9 +3,11 @@ import React from 'react';
 import Hoc from '../../../../Hoc/hoc'
 import './orderComponent.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faEye} from '@fortawesome/free-solid-svg-icons'
+import {faEye} from '@fortawesome/free-solid-svg-icons';
+import OrderBox from './orderBox/orderBox'
 
 const OrderComponent=(props)=>{
+    const product=[{title:'Baby Care',price:25},{title:'Banana',price:15}]
     return(
         <Hoc>
             <div class="order">
@@ -25,29 +27,15 @@ const OrderComponent=(props)=>{
                 </div>
              
                 <div class="table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Order#</th>
-                                    <th class="date">Date Purchased</th>
-                                    <th >Status</th>
-                                    <th>Total</th>
-                                    <th>Action</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>#243</th>
-                                    <th>Dec 8,2017</th>
-                                    <th><span class="status">Canceled</span></th>
-                                    <th>$150</th>
-                                    <th class='iconth'><FontAwesomeIcon className="eyeIcon" icon={faEye}/></th>
-
-                                </tr>
-                             
-                            </tbody>
-                        </table>
+                       
+                        <div class="orderBox">
+                            {
+                                product.map((product)=>{
+                                    return (<OrderBox product={product}/>)
+                                })
+                            }
+                            
+                        </div>
                 </div>
                 <div class="orderFooter">
                     <p>Showing 1 to 10 of 15 entries </p>

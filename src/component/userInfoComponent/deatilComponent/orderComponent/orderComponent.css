@@ -1,11 +1,20 @@
+.order{
+    min-width: 300px;
+}
+
 .orderHeader,.orderFooter{
    display: flex;
    flex-direction: row;
    justify-content: space-between;
-   margin:10px 20px
+   margin:10px 20px;
+   flex-wrap: wrap;
+   align-items: center;
+   
 
 }
-
+.orderHeader span{
+    margin-top: 10px;
+}
 .orderHeader select,.orderHeader input{
     width:50px;
     margin: 0 5px;
@@ -18,47 +27,15 @@
 }
 .table{
     margin:20px;
-    background-color: orangered;
-    min-width: 500px;
-    overflow-x: scroll;
-}
-.table table{
-   width: 100%;
-  
-    overflow: hidden;
-    border-collapse: collapse;
-    border-spacing: 0;
+
+    
+  padding: 20px;
  
-        
-
-    
+ 
 }
 
-.table table th{
-    border: 1px solid black;
-    padding: 10px;
-    word-break: keep-all;
-    
-}
-.table table tbody tr:nth-child(odd){
-    background-color: #f2f2f2;
-}
-.date{
-    min-width: 140px;
-}
-.eyeIcon{
-    margin: 0 auto;
-    background-color: orange;
-    padding: 5px;
-    font-size: 30px;
-    border-radius: 5px;
-   cursor: pointer;
-}
-.iconth{
-    text-align: center;
-}
+
 .pagination a{
-   
     margin: 5px;
     padding: 5px 10px;
     text-decoration: none;
@@ -74,6 +51,15 @@
     border-radius: 5px;
     padding: 5px;
 }
-@media screen and (max-width:768px){
-   
+@media screen and (max-width:430px){
+   .orderFooter,.orderHeader{
+       justify-content: center;
+
+       
+   }
+   .pagination{
+    margin-top: 20px;
+
+} 
 }
+
