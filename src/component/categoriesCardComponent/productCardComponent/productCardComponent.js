@@ -12,16 +12,16 @@ const ProductCardComponent=(props)=>{
     console.log(props.product)
     const offer=((product.discPrice-(product.price))/(product.discPrice))*100
     return(
-        <Hoc class="Card">
+        <Hoc class="Card gridCard">
                {product.discPrice?<p class="Offer">Save {offer.toFixed(0)}%</p>:null}
                 <div class="imgBody">
                     <img src={(Math.random()>0.5?img:img2)}/>
                 </div>
                 <div class="priceBody">
                     <p>{product.title}</p>
-                  
+                    {props.desc?<p style={{textAlign:'justify'}}>na ncl kasc k c lk lscklk l cll cslk slk sl clk lcsklk sl</p>:null}
                     {product.price?(<div>
-                        <p>${product.price}  {product.discPrice?<span class="discount">${product.discPrice}</span>:null}  </p>
+                        <p>MRP ${product.price}  {product.discPrice?<span class="discount">${product.discPrice}</span>:null}  </p>
                         <div class="Cart">
                         <p>Qty</p>
                         <input type="text" value="1"/>

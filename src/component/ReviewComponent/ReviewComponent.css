@@ -62,11 +62,12 @@
 .reviewForm input,.reviewForm textarea{
     padding: 5px;
     font-size: 15px;
+    margin-bottom: 15px;
 }
 .reviewForm button{
     width:150px;
     align-self: flex-end;
-    background-color: green;
+    background-color: green!important;
     padding: 5px;
     height: 40px;
     border-radius: 5px;

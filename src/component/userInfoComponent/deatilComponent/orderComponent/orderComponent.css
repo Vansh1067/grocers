@@ -26,10 +26,10 @@
    
 }
 .table{
-    margin:20px;
+ 
 
     
-  padding: 20px;
+padding: 10px;
  
  
 }
@@ -43,7 +43,7 @@
     border: 1px solid black;
     border-radius: 5px;
 }
-.show{
+.Oshow{
     background-color: rgb(60, 129, 60);
 }
 .status{

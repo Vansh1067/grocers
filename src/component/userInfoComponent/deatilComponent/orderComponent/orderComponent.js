@@ -28,10 +28,10 @@ const OrderComponent=(props)=>{
                         Search<input type="text"></input>
                     </span>
                 </div>
-                <OrderDetail/>
+            
            
                 <div class="table">
-                        <div class="orderBox">
+                        <div class="">
                             {
                                 product.map((product)=>{
                                     return (<OrderBox product={product}/>)
@@ -43,7 +43,7 @@ const OrderComponent=(props)=>{
                 <div class="orderFooter">
                     <p>Showing 1 to 10 of 15 entries </p>
                     <div class="pagination">
-                        <a href="" class="show">1</a>
+                        <a href="" class="Oshow">1</a>
                         <a href="">2</a>
                         <a href="">3</a>
 

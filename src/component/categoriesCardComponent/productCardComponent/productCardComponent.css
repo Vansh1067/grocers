@@ -1,13 +1,14 @@
 .Card{
-    background-color: white;
+  
     box-shadow: 2px 1px 10px rgba(0, 0, 0, 0.322);
     width:180px;
     height: auto;
     padding: 5px;
     margin: 15px;
- 
+ position: relative;
     
 }
+
 .Offer{
     position: absolute !important;
     background-color: rgba(4, 65, 4, 0.808);
@@ -18,15 +19,10 @@
 }
 .imgBody{
     width: 100%;
-
-  
-
-   
 }
 .imgBody img{
     width: 100%;
-    height: 150px;
-    
+   height: 150px;
 }
 .priceBody{
     align-items: center;
@@ -81,3 +77,53 @@ font-size: 25px;
     color:gray;
     text-decoration: line-through;
 }
+
+/* For grid view */
+/* .cardBodyList{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+   padding: 20px;
+   background-color: orchid;
+}
+.gridCard{
+    flex: 12;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin:10px 0;
+   
+}
+.imgBody {
+    flex:2;
+    align-self: center;
+}
+.imgBody img{
+    min-width: 150px;
+height: 150px;
+}
+.priceBody{
+    flex:9;
+    margin-left: 10px;
+    text-align: left;
+  
+   
+}
+.Cart{
+    justify-content: left;
+}
+@media screen and (max-width:768px){
+    .imgBody img{
+        width: 150px;
+    }
+    
+} 
+@media screen and (max-width:425px){
+.priceBody{
+        text-align: center;
+    }
+    .Cart{
+        justify-content: center;
+    }
+
+}  */

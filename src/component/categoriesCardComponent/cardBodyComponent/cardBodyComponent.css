@@ -6,6 +6,8 @@
     overflow-x: scroll;
     justify-content:left;
     align-items: center;
+    padding: 20px;
+
    
 }
 .cardBody::-webkit-scrollbar {

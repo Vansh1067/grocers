@@ -1,18 +1,16 @@
-.cardBodyList{
+.cardBodyGrid{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
+
+  
+}
+.Card{
+    margin:10px;
     justify-content: center;
 }
-.LCard{
-    width: 100%;
-    display: flex;
-}
-.imgBody{
-    flex:2
-}
-.priceBody{
-    flex:9;
-    margin-left: 10px;
-   
-}
+
+
+/* for grid full width*/
+
+ 

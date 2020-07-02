@@ -11,12 +11,12 @@ const productListComponent=(props)=>{
         <Hoc>
             <CardHeadingComponent title="All Products" arrowHidden={true}/>
             <FilterComponent/>
-           <div class="cardBodyList">
+           <div class="cardBodyList cardBodyGrid">
 
           
             { product.map((product,i)=>{
               
-              return <div key={i}><ProductComponent product={product}  /></div>
+              return <div key={i}><ProductComponent desc={true} product={product}  /></div>
              })
              }
             </div>

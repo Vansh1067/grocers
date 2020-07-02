@@ -12,10 +12,10 @@ const CartProduct=(props)=>{
                 <div class="cardImage">
                     <img src={img}/>
                 </div>
-                <div class="usercardBody">
-              <p class="Offer">Save 20%</p>
+                <div class="UUsercardBody">
+                    <p id="UOffer">Save 20%</p>
                         <p>Product Title</p>
-                      <p class="status">  <span><FontAwesomeIcon icon={faCheckCircle}/></span> Availabel</p>
+                      <p id="Ustatus">  <span><FontAwesomeIcon icon={faCheckCircle}/></span> Availabel</p>
                         <p>$250 <span class="discount">$300</span></p>
                 </div>
             </div>

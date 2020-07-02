@@ -19,17 +19,17 @@
 .orderimage img{
     margin-right: 20px;
     flex: 3;
-    max-width: 200px;
+    width: 100px;
     margin: 0 auto;
 
 }
-.orderimage p,.orderimage h3{
+.orderprice p,.orderprice h3{
     font-size: 15px;
     font-weight: bold;
    padding: 0;
    color: gray;
 }
-.orderimage span{
+.orderprice span{
  color: black;
 
 }

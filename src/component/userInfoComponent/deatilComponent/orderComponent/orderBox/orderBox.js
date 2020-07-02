@@ -4,7 +4,7 @@ import './orderBox.css';
 import Hoc from '../../../../../Hoc/hoc'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCartPlus} from '@fortawesome/free-solid-svg-icons'
-import Backdrop from '../../../../backdrop/backdrop'
+
 
 import img from '../../../../../assest/Capture.PNG'
 import img2 from '../../../../../assest/Capture1.PNG'
@@ -12,15 +12,15 @@ const OrderBox =(props)=>{
     const product=props.product;
   
    
-        return <Hoc class="Card">
+        return <Hoc class="OCard">
           
             <h4>Delivered By 12*02*2019</h4>
 
             
-                <div class="imgBody">
+                <div class="OimgBody">
                     <img src={(Math.random()>0.5?img:img2)}/>
                 </div>
-                <div class="priceBody">
+                <div class="OpriceBody">
                     <p>{product.title}</p>
                 
                     {product.price?(<div>
