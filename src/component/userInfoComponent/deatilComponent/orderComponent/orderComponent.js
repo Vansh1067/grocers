@@ -23,6 +23,7 @@ const OrderComponent=(props)=>{
                         Search<input type="text"></input>
                     </span>
                 </div>
+             
                 <div class="table">
                         <table>
                             <thead>
