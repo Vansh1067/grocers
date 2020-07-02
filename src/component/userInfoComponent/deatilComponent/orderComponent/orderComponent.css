@@ -10,6 +10,7 @@
     width:50px;
     margin: 0 5px;
     height: 30px;
+    padding: 5px;
 }
 .orderHeader input{
     width:150px;
@@ -58,4 +59,9 @@
 }
 .show{
     background-color: rgb(60, 129, 60);
+}
+.status{
+    background-color: orangered;
+    border-radius: 5px;
+    padding: 5px;
 }

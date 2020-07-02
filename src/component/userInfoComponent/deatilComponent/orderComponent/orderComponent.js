@@ -29,7 +29,7 @@ const OrderComponent=(props)=>{
                                 <tr>
                                     <th>Order#</th>
                                     <th class="date">Date Purchased</th>
-                                    <th>Status</th>
+                                    <th >Status</th>
                                     <th>Total</th>
                                     <th>Action</th>
 
@@ -39,7 +39,7 @@ const OrderComponent=(props)=>{
                                 <tr>
                                     <th>#243</th>
                                     <th>Dec 8,2017</th>
-                                    <th>Canceled</th>
+                                    <th><span class="status">Canceled</span></th>
                                     <th>$150</th>
                                     <th class='iconth'><FontAwesomeIcon className="eyeIcon" icon={faEye}/></th>
 
