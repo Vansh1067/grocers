@@ -13,8 +13,8 @@ import UserInfoComponent from './component/userInfoComponent/userInfoComponent'
 function App() {
   return (
     <div className="App">
-      <Backdrop/>
-      <AccountComponent/>
+     {/*  <Backdrop/>
+      <AccountComponent/> */}
       <HeaderComponent></HeaderComponent>
       
     <UserInfoComponent></UserInfoComponent>

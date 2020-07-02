@@ -12,7 +12,7 @@ const OrderComponent=(props)=>{
     return(
         <Hoc>
            
-
+<OrderDetail/>
             <div class="order">
                 <h3>Orders</h3>
                 <div class="orderHeader">

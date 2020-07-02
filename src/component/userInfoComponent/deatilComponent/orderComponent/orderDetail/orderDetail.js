@@ -13,11 +13,11 @@ const OrderDetail =(props)=>{
                     {product.price?(<div class="OrderPrice">
                         <p>MRP <span>$ {product.price}</span>  {product.discPrice?<span class="discount">${product.discPrice}</span>:null}  </p>
                         <p>Qty <span>5</span></p>
-                        <h3>Total Amount <span> $500</span></h3>
-                        <h3>Order Date<span> 12-2-2019</span></h3>
-                        <h3>Order Id <span> 2510s51cs0s545</span></h3>
-                        <h3>Payment Method <span> Credit Card</span></h3>
-                        <h3>Order By<span>Vansh</span></h3>
+                        <h4>Total Amount <span> $500</span></h4>
+                        <h4>Order Date<span> 12-2-2019</span></h4>
+                        <h4>Order Id <span> 2510s51cs0s545</span></h4>
+                        <h4>Payment Method <span> Credit Card</span></h4>
+                        <h4>Order By<span>Vansh</span></h4>
                     </div>):null}
                         
                 </div>

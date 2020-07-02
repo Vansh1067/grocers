@@ -11,18 +11,21 @@ const DetailComponent=(props)=>{
 
     return(
         <Hoc class="details">
-           {/*  <ProfileForm/> */}
-            {/* <AddressForm/> */}
+            <ProfileForm/>
+            <AddressForm/>
             <OrderComponent/>
-          {/*  <div class="wishList">
-
-           {
+         {/*   <div class="wishList">
+                <h4>wishList</h4>
+                <div>
+{
                
-               product.map((product)=>{
+                product.map((product)=>{
                 return <ProductCardComponent  product={product}/>
 
                })
            }
+                </div>
+           
            </div> */}
         </Hoc>
     );
