@@ -10,7 +10,9 @@
     
     
 }
-
+.Card h4{
+    width: 100%;
+}
 .imgBody{
  min-width: 150px;
     flex: 3;
@@ -19,13 +21,15 @@
 .imgBody img{
     
     height: 150px;
+    margin-right: 20px;
     
 }
 .priceBody{
     align-items: center;
-    flex:4;
+    flex:9;
  min-width: 200px;
- margin: 0;
+ margin:0;
+
 
 }
 .priceBody> p:first-child{
@@ -50,13 +54,4 @@
 }
 
 
-.sumDetail{
-    flex: 5;
-    min-width: 200px;
-   
 
-}
-.sumDetail h4{
-    margin-right: 50px;
-    color: red;
-}

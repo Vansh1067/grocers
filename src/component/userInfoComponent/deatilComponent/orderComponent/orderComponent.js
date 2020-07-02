@@ -4,12 +4,15 @@ import Hoc from '../../../../Hoc/hoc'
 import './orderComponent.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-solid-svg-icons';
-import OrderBox from './orderBox/orderBox'
+import OrderBox from './orderBox/orderBox';
+import OrderDetail from './orderDetail/orderDetail'
 
 const OrderComponent=(props)=>{
     const product=[{title:'Baby Care',price:25},{title:'Banana',price:15}]
     return(
         <Hoc>
+           
+
             <div class="order">
                 <h3>Orders</h3>
                 <div class="orderHeader">
@@ -25,9 +28,9 @@ const OrderComponent=(props)=>{
                         Search<input type="text"></input>
                     </span>
                 </div>
-             
+                <OrderDetail/>
+           
                 <div class="table">
-                       
                         <div class="orderBox">
                             {
                                 product.map((product)=>{
