@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes} from '@fortawesome/free-solid-svg-icons'
 import Hoc from '../../Hoc/hoc';
-import img from '../../assest/Draft-1593116874166.png'
+import img from '../../assest/logo2.jpeg'
 import './accountComponent.css'
 const AccountComponent=(props)=>{
     const [loginForm,setLoginForm]=useState(!props.formType);

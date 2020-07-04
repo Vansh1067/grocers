@@ -47,6 +47,8 @@ const NavbarComponent=(props)=>{
                </div>
                
            <ul className="nav-ul" >
+           <li><a href="/">Home</a></li>
+
                <li><a >Categories</a>
                <ul className="nest-ul">
                    <li><a href="/products/0">All Products</a></li>
@@ -64,7 +66,6 @@ const NavbarComponent=(props)=>{
                </ul>
                </li>
 
-               <li><a href="/">Home</a></li>
                <li><a href="/#specials">Specials</a></li>
                <li><a href="">Brand</a></li>
 

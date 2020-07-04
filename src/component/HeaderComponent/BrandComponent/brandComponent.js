@@ -2,7 +2,7 @@ import React from 'react';
 
 import './brandComponent.css'
 import Hoc from '../../../Hoc/hoc'
-import Logo from '../../../assest/logo.png'
+import Logo from '../../../assest/logo1.png'
 
 const BrandComponent=(props)=>{
     return(
