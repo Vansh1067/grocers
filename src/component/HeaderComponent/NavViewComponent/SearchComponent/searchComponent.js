@@ -13,8 +13,8 @@ class SearchComponent extends Component{
     }
     render(){
         return(<Hoc className="search">
-            <div class="searchBar">
-                <div class="select">
+            <div className="searchBar">
+                <div className="select">
                 <select>
                     <option id="option" defaultValue>Your City</option>
                     <option id="option">Roorkee</option>
@@ -23,12 +23,12 @@ class SearchComponent extends Component{
                     <option id="option">Dehradun</option>
                 </select>
                 </div>
-                <div class="searchArea">
+                <div className="searchArea">
                 <input type="text" placeholder="Search products "></input>
         
                 </div>
-                <div class="searchBtn">
-                <button type="submit"> <FontAwesomeIcon className="icon2" icon={faSearch}/><span>Search</span></button>
+                <div className="searchBtn">
+                <button type="submit"> <FontAwesomeIcon className="icon2" icon={faSearch}/></button>
 
                 </div>
 

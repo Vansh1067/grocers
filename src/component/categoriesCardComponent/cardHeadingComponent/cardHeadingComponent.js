@@ -11,17 +11,17 @@ const CardHeadingComponent=(props)=>{
     dir==='right'?element.scrollBy(100,0):event.target.closest('.cardHeading').nextElementSibling.scrollBy(-100,0)
 }
     return(
-        <Hoc class="cardHeading">
+        <Hoc className="cardHeading" id={props.id}>
             
-            <div class="heading">
+            <div className="heading">
                   <h3>{props.title}</h3>
             </div>   
                 
-            {props.links? <div class="filter">
+            {props.links? <div className="filter">
             <CategoriesComponent links={props.links}/>
            </div>:null}
 
-           {props.arrowHidden?null: <div class="arrow">
+           {props.arrowHidden?null: <div className="arrow">
                 <FontAwesomeIcon icon={faArrowLeft} onClick={(event)=>{scrollHandler('left',event)}}/>
                 <FontAwesomeIcon icon={faArrowRight} onClick={(event)=>{scrollHandler('right',event)}}/>
 

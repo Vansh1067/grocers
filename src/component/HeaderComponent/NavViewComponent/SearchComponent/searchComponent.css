@@ -15,10 +15,10 @@
     flex:3;
 }
 .searchBtn{
-    flex:3;
+    flex:1;
 }
 .searchArea{
-    flex:6;
+    flex:8;
 }
 .select select,.searchArea input,.searchBtn button{
     width: 100%;

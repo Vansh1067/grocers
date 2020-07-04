@@ -4,29 +4,21 @@ import Hoc from '../../../Hoc/hoc'
 import './detailComponent.css'
 import ProfileForm from './profileForm/profileForm'
 import AddressForm from './addressForm/addressForm'
-import ProductCardComponent from '../../categoriesCardComponent/productCardComponent/productCardComponent'
 import OrderComponent from './orderComponent/orderComponent'
+import WishList from './wishList/wishList'
+import { Switch, Route } from 'react-router-dom';
 const DetailComponent=(props)=>{
-    const product=[{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Baby Care',price:25},{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Baby Care',price:25}]
 
     return(
         <Hoc class="details">
-            <ProfileForm/>
-            {/* <AddressForm/>
-            <OrderComponent/> */}
-           {/* <div class="wishList">
-                <h3>WishList</h3>
-                <div class="wishProduct">
-{
-               
-                product.map((product)=>{
-                return <ProductCardComponent  product={product}/>
-
-               })
-           }
-                </div>
-           
-           </div> */}
+            <Switch>
+                <Route path='/account' exact component={ProfileForm}/>
+                <Route path='/account/address' component={AddressForm}/>
+                <Route path='/account/orders' component={OrderComponent}/>
+                <Route path='/account/wishlist' component={WishList}/>
+            </Switch>
+            
+         
         </Hoc>
     );
 }

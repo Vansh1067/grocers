@@ -4,8 +4,9 @@ import './orderBox.css';
 import Hoc from '../../../../../Hoc/hoc'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCartPlus} from '@fortawesome/free-solid-svg-icons'
+import OrderDetail from '../orderDetail/orderDetail'
 
-
+import {Route} from 'react-router-dom'
 import img from '../../../../../assest/Capture.PNG'
 import img2 from '../../../../../assest/Capture1.PNG'
 const OrderBox =(props)=>{
@@ -29,7 +30,8 @@ const OrderBox =(props)=>{
                         <p>Qty <span>5</span></p>
                         <h4>Total <span>$500</span></h4>
                         <h4>Order Date<span>12-2-2019</span></h4>
-                        <button>View Details</button>
+                        <br></br>
+                        <a href="/account/orders/25" id="orderDetailButton">View Details</a>
 
                         </div>):null}
                     

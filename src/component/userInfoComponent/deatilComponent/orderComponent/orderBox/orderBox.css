@@ -33,7 +33,7 @@
 
 }
 .OpriceBody> p:first-child{
-    margin: 5px;
+ 
     font-weight: bolder;
     color: black;
 }
@@ -42,14 +42,16 @@
    font-weight: bold;
    color: green;
 }
-.OpriceBody button{
+
+#orderDetailButton{
     background-color: indigo;
     color: white;
-    padding: 5px 10px;
+   padding: 5px 10px;
     width: 140px;
-    margin: 15px 0;
+    margin-top:15px;
     border: none;
     border-radius: 5px;
+    text-decoration: none;
     
 }
 

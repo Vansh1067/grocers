@@ -46,7 +46,7 @@ const ProfileForm=(props)=>{
                    <label>Address</label>
                     <textarea placeholder="Give your review a title " rows={5} type="text"></textarea>
                    </div>
-                   <div id="btn">
+                   <div id="btnn">
                    <button type="submit">Cancel</button>
                     <button type="submit">Save Changes</button>
                    </div>

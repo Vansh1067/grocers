@@ -13,12 +13,12 @@ const AsideComponent=(props)=>{
                 </div>
             <div class="linklist">
                 <ul>
-                    <li><a href="">{<FontAwesomeIcon icon={faUser}/>} My Profile</a></li>
-                    <li><a href="">{<FontAwesomeIcon icon={faAddressCard}/>} My Address</a></li>
-                    <li><a href="">{<FontAwesomeIcon icon={faHeart}/>} Wish List</a></li>
-                    <li><a href="">{<FontAwesomeIcon icon={faListUl}/>} Orders</a></li>
-                    <li><a href="">{<FontAwesomeIcon icon={faUserLock}/>} Logout</a></li>
-                    <li><a href="">{<FontAwesomeIcon icon={faPhoneAlt}/>} ContactUs</a></li>
+                    <li><a href="/account">{<FontAwesomeIcon icon={faUser}/>} My Profile</a></li>
+                    <li><a href="/account/address">{<FontAwesomeIcon icon={faAddressCard}/>} My Address</a></li>
+                    <li><a href="/account/wishlist">{<FontAwesomeIcon icon={faHeart}/>} Wish List</a></li>
+                    <li><a href="/account/orders">{<FontAwesomeIcon icon={faListUl}/>} Orders</a></li>
+                    <li><a href="/logout">{<FontAwesomeIcon icon={faUserLock}/>} Logout</a></li>
+                    <li><a href="/contactus">{<FontAwesomeIcon icon={faPhoneAlt}/>} ContactUs</a></li>
 
 
                 </ul>

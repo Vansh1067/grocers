@@ -11,12 +11,12 @@ const CartComponent=(props)=>{
     }
     return(
         <Hoc className="cart">
-            <div class="cartbox">
-                <div class="icon" >
+            <div className="cartbox">
+                <div className="icon" >
                     
                 <FontAwesomeIcon onClick={toggleHandler} icon={faShoppingCart}/>
 
-                <span class="k">5</span>
+                <span className="k">5</span>
 
                 </div>
                 <p>My Cart</p>

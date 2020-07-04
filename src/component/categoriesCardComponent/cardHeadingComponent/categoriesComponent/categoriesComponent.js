@@ -7,8 +7,8 @@ const CategoriesComponent=(props)=>{
     return(
         <Hoc class="categories">
             {
-                props.links.map((link,i)=>{
-                return  <p key={i}>{link}</p>
+                props.links.map((link)=>{
+                return  <a href={`/products/${link.id}`} key={link.id}>{link.title}</a>
                 })
             }
     </Hoc>

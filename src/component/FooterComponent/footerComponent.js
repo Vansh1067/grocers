@@ -10,7 +10,7 @@ const FooterComponent=(props)=>{
         <Hoc className='footer'>
             <FooterDetailComponent></FooterDetailComponent>
             <FooterSocialComponent></FooterSocialComponent>
-            <p class="copy">Copyright <span >&copy; </span>2020 </p>
+            <p className="copy">Copyright <span >&copy; </span>2020 </p>
         </Hoc>
     );
 }

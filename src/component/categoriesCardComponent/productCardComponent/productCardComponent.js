@@ -21,7 +21,7 @@ const ProductCardComponent=(props)=>{
                 </div>
                 <div  class={`priceBody ${List?'ListpriceBody':null}`}>
                     <p>{product.title}</p>
-                    {props.desc?<p style={{textAlign:'justify'}}>na ncl kasc k c lk lscklk l cll cslk slk sl clk lcsklk sl</p>:null}
+                    {props.desc?<p style={{textAlign:'justify',color:'indigo'}}>na ncl kasc k c lk lscklk l cll cslk slk sl clk lcsklk sl</p>:null}
                     {product.price?(<div>
                         <p>MRP ${product.price}  {product.discPrice?<span class="discount">${product.discPrice}</span>:null}  </p>
                         <div class={`Cart ${List?'ListCart':null}`}>

@@ -9,6 +9,8 @@
 }
 .categories > *{
     cursor: pointer;
-    margin:0 8px
+    margin:0 8px;
+    text-decoration: none;
+    color: black;
 
 }

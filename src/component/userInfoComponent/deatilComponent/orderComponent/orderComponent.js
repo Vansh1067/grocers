@@ -6,13 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faEye} from '@fortawesome/free-solid-svg-icons';
 import OrderBox from './orderBox/orderBox';
 import OrderDetail from './orderDetail/orderDetail'
+import { Route, Switch } from 'react-router-dom';
 
 const OrderComponent=(props)=>{
     const product=[{title:'Baby Care',price:25},{title:'Banana',price:15}]
     return(
         <Hoc>
            
-<OrderDetail/>
+
             <div class="order">
                 <h3>Orders</h3>
                 <div class="orderHeader">
@@ -31,14 +32,20 @@ const OrderComponent=(props)=>{
             
            
                 <div class="table">
-                        <div class="">
+                    <Switch>
+
+                    <Route path="/account/orders/"  exact render={ ()=><div class="">
                             {
                                 product.map((product)=>{
                                     return (<OrderBox product={product}/>)
                                 })
                             }
                             
-                        </div>
+                        </div>}/>
+                    <Route path="/account/orders/25" component={OrderDetail}/>
+                    
+                    </Switch>
+                       
                 </div>
                 <div class="orderFooter">
                     <p>Showing 1 to 10 of 15 entries </p>

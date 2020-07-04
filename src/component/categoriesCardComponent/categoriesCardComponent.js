@@ -9,8 +9,8 @@ import ProductComponent from './productCardComponent/productCardComponent'
 
 const CategoriesCardComponent=(props)=>{
     return(
-        <Hoc class="categoriesCard">
-            <CardHeading title={props.title} links={props.link}/>
+        <Hoc id={props.id} class="categoriesCard">
+            <CardHeading  title={props.title} links={props.link}/>
             <CardBodyComponent >
                { props.product.map((product,i)=>{
               

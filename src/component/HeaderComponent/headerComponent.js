@@ -9,11 +9,11 @@ import BrandComponent from './BrandComponent/brandComponent'
 const HeaderComponent=(props)=>{
     return(
         <Hoc className="header">
-            <div class="brand">
+            <div className="brand">
             <BrandComponent></BrandComponent>
 
             </div>
-            <div class="nav">
+            <div className="nav">
             <NavViewComponent></NavViewComponent>
             <NavbarComponent></NavbarComponent>
             </div>

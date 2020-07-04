@@ -41,30 +41,31 @@ const NavbarComponent=(props)=>{
 
             <FontAwesomeIcon className="bars" onClick={toggleHandler} icon={icon}/>
 
-            <div class="navs" style={styles}>
-                <div class="brandMenu">
+            <div className="navs" style={styles}>
+                <div className="brandMenu">
                <BrandComponent></BrandComponent>
                </div>
                
-           <ul class="nav-ul" >
-               <li><a href="#">Categories</a>
-               <ul class="nest-ul">
-                   <li><a href="">Baby Care</a></li>
-                   <li><a href="">Beverages</a></li>
-                   <li><a href="">Cleaning &amp; Household</a></li>
-                   <li><a href="">Daily Needs</a></li>
-                   <li><a href="">Dairy &amp; Bakery</a></li>
-                   <li><a href="">Fruits</a></li>
-                   <li><a href="">Oil &amp; Spices</a></li>
-                   <li><a href="">Personal Care</a></li>
-                   <li><a href="">Rice Grains</a></li>
-                   <li><a href="">Snaks &amp; Foods</a></li>
+           <ul className="nav-ul" >
+               <li><a >Categories</a>
+               <ul className="nest-ul">
+                   <li><a href="/products/0">All Products</a></li>
+                   <li><a href="/products/1">Baby Care</a></li>
+                   <li><a href="/products/2">Beverages</a></li>
+                   <li><a href="/products/3">Cleaning &amp; Household</a></li>
+                   <li><a href="/products/4">Daily Needs</a></li>
+                   <li><a href="/products/5">Dairy &amp; Bakery</a></li>
+                   <li><a href="/products/6">Fruits</a></li>
+                   <li><a href="/products/7">Oil &amp; Spices</a></li>
+                   <li><a href="/products/8">Personal Care</a></li>
+                   <li><a href="/products/9">Rice Grains</a></li>
+                   <li><a href="/products/10">Snaks &amp; Foods</a></li>
 
                </ul>
                </li>
 
-               <li><a href="">Home</a></li>
-               <li><a href="">Specials</a></li>
+               <li><a href="/">Home</a></li>
+               <li><a href="/#specials">Specials</a></li>
                <li><a href="">Brand</a></li>
 
                <li><a href="">About us</a></li>
@@ -73,6 +74,8 @@ const NavbarComponent=(props)=>{
                <ul>
                    <li><a onClick={()=>{toggleLoginHandler('login')}}>Login</a></li>
                    <li><a onClick={()=>{toggleLoginHandler('reg')}}>Register</a></li>
+                   <li><a href="/account">profile</a></li>
+                   <li><a href="/logout">Logout</a></li>
                   
 
                </ul>

@@ -9,7 +9,7 @@ class FilterComponent extends Component{
     constructor(props){
         super(props)
         this.state={
-            List:false
+            List:true
         }
         this.element=''
     }
