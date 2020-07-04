@@ -12,15 +12,21 @@ padding: 5px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    overflow-y: scroll;
     height: 600px;
+    overflow-y: scroll;
 }
+.wishList::-webkit-scrollbar {
+    display: none;
+}
+
 .wishList h3{
     width: 100%;
     padding: 10px 20px;
 }
 .wishProduct{
     display: flex;
+   
+
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -28,6 +34,7 @@ padding: 5px;
 
 .wishProduct .priceBody button{
     width: 100%;
+    cursor: pointer;
 }
 .details .form{
     margin-top: 0;
@@ -85,6 +92,7 @@ padding: 5px;
     border: none;
     margin: 0px 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 .reviewForm button:first-child{
     background-color: red;
@@ -98,9 +106,10 @@ padding: 5px;
     display: flex;
     align-items: center;
     flex-direction: row;
+   
      
   }
-  #checkbox p{
+#checkbox> p{
       margin-left: 10px;
       font-size: 15px;
   }

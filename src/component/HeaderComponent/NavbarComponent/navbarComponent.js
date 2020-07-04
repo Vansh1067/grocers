@@ -4,13 +4,25 @@ import {faBars,faTimes} from '@fortawesome/free-solid-svg-icons'
 import './navbarComponent.css'
 import BrandComponent from '../BrandComponent/brandComponent'
 import Hoc from '../../../Hoc/hoc';
+import AccountComponent from '../../accountComponent/accountComponent';
+import Backdrop from '../../backdrop/backdrop'
 const NavbarComponent=(props)=>{
     const [isOpen,setIsOpen]=useState(false);
     const [styles,setStyles]=useState({});
     const [icon,setIcon]=useState(faBars);
+    const [loginOpen,setLoginOpen]=useState(false);
+    const [loginForm,setLoginForm]=useState(false);
+
+    
 
 
- 
+
+    const toggleLoginHandler=(dir)=>{
+        dir==="login"?setLoginForm(true):setLoginForm(false)
+        setLoginOpen(!loginOpen)
+    
+        
+    }
     const toggleHandler=()=>{
         setIsOpen(!isOpen)
         if(!isOpen){
@@ -25,12 +37,15 @@ const NavbarComponent=(props)=>{
     }
     return(
         <Hoc className="navbar">
+            {loginOpen?<div><Backdrop><AccountComponent toggleHandler={(value)=>setLoginOpen(value)} formType={loginForm}/></Backdrop></div>:null}
+
             <FontAwesomeIcon className="bars" onClick={toggleHandler} icon={icon}/>
+
             <div class="navs" style={styles}>
                 <div class="brandMenu">
-                <BrandComponent></BrandComponent>
-
-                </div>
+               <BrandComponent></BrandComponent>
+               </div>
+               
            <ul class="nav-ul" >
                <li><a href="#">Categories</a>
                <ul class="nest-ul">
@@ -56,8 +71,8 @@ const NavbarComponent=(props)=>{
                
                <li><a href="#">My Account</a>
                <ul>
-                   <li><a href="">Login</a></li>
-                   <li><a href="">Register</a></li>
+                   <li><a onClick={()=>{toggleLoginHandler('login')}}>Login</a></li>
+                   <li><a onClick={()=>{toggleLoginHandler('reg')}}>Register</a></li>
                   
 
                </ul>
@@ -66,6 +81,7 @@ const NavbarComponent=(props)=>{
                
            </ul>
            </div>
+
         </Hoc>
     );
 }

@@ -5,12 +5,19 @@
 
   
 }
-.Card{
-    margin:10px;
-    justify-content: center;
+
+
+
+/* for List full width*/
+
+ .cardBodyList{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+   padding: 20px;
+   
 }
 
 
-/* for grid full width*/
 
- 
+

@@ -5,8 +5,16 @@
     height: max-content;
     padding: 5px;
     margin: 15px;
- position: relative;
+    position: relative;
     
+}
+.ListCard{
+    flex: 12;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin:10px 0;
+   
 }
 .Offer{
     position: absolute !important;
@@ -19,12 +27,25 @@
 .imgBody{
     width: 100%;
 }
+.ListimgBody {
+    flex:2;
+    align-self: center;
+}
 .imgBody img{
     width: 100%;
    height: 150px;
 }
+.ListimgBody img{
+    min-width: 150px;
+height: 150px;
+}
 .priceBody{
     align-items: center;
+}
+.ListpriceBody{
+    flex:9;
+    margin-left: 10px;
+    text-align: left;
 }
 .priceBody> p:first-child{
     margin: 5px;
@@ -36,6 +57,9 @@
    font-weight: bold;
    color: green;
    text-align: center;
+}
+.ListpriceBody p{
+    text-align: left;
 }
 .priceBody button{
     background-color: indigo;
@@ -56,6 +80,9 @@
  justify-content: center;
  
 
+}
+.ListCart{
+    justify-content: left;
 }
 .Cart p{
     color: red;
@@ -78,53 +105,18 @@ font-size: 25px;
     color:gray;
     text-decoration: line-through;
 }
-
-/* For grid view */
-/* .cardBodyList{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-   padding: 20px;
-   background-color: orchid;
-}
-.gridCard{
-    flex: 12;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin:10px 0;
-   
-}
-.imgBody {
-    flex:2;
-    align-self: center;
-}
-.imgBody img{
-    min-width: 150px;
-height: 150px;
-}
-.priceBody{
-    flex:9;
-    margin-left: 10px;
-    text-align: left;
-  
-   
-}
-.Cart{
-    justify-content: left;
-}
 @media screen and (max-width:768px){
-    .imgBody img{
+    .ListimgBody img{
         width: 150px;
     }
     
 } 
 @media screen and (max-width:425px){
-.priceBody{
+.ListpriceBody{
         text-align: center;
     }
-    .Cart{
+    .ListCart{
         justify-content: center;
     }
 
-}  */
+} 

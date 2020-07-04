@@ -13,7 +13,7 @@ const ReviewComponent=(props)=>{
                 <h3>Cutomer Reviews</h3>
                 <p>*********</p>
                 </div>
-               <a href="link">Write a Review</a>
+               <a href="#reviewForm">Write a Review</a>
               <div class="reviewsBox">
               <ReviewBox/>
               <ReviewBox/>
@@ -21,7 +21,7 @@ const ReviewComponent=(props)=>{
 
               </div>
             </div>
-            <div class="form">
+            <div id="reviewForm" class="form">
                 <h3><span>&nbsp;</span> Write Review</h3>
                 <form class="reviewForm">
                     <label>Your Name</label>
