@@ -16,20 +16,20 @@ const reducer=(state=initialState,action)=>{
             case ADD_TO_CART:
                 const product=action.payload;
                 const updatedCart=state.cart;
-                updatedCart.concat(product)
+                const CART=updatedCart.concat(product)
                     return {
                         ...state,
-                        cart:{...updatedCart}
+                        cart:CART
                     }
             case DELETE_FROM_CART:
                 const id=action.payload;
                 console.log(id)
                 const updatedCarts=state.cart;
-                const CART=updatedCarts.filter((p,i)=>p.id!==id);
+                const CARTS=updatedCarts.filter((p,i)=>p.id!==id);
                 console.log(updatedCarts)
                 return {
                      ...state,
-                    cart:CART
+                    cart:CARTS
                 }       
             default:
                 return state

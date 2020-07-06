@@ -1,6 +1,8 @@
 
 import React from 'react';
+import {connect} from 'react-redux';
 
+import * as Action from '../../../store/cart/action'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCartPlus} from '@fortawesome/free-solid-svg-icons'
 import Hoc from '../../../Hoc/hoc'
@@ -27,7 +29,7 @@ const ProductCardComponent=(props)=>{
                         <div class={`Cart ${List?'ListCart':null}`}>
                         <p>Qty</p>
                         <input type="text" value="1"/>
-                        <FontAwesomeIcon className={'cartIcon'}icon={faCartPlus}/>
+                        <FontAwesomeIcon className={'cartIcon'} onClick={props.AddToCart} icon={faCartPlus}/>
                         </div>
                         <button>Buy Now</button>
 
@@ -37,4 +39,16 @@ const ProductCardComponent=(props)=>{
         </Hoc>
     );
 }
-export default ProductCardComponent
+
+const mapDispatchToProps=dispatch=>{
+    return {
+
+       
+        AddToCart:()=>dispatch(Action.AddToCart()),
+       
+
+       
+
+    }
+}
+export default connect(null,mapDispatchToProps)(ProductCardComponent)

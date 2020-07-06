@@ -18,7 +18,7 @@ export const AddToCart=(product)=>{
     return (dispatch)=>{
         setTimeout(()=>{
            
-            dispatch({type:ADD_TO_CART,payload:product})
+            dispatch({type:ADD_TO_CART,payload:{title:'Chips',price:20,discPrice:20,status:"Availabel"}})
 
         },1000)
     }
