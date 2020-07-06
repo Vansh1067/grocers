@@ -12,11 +12,6 @@ const NavbarComponent=(props)=>{
     const [icon,setIcon]=useState(faBars);
     const [loginOpen,setLoginOpen]=useState(false);
     const [loginForm,setLoginForm]=useState(false);
-
-    
-
-
-
     const toggleLoginHandler=(dir)=>{
         dir==="login"?setLoginForm(true):setLoginForm(false)
         setLoginOpen(!loginOpen)

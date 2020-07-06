@@ -1,7 +1,6 @@
 import React from 'react';
 import {Switch,Route} from 'react-router-dom';
 import HashLinkObserver from 'react-hash-link';
-
 import './App.css';
 import HeaderComponent from './component/HeaderComponent/headerComponent';
 import FooterComponent from './component/FooterComponent/footerComponent';

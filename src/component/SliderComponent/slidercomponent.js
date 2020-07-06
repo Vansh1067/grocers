@@ -13,7 +13,7 @@ class SliderComponent extends Component{
     render(){
         return(<Hoc>
             
-                <div class="img-cont">
+                <div className="img-cont">
                 <img src={this.props.img}></img>
 
                 

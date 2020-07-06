@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import {connect} from 'react-redux';
 
+import * as Action from '../../../../../store/product/action'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes,faCartArrowDown,faCaretRight} from '@fortawesome/free-solid-svg-icons'
 import './userCartComponent.css'
 import Hoc from '../../../../../Hoc/hoc'
 import CartProduct from './cartProductComponent/cartProductComponent'
-const userCartComponent=(props)=>{
+const UserCartComponent=(props)=>{
+   useEffect(()=>{
+props.Cart()
+   },[props.cart])
+   
     return(
         <Hoc>
             <div class="userCart">
@@ -14,16 +20,10 @@ const userCartComponent=(props)=>{
                 <FontAwesomeIcon className="userIcon" onClick={props.click} icon={faTimes} />
                 </div>
                 <div class="ProductArea">
-                <CartProduct/>
-                <CartProduct/>
-                <CartProduct/>
-                <CartProduct/>
-                <CartProduct/>
-                <CartProduct/>
-                <CartProduct/>
-                <CartProduct/>
-                <CartProduct/>
-
+                    {props.cart.map((product,i)=>{
+                            return    <CartProduct key={i}product={product}/>
+                    })}
+                
                 </div>
         <div class="priceSummary">
                     <div>
@@ -53,4 +53,19 @@ const userCartComponent=(props)=>{
         </Hoc>
     );
 }
-export default userCartComponent
+const mapStateToProps=(state)=>{
+ 
+    return{
+        cart:state.products.cart,
+        
+    }
+}
+const mapDispatchToProps=dispatch=>{
+    return {
+
+        Cart:()=>dispatch(Action.fetchCart())
+       
+
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(UserCartComponent)

@@ -5,6 +5,9 @@ import './cartProductComponent.css'
 import Hoc from '../../../../../../Hoc/hoc';
 import img from '../../../../../../assest/Capture.PNG'
 const CartProduct=(props)=>{
+    const product=props.product;
+    const offer=((product.discPrice-(product.price))/(product.discPrice))*100;
+
     return(
         <Hoc>
             <div class='userCard'>
@@ -13,10 +16,10 @@ const CartProduct=(props)=>{
                     <img src={img}/>
                 </div>
                 <div class="UUsercardBody">
-                    <p id="UOffer">Save 20%</p>
-                        <p>Product Title</p>
-                      <p id="Ustatus">  <span><FontAwesomeIcon icon={faCheckCircle}/></span> Availabel</p>
-                        <p>$250 <span class="discount">$300</span></p>
+                   {product.discPrice? <p id="UOffer">Save {offer.toFixed(0)}%</p>:null}
+                    <p>{product.title}</p>
+                      <p id="Ustatus">  <span><FontAwesomeIcon icon={faCheckCircle}/></span>{product.title }</p>
+    <p>${product.price} {product.discPrice?<span class="discount">{`$ ${product.discPrice}`}</span>:null}</p>
                 </div>
             </div>
         </Hoc>

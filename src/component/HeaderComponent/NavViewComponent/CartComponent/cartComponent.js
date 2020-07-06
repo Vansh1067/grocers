@@ -5,6 +5,7 @@ import './cartComponent.css'
 import Hoc from '../../../../Hoc/hoc';
 import UserCartComponent from './userCartComponent/userCartComponent'
 const CartComponent=(props)=>{
+     console.log(props)
     const [isOpen,setIsOpen]=useState(false)
     const toggleHandler=()=>{
             setIsOpen(!isOpen)
@@ -22,7 +23,7 @@ const CartComponent=(props)=>{
                 <p>My Cart</p>
             </div>
 
-           {isOpen ? <UserCartComponent click={toggleHandler}/>:null}
+           {isOpen ? <UserCartComponent cart={props.cart} click={toggleHandler}/>:null}
        
         </Hoc>
     );

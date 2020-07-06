@@ -1,12 +1,19 @@
-import React from 'react';
-
+import React,{ useEffect } from 'react';
+import {connect} from 'react-redux';
 import Hoc from '../../Hoc/hoc';
-import UserCartComponent from '../../component/HeaderComponent/NavViewComponent/CartComponent/userCartComponent/userCartComponent'
-const userCartContainer=(props)=>{
+import * as Action from '../../store/product/action'
+
+import CartComponent from '../../component/HeaderComponent/NavViewComponent/CartComponent/cartComponent'
+const UserCartContainer=(props)=>{
+    console.log(props)
+    useEffect(()=>{
+        props.Cart()
+    },[])
     return(
         <Hoc>
-            <UserCartComponent></UserCartComponent>
+            <CartComponent cartProducts={props.cart}></CartComponent>
         </Hoc>
     );
 }
-export default userCartContainer
+
+export default UserCartContainer

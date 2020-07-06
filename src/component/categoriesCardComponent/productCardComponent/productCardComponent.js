@@ -10,7 +10,7 @@ import img from '../../../assest/Capture.PNG'
 import img2 from '../../../assest/Capture1.PNG'
 const ProductCardComponent=(props)=>{
     const product=props.product;
-    console.log(props.product)
+
     const offer=((product.discPrice-(product.price))/(product.discPrice))*100;
     const List=props.list
     return(
