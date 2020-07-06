@@ -20,6 +20,7 @@ const CartProduct=(props)=>{
                     <p>{product.title}</p>
                       <p id="Ustatus">  <span><FontAwesomeIcon icon={faCheckCircle}/></span>{product.status }</p>
     <p>${product.price} {product.discPrice?<span class="discount">{`$ ${product.discPrice}`}</span>:null}</p>
+    <p>{product.Qty}</p>
                 </div>
             </div>
         </Hoc>

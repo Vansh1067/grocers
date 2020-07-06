@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import {connect} from 'react-redux';
 
 import * as Action from '../../../store/cart/action'
@@ -11,7 +11,10 @@ import './productCardComponent.css'
 import img from '../../../assest/Capture.PNG'
 import img2 from '../../../assest/Capture1.PNG'
 const ProductCardComponent=(props)=>{
+    const [quantity,setQuantity]=useState(1)
+
     const product=props.product;
+   
 
     const offer=((product.discPrice-(product.price))/(product.discPrice))*100;
     const List=props.list
@@ -28,8 +31,8 @@ const ProductCardComponent=(props)=>{
                         <p>MRP ${product.price}  {product.discPrice?<span class="discount">${product.discPrice}</span>:null}  </p>
                         <div class={`Cart ${List?'ListCart':null}`}>
                         <p>Qty</p>
-                        <input type="text" value="1"/>
-                        <FontAwesomeIcon className={'cartIcon'} onClick={props.AddToCart} icon={faCartPlus}/>
+                        <input type="text" value={quantity} onChange={(event)=>setQuantity(event.target.value)}/>
+                        <FontAwesomeIcon className={'cartIcon'} onClick={()=>props.AddToCart(props.product,quantity)} icon={faCartPlus}/>
                         </div>
                         <button>Buy Now</button>
 
@@ -44,7 +47,7 @@ const mapDispatchToProps=dispatch=>{
     return {
 
        
-        AddToCart:()=>dispatch(Action.AddToCart()),
+        AddToCart:(product,qty)=>dispatch(Action.AddToCart(product,qty)),
        
 
        
