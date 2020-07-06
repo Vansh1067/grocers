@@ -1,42 +1,65 @@
-import React, { useEffect } from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
 
-import * as Action from '../../../../../store/cart/action'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes,faCartArrowDown,faCaretRight} from '@fortawesome/free-solid-svg-icons'
 import './userCartComponent.css'
 import Hoc from '../../../../../Hoc/hoc'
 import CartProduct from './cartProductComponent/cartProductComponent'
-const UserCartComponent=(props)=>{
-   useEffect(()=>{
-props.Cart()
-   },[props.cart])
-   
+class UserCartComponent extends Component{
+    constructor(props){
+        super(props)
+        this.sum=0;
+        this.DiscSum=0;
+        this.delivery=0;
+    }
+    
+ 
+  
+   updateCheckOutBox(){
+       this.sum=0;
+       this.DiscSum=0;
+       this.delivery=0;
+       const CartProducts=this.props.cart;
+       CartProducts.forEach((product)=>{
+           this.sum+=product.price;
+           this.DiscSum+=product.discPrice;
+
+       })
+       this.DiscSum<500&&this.DiscSum>0?this.delivery=10:this.delivery=0;
+     
+
+      
+   }
+   render(){
+    this.updateCheckOutBox()
+  
+  
+
     return(
         <Hoc>
             <div class="userCart">
                 <div class="cartheader">
-                <h3>My Cart <span >(5 item)</span></h3>
-                <FontAwesomeIcon className="userIcon" onClick={props.click} icon={faTimes} />
+                <h3>My Cart <span >({this.props.cart.length} item)</span></h3>
+                <FontAwesomeIcon className="userIcon" onClick={this.props.click} icon={faTimes} />
                 </div>
                 <div class="ProductArea">
-                    {props.cart.map((product,i)=>{
-                            return    <CartProduct key={i}product={product}/>
-                    })}
+                   { this.props.cart.length?this.props.cart.map((product,i)=>{
+                            return    <CartProduct deleteHandler={this.props.DeleteFromCart} key={i}product={product}/>
+                    }):<h4>No Product In your Cart</h4>}
                 
                 </div>
         <div class="priceSummary">
                     <div>
                         <p>Sub Total</p>
-                        <p>$900</p>
+                        <p>${this.DiscSum}</p>
                     </div>
                     <div>
                         <p>Delivery Charges</p>
-                        <p>$9</p>
+                        <p>${this.delivery}</p>
                     </div>
                     <div>
                         <p style={{fontWeight:'bold'}}>Your Total Savings</p>
-                        <p>$55 (5%)</p>
+                        <p>${this.DiscSum-this.sum} ({(((this.DiscSum-this.sum)/this.DiscSum)*100).toFixed(0)| 0 }%)</p>
                     </div>
                     <div class="button">
                         <button>
@@ -44,7 +67,7 @@ props.Cart()
                             <FontAwesomeIcon icon={faCartArrowDown}/>
                             <span>Proceed to Checkout</span>
                             </div>
-                            <p>$845 &nbsp;<FontAwesomeIcon icon={faCaretRight}/></p> 
+                            <p>${this.sum+this.delivery} &nbsp;<FontAwesomeIcon icon={faCaretRight}/></p> 
                           
                         </button>
                     </div>
@@ -52,20 +75,7 @@ props.Cart()
             </div>
         </Hoc>
     );
+                }
 }
-const mapStateToProps=(state)=>{
- 
-    return{
-        cart:state.cart.cart,
-        
-    }
-}
-const mapDispatchToProps=dispatch=>{
-    return {
 
-        Cart:()=>dispatch(Action.fetchCart())
-       
-
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(UserCartComponent)
+export default UserCartComponent

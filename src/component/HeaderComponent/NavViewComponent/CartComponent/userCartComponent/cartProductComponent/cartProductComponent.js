@@ -11,14 +11,14 @@ const CartProduct=(props)=>{
     return(
         <Hoc>
             <div class='userCard'>
-                <FontAwesomeIcon className="cartIcons"icon={faTimes}/>
+                <FontAwesomeIcon className="cartIcons" onClick={()=>{props.deleteHandler(product.id)}}icon={faTimes}/>
                 <div class="cardImage">
                     <img src={img}/>
                 </div>
                 <div class="UUsercardBody">
                    {product.discPrice? <p id="UOffer">Save {offer.toFixed(0)}%</p>:null}
                     <p>{product.title}</p>
-                      <p id="Ustatus">  <span><FontAwesomeIcon icon={faCheckCircle}/></span>{product.title }</p>
+                      <p id="Ustatus">  <span><FontAwesomeIcon icon={faCheckCircle}/></span>{product.status }</p>
     <p>${product.price} {product.discPrice?<span class="discount">{`$ ${product.discPrice}`}</span>:null}</p>
                 </div>
             </div>
