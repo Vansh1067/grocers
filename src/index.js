@@ -8,9 +8,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ProductReducer from './store/product/reducer';
+import CartReducer from './store/cart/reducer';
+
 
 const rootReducer=combineReducers({
-    products:ProductReducer
+    products:ProductReducer,
+    cart:CartReducer
 })
 const store=createStore(rootReducer,applyMiddleware(thunk))
 console.log(store)

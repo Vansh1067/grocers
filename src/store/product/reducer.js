@@ -1,9 +1,9 @@
-import {FETCH_PRODUCT,FETCH_CATEGORIES, FETCH_CART} from './action'
+import {FETCH_PRODUCT,FETCH_CATEGORIES} from './action'
 
 const initialState={
 product:[],
 categories:[],
-cart:[]
+
 }
 
 const reducer=(state=initialState,action)=>{
@@ -18,11 +18,7 @@ const reducer=(state=initialState,action)=>{
                     ...state,
                     categories:action.payload
                 }
-            case FETCH_CART:
-                    return {
-                        ...state,
-                        cart:action.payload
-                    }
+           
             default:
                 return state
                 

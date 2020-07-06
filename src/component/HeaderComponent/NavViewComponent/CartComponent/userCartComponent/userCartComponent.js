@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import {connect} from 'react-redux';
 
-import * as Action from '../../../../../store/product/action'
+import * as Action from '../../../../../store/cart/action'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes,faCartArrowDown,faCaretRight} from '@fortawesome/free-solid-svg-icons'
 import './userCartComponent.css'
@@ -56,7 +56,7 @@ props.Cart()
 const mapStateToProps=(state)=>{
  
     return{
-        cart:state.products.cart,
+        cart:state.cart.cart,
         
     }
 }
