@@ -1,17 +1,53 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes} from '@fortawesome/free-solid-svg-icons'
+import {connect} from 'react-redux';
+
+import * as Action from '../../store/auth/action'
 import Hoc from '../../Hoc/hoc';
 import img from '../../assest/logo2.jpeg'
 import './accountComponent.css'
 const AccountComponent=(props)=>{
     const [loginForm,setLoginForm]=useState(!props.formType);
-
+    const [email,setEmail]=useState('');
+    const [password,setPassword]=useState('');
+    const [confirmPassword,setConfirmPassword]=useState('');
+   
+    useEffect(()=>{
+        if(props.user.isAuth){
+            props.toggleHandler(false);
+        
+        }
+       
+    },[props.user.isAuth])
     const changeHandler=(dir)=>{
         dir==='login'?setLoginForm(false):setLoginForm(true)
      
     }
+    const clickhandler=()=>{
+     
+        const user={
+            email,
+            password
+        }
+        if(loginForm){
+            user.confirmPassword=confirmPassword;
+            props.SignUp(user)
+        }else{
+            props.Login(user)
+
+        }
+        
+        setEmail('')
+        setPassword('')
+        setConfirmPassword('')
+        
+        
+
+    }
+    
     return(
+        
         <Hoc class="AccountContainer">
             <div class="acc">
             <FontAwesomeIcon onClick={()=>{props.toggleHandler(false)}}className="accIcon"icon={faTimes}/>
@@ -20,14 +56,15 @@ const AccountComponent=(props)=>{
                 </div>
                 <div class="form">
                 <h3>{loginForm?'Register':'Login'} Now !</h3>
+                <p>{props.user.isAuth?'Auth':'failed'}</p>
                 <form class="reviewForm">
                     <label>Email/Mobile Number</label>
-                    <input placeholder="Enter Your Name" type="text"></input>
+                    <input placeholder="Enter Your Name" type="text" onChange={(event)=>{setEmail(event.target.value)}} value={email}></input>
                     <label>Password</label>
-                    <input type="text"></input>
+                    <input type="text" value={password} onChange={(event)=>{setPassword(event.target.value)}}></input>
                     {loginForm?<label>Confirm Password</label>:null}
-                   {loginForm? <input placeholder="Give your review a title " type="text"></input>:null}
-                    <button id="accBtn" type="submit">Enter To your Account</button>
+                   {loginForm? <input placeholder="Give your review a title " onChange={(event)=>{setConfirmPassword(event.target.value)}} value={confirmPassword} type="text"></input>:null}
+                    <button id="accBtn" onClick={clickhandler} type="submit">Enter To your Account</button>
              </form>
                 <div class="socialhandler">
                     <p>Or {loginForm?'Register':'login'} with your social profile</p>
@@ -54,4 +91,16 @@ const AccountComponent=(props)=>{
         </Hoc>
     );
 }
-export default AccountComponent
+const mapStateToProps=state=>{
+        return {
+            user:state.auth
+        }
+}
+const mapDispatchToProps=dispatch=>{
+    return {
+        Login:(user)=>dispatch(Action.login(user)),
+        SignUp:(user)=>dispatch(Action.signup(user)),
+
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(AccountComponent)

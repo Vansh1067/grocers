@@ -17,7 +17,10 @@ function App() {
       <Switch>
       <Route path="/" exact component={SectionContainer}/>
       <Route path="/products/:code" component={ProductListContainer}/>
+      <Route path="/product/:id" component={ProductDetailtContainer}/>
+
       <Route path="/account" component={UserInfoComponent}/>
+
       </Switch>
       <FooterComponent></FooterComponent>
       

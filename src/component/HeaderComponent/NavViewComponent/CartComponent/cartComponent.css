@@ -43,7 +43,7 @@
 
 }
 
-/* @media screen and (max-width:768px){
+@media screen and (max-width:768px){
 .cart p{
     display: none;
     
@@ -51,4 +51,4 @@
 .cart{
     flex:1
 }
-} */
+}

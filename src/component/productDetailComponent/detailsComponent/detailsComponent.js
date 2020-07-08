@@ -3,16 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import Hoc from '../../../Hoc/hoc'
 import './detailsComponent.css'
-import img from '../../../assest/promo.jpg'
+
 
 const DetailsComponent=(props)=>{
     return(
         <Hoc class="detailsContainer">
-         <h1>Title</h1>
+         <h1>{props.product.title}</h1>
         
          <div class="price">
-            <h4>Product MRP : <span> $520</span> </h4>
-            <h2>Selling Price :<span> $500</span></h2>
+            <h4>Product MRP : <span> ${props.product.discPrice}</span> </h4>
+            <h2>Selling Price :<span> ${props.product.price}</span></h2>
             <p>(inclusion all taxes)</p>
          </div>
          <div class="availabel">

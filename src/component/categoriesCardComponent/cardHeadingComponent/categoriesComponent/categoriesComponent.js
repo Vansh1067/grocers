@@ -12,6 +12,6 @@ const CategoriesComponent=(props)=>{
                 })
             }
     </Hoc>
-    );
+    );  
 }
 export default CategoriesComponent;
