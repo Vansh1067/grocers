@@ -1,17 +1,22 @@
 import React,{useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBars,faTimes} from '@fortawesome/free-solid-svg-icons'
+import {faBars,faTimes} from '@fortawesome/free-solid-svg-icons';
+import { NavLink,Link} from 'react-router-dom'
 import './navbarComponent.css'
 import BrandComponent from '../BrandComponent/brandComponent'
 import Hoc from '../../../Hoc/hoc';
 import AccountComponent from '../../accountComponent/accountComponent';
-import Backdrop from '../../backdrop/backdrop'
+import Backdrop from '../../backdrop/backdrop';
+import {useSelector} from 'react-redux'
 const NavbarComponent=(props)=>{
     const [isOpen,setIsOpen]=useState(false);
     const [styles,setStyles]=useState({});
     const [icon,setIcon]=useState(faBars);
     const [loginOpen,setLoginOpen]=useState(false);
     const [loginForm,setLoginForm]=useState(false);
+
+    const auth=useSelector(state=>state.auth)
+
     const toggleLoginHandler=(dir)=>{
         dir==="login"?setLoginForm(true):setLoginForm(false)
         setLoginOpen(!loginOpen)
@@ -42,41 +47,41 @@ const NavbarComponent=(props)=>{
                </div>
                
            <ul className="nav-ul" >
-           <li><a href="/">Home</a></li>
+           <li><NavLink to="/">Home</NavLink></li>
 
-               <li><a >Categories</a>
+               <li><NavLink to=''>Categories</NavLink>
                <ul className="nest-ul">
-                   <li><a href="/products/0">All Products</a></li>
-                   <li><a href="/products/1">Baby Care</a></li>
-                   <li><a href="/products/2">Beverages</a></li>
-                   <li><a href="/products/3">Cleaning &amp; Household</a></li>
-                   <li><a href="/products/4">Daily Needs</a></li>
-                   <li><a href="/products/5">Dairy &amp; Bakery</a></li>
-                   <li><a href="/products/6">Fruits</a></li>
-                   <li><a href="/products/7">Oil &amp; Spices</a></li>
-                   <li><a href="/products/8">Personal Care</a></li>
-                   <li><a href="/products/9">Rice Grains</a></li>
-                   <li><a href="/products/10">Snaks &amp; Foods</a></li>
+                   <li><NavLink  to={{pathname:"/products/0"}}>All Products</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/1"}}>Baby Care</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/2"}}>Beverages</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/3"}}>Cleaning &amp; Household</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/4"}}>Daily Needs</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/5"}}>Dairy &amp; Bakery</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/6"}}>Fruits</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/7"}}>Oil &amp; Spices</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/8"}}>Personal Care</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/9"}}>Rice Grains</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/10"}}>Snaks &amp; Foods</NavLink></li>
 
                </ul>
                </li>
 
-               <li><a href="/#specials">Specials</a></li>
-               <li><a href="">Brand</a></li>
+               <li><NavLink to={{pathname:'/',hash:'specials'}}>Specials</NavLink></li>
+               <li><NavLink to="">Brand</NavLink></li>
 
-               <li><a href="">About us</a></li>
+               <li><NavLink to="">About us</NavLink></li>
                
-               <li><a href="#">My Account</a>
+               <li><NavLink to="">My Account</NavLink>
                <ul>
-                   <li><a onClick={()=>{toggleLoginHandler('login')}}>Login</a></li>
-                   <li><a onClick={()=>{toggleLoginHandler('reg')}}>Register</a></li>
-                   <li><a href="/account">profile</a></li>
-                   <li><a href="/logout">Logout</a></li>
+                  {!auth.isAuth? <li><NavLink to='' onClick={()=>{toggleLoginHandler('login')}}>Login</NavLink></li>:null}
+                  {!auth.isAuth? <li><NavLink to=''onClick={()=>{toggleLoginHandler('reg')}}>Register</NavLink></li>:null}
+                  {auth.isAuth? <li><NavLink to="/account/12">profile</NavLink></li>:null}
+                  {auth.isAuth? <li><NavLink to="/logout">Logout</NavLink></li>:null}
                   
 
                </ul>
                </li>
-               <li><a href="">Contact</a></li>
+               <li><NavLink to={{pathname:'',hash:'footer'}}>Contact</NavLink></li>
                
            </ul>
            </div>

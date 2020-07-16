@@ -8,6 +8,7 @@ import ProductComponent from './productCardComponent/productCardComponent'
 
 
 const CategoriesCardComponent=(props)=>{
+   
     return(
         <Hoc id={props.id} class="categoriesCard">
             <CardHeading  title={props.title} links={props.link}/>

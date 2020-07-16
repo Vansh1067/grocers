@@ -5,6 +5,7 @@ import ReviewBox from './reviewBox/reviewBox'
 import Hoc from '../../Hoc/hoc'
 import './ReviewComponent.css'
 const ReviewComponent=(props)=>{
+    console.log(props.reviews)
     return(
         <Hoc class="reviewContainer">
             <p>Reviews</p>

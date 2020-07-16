@@ -9,18 +9,25 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ProductReducer from './store/product/reducer';
 import CartReducer from './store/cart/reducer';
-import AuthReducer from './store/auth/reducer'
+import AuthReducer from './store/auth/reducer';
+import OrderReducer from './store/order/reducer';
+import WishListReducer from './store/wishList/reducer';
+
+
 
 const rootReducer=combineReducers({
     products:ProductReducer,
     cart:CartReducer,
-    auth:AuthReducer
+    auth:AuthReducer,
+    order:OrderReducer,
+    wishList:WishListReducer
 })
 const store=createStore(rootReducer,applyMiddleware(thunk))
+console.log(store.getState())
 console.log(store)
 ReactDOM.render(
     <Provider store={store}>
-<BrowserRouter forceRefresh={true}>
+<BrowserRouter >
     <App />
     </BrowserRouter>
     </Provider>

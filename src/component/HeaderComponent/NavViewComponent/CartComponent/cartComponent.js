@@ -10,13 +10,17 @@ import UserCartComponent from './userCartComponent/userCartComponent'
 const CartComponent=(props)=>{
      console.log(props)
     const [isOpen,setIsOpen]=useState(false)
-    const TotalProduct=props.cart;
+    
     useEffect(()=>{
-props.Cart()
+    props.Cart();
+
     },[])
+    
     const toggleHandler=()=>{
             setIsOpen(!isOpen)
     }
+
+    
     return(
         <Hoc className="cart">
             <div className="cartbox">
@@ -24,7 +28,7 @@ props.Cart()
                     
                 <FontAwesomeIcon onClick={toggleHandler} icon={faShoppingCart}/>
 
-                            <span className="k">{TotalProduct.length}</span>
+                            <span className="k">{'3'}</span>
 
                 </div>
                 <p>My Cart</p>

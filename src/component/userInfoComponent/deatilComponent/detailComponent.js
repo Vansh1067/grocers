@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Hoc from '../../../Hoc/hoc'
 import './detailComponent.css'
 import ProfileForm from './profileForm/profileForm'
@@ -12,10 +11,13 @@ const DetailComponent=(props)=>{
     return(
         <Hoc class="details">
             <Switch>
-                <Route path='/account' exact component={ProfileForm}/>
-                <Route path='/account/address' component={AddressForm}/>
-                <Route path='/account/orders' component={OrderComponent}/>
-                <Route path='/account/wishlist' component={WishList}/>
+             
+
+                <Route path='/account/orders' exact component={OrderComponent}/>
+                <Route path='/account/wishlist' exact component={WishList}/>
+                <Route path='/account/:token' exact component={ProfileForm}/> 
+                <Route path='/account/address/:token' exact component={AddressForm}/> 
+
             </Switch>
             
          

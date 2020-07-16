@@ -1,21 +1,27 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import * as Actions from '../../../../../store/order/action'
 import './orderDetail.css';
 import Hoc from '../../../../../Hoc/hoc'
 import img from '../../../../../assest/Capture.PNG'
 import img2 from '../../../../../assest/Capture1.PNG'
 const OrderDetail =(props)=>{
-    const product={title:'Baby Care',price:25}
+    const id=props.match.params.id;
+    useEffect(()=>{
+        props.OrderDetail(id)
+    },[])
+    const product=props.orderItem
         return <Hoc class="orderDetailCard">
-                <h3>Wheat Ashirvad Atta</h3>
+                <h3>{product.title}</h3>
                 <div class="orderimage">
                     <img src={(Math.random()>0.5?img:img2)}/>
                     {product.price?(<div class="OrderPrice">
                         <p>MRP <span>$ {product.price}</span>  {product.discPrice?<span class="discount">${product.discPrice}</span>:null}  </p>
-                        <p>Qty <span>5</span></p>
-                        <h4>Total Amount <span> $500</span></h4>
-                        <h4>Order Date<span> 12-2-2019</span></h4>
-                        <h4>Order Id <span> 2510s51cs0s545</span></h4>
+                        <p>Qty <span>{product.qty}</span></p>
+                        <h4>Total Amount <span>{product.price*product.qty}</span></h4>
+                        <h4>Order Date<span> {product.date}</span></h4>
+                        <h4>Order Id <span> {product.id}</span></h4>
                         <h4>Payment Method <span> Credit Card</span></h4>
                         <h4>Order By<span>Vansh</span></h4>
                     </div>):null}
@@ -35,5 +41,16 @@ const OrderDetail =(props)=>{
              
         </Hoc>
 }
+const mapStateToProps=state=>{
+return {
+    orderItem:state.order.orderDetail
 
-export default OrderDetail;
+}
+}
+const mapDispatchToProps=dispatch=>{
+    return {
+        OrderDetail:(id)=>dispatch(Actions.fetchDetail(+id))
+
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(OrderDetail));

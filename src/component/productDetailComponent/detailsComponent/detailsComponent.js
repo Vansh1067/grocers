@@ -6,19 +6,27 @@ import './detailsComponent.css'
 
 
 const DetailsComponent=(props)=>{
+    const product={...props.product}
+  
+    const offer=((product.MRP-(product.sellingPrice))/(product.MRP))*100;
+  
     return(
         <Hoc class="detailsContainer">
-         <h1>{props.product.title}</h1>
+         <h1>{product.title}</h1>
         
          <div class="price">
-            <h4>Product MRP : <span> ${props.product.discPrice}</span> </h4>
-            <h2>Selling Price :<span> ${props.product.price}</span></h2>
+            <h4>Product MRP : <span> ${product.MRP}</span> </h4>
+            <h2>Selling Price :<span> ${product.sellingPrice}</span></h2>
             <p>(inclusion all taxes)</p>
+            {product.specialOffer?<p className="offer">Save {offer.toFixed(0)}%</p>:null}
          </div>
          <div class="availabel">
              <p>Available in :</p>
-             <span>100gm</span>
-             <span>200gm</span>
+        {/*  {AvalProduct.map((prod,i)=>{
+             
+             return <span key={i}>{prod}</span>
+             })}
+              */}
 
          </div>
          <button>Add To Cart</button>

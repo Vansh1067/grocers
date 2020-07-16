@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import {withRouter} from 'react-router-dom'
 
 import Hoc from '../../../../Hoc/hoc'
 import './orderComponent.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faEye} from '@fortawesome/free-solid-svg-icons';
+import {connect} from 'react-redux';
+import * as Actions from '../../../../store/order/action'
 import OrderBox from './orderBox/orderBox';
 import OrderDetail from './orderDetail/orderDetail'
 import { Route, Switch } from 'react-router-dom';
 
 const OrderComponent=(props)=>{
-    const product=[{title:'Baby Care',price:25},{title:'Banana',price:15}]
+  
+    useEffect(()=>{
+            props.Order()
+    },[])
+   
     return(
         <Hoc>
            
@@ -36,13 +41,13 @@ const OrderComponent=(props)=>{
 
                     <Route path="/account/orders/"  exact render={ ()=><div class="">
                             {
-                                product.map((product)=>{
+                                props.orders.map((product)=>{
                                     return (<OrderBox product={product}/>)
                                 })
                             }
                             
                         </div>}/>
-                    <Route path="/account/orders/25" component={OrderDetail}/>
+                    <Route path="/account/orders/:id" component={OrderDetail}/>
                     
                     </Switch>
                        
@@ -60,4 +65,14 @@ const OrderComponent=(props)=>{
         </Hoc>
     );
 }
-export default OrderComponent
+const mapStateToProps=state=>{
+    return {
+            orders:state.order.orders
+    }
+}
+const mapDispatchToProps=dispatch=>{
+    return {
+        Order:()=>dispatch(Actions.fetchOrder())
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(OrderComponent))

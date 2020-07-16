@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser,faAddressCard,faHeart,faHeartbeat,faListUl,faUserLock,faPhoneAlt} from '@fortawesome/free-solid-svg-icons';
 import Hoc from '../../../Hoc/hoc';
@@ -13,12 +14,12 @@ const AsideComponent=(props)=>{
                 </div>
             <div class="linklist">
                 <ul>
-                    <li><a href="/account">{<FontAwesomeIcon icon={faUser}/>} My Profile</a></li>
-                    <li><a href="/account/address">{<FontAwesomeIcon icon={faAddressCard}/>} My Address</a></li>
-                    <li><a href="/account/wishlist">{<FontAwesomeIcon icon={faHeart}/>} Wish List</a></li>
-                    <li><a href="/account/orders">{<FontAwesomeIcon icon={faListUl}/>} Orders</a></li>
-                    <li><a href="/logout">{<FontAwesomeIcon icon={faUserLock}/>} Logout</a></li>
-                    <li><a href="/contactus">{<FontAwesomeIcon icon={faPhoneAlt}/>} ContactUs</a></li>
+                    <li><NavLink to="/account/12">{<FontAwesomeIcon icon={faUser}/>} My Profile</NavLink></li>
+                    <li><NavLink to="/account/address/12">{<FontAwesomeIcon icon={faAddressCard}/>} My Address</NavLink></li>
+                    <li><NavLink to="/account/wishlist">{<FontAwesomeIcon icon={faHeart}/>} Wish List</NavLink></li>
+                    <li><NavLink to="/account/orders">{<FontAwesomeIcon icon={faListUl}/>} Orders</NavLink></li>
+                    <li><NavLink to="/logout">{<FontAwesomeIcon icon={faUserLock}/>} Logout</NavLink></li>
+                    <li><NavLink to="/contactus">{<FontAwesomeIcon icon={faPhoneAlt}/>} ContactUs</NavLink></li>
 
 
                 </ul>

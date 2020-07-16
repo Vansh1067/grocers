@@ -16,7 +16,7 @@ function App() {
       <HeaderComponent></HeaderComponent>
       <Switch>
       <Route path="/" exact component={SectionContainer}/>
-      <Route path="/products/:code" component={ProductListContainer}/>
+      <Route path="/products/:id" component={ProductListContainer}/>
       <Route path="/product/:id" component={ProductDetailtContainer}/>
 
       <Route path="/account" component={UserInfoComponent}/>

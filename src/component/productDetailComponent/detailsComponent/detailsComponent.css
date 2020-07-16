@@ -32,6 +32,15 @@
     margin:10px 0;
    
 }
+.offer{
+    width:max-content;
+    background-color: rgba(4, 65, 4);
+    padding:4px 3px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+}
 .availabel span{
     padding: 5px;
     border:2px solid brown;

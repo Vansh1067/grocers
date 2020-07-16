@@ -19,10 +19,10 @@ class UserCartComponent extends Component{
        this.sum=0;
        this.DiscSum=0;
        this.delivery=0;
-       const CartProducts=this.props.cart;
+       const CartProducts=this.props.cart.items;
        CartProducts.forEach((product)=>{
            this.sum+=product.price;
-           this.DiscSum+=product.discPrice;
+           this.DiscSum+=product.MRP;
 
        })
        this.DiscSum<500&&this.DiscSum>0?this.delivery=10:this.delivery=0;
@@ -34,17 +34,17 @@ class UserCartComponent extends Component{
     this.updateCheckOutBox()
   
   
-
+    console.log(this.props.cart.items)
     return(
         <Hoc>
             <div class="userCart">
                 <div class="cartheader">
-                <h3>My Cart <span >({this.props.cart.length} item)</span></h3>
+                <h3>My Cart <span >({this.props.cart.items.length} item)</span></h3>
                 <FontAwesomeIcon className="userIcon" onClick={this.props.click} icon={faTimes} />
                 </div>
                 <div class="ProductArea">
-                   { this.props.cart.length?this.props.cart.map((product,i)=>{
-                            return    <CartProduct deleteHandler={this.props.DeleteFromCart} key={i}product={product}/>
+                   { this.props.cart.items.length?this.props.cart.items.map((product,i)=>{
+                            return    <CartProduct deleteHandler={this.props.DeleteFromCart} key={i} product={product}/>
                     }):<h4>No Product In your Cart</h4>}
                 
                 </div>

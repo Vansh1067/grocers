@@ -16,7 +16,7 @@ const ProductListComponent=(props)=>{
         setList(value);
         console.log(list)
     }
-    const product=[{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Oil',price:250},{title:'Chips',price:5},{title:'Baby Care',price:25},{title:'Banana',price:15},{title:'Oil',price:250},{title:'Chips',price:5}]
+    
     return(
         <Hoc>
             <CardHeadingComponent title={props.title} arrowHidden={true}/>
@@ -24,7 +24,7 @@ const ProductListComponent=(props)=>{
            <div class={`cardBodyGrid ${list?'cardBodyList':null}`}>
 
           
-            { product.map((product,i)=>{
+            { props.product.map((product,i)=>{
               
               return <div key={i}><ProductComponent list={list} desc={true} product={product}  /></div>
              })

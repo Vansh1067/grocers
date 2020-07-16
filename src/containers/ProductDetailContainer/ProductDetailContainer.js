@@ -10,7 +10,8 @@ const ProductDetailContainer=(props)=>{
     useEffect(()=>{
         props.FetchDetail(productId);
         console.log('sjj')
-    },[props.prod])
+    },[])
+    console.log(props.prod)
     return(
         <Hoc class="section">
             <ProductDetailComponent product={props.prod}/>
@@ -24,7 +25,7 @@ const mapStateToProps=state=>{
 }
 const mapDispatchToProps=dispatch=>{
 return {
-        FetchDetail:(id)=>{dispatch(Action.fetchProductDetail(+id))}
+        FetchDetail:(id)=>{dispatch(Action.fetchProductDetail(id))}
 }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(ProductDetailContainer)

@@ -1,12 +1,8 @@
 import React from 'react'
-
+import {withRouter} from 'react-router-dom'
 import './orderBox.css';
 import Hoc from '../../../../../Hoc/hoc'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCartPlus} from '@fortawesome/free-solid-svg-icons'
-import OrderDetail from '../orderDetail/orderDetail'
 
-import {Route} from 'react-router-dom'
 import img from '../../../../../assest/Capture.PNG'
 import img2 from '../../../../../assest/Capture1.PNG'
 const OrderBox =(props)=>{
@@ -27,11 +23,13 @@ const OrderBox =(props)=>{
                     {product.price?(<div>
                         <p>${product.price}  {product.discPrice?<span class="discount">${product.discPrice}</span>:null}  </p>
                        
-                        <p>Qty <span>5</span></p>
-                        <h4>Total <span>$500</span></h4>
-                        <h4>Order Date<span>12-2-2019</span></h4>
+                        <p>Qty <span>{product.qty}</span></p>
+                        <h4>Total <span>{product.price*product.qty}</span></h4>
+                        <h4>Order Date<span>{product.date}</span></h4>
+                        <p>Status :<span> {product.status}</span></p>
+
                         <br></br>
-                        <a href="/account/orders/25" id="orderDetailButton">View Details</a>
+                        <a href={`/account/orders/`+product.id} id="orderDetailButton">View Details</a>
 
                         </div>):null}
                     
@@ -40,4 +38,4 @@ const OrderBox =(props)=>{
              
         </Hoc>
 }
-export default OrderBox
+export default withRouter(OrderBox)

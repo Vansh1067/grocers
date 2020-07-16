@@ -6,7 +6,7 @@ import Hoc from '../../../../../../Hoc/hoc';
 import img from '../../../../../../assest/Capture.PNG'
 const CartProduct=(props)=>{
     const product=props.product;
-    const offer=((product.discPrice-(product.price))/(product.discPrice))*100;
+    const offer=((product.MRP-(product.price))/(product.MRP))*100;
 
     return(
         <Hoc>
@@ -16,10 +16,10 @@ const CartProduct=(props)=>{
                     <img src={img}/>
                 </div>
                 <div class="UUsercardBody">
-                   {product.discPrice? <p id="UOffer">Save {offer.toFixed(0)}%</p>:null}
+                   {product.MRP? <p id="UOffer">Save {offer.toFixed(0)}%</p>:null}
                     <p>{product.title}</p>
-                      <p id="Ustatus">  <span><FontAwesomeIcon icon={faCheckCircle}/></span>{product.status }</p>
-    <p>${product.price} {product.discPrice?<span class="discount">{`$ ${product.discPrice}`}</span>:null}</p>
+                      <p id="Ustatus">  <span><FontAwesomeIcon icon={faCheckCircle}/></span>{'Available'}</p>
+    <p>${product.price} {product.MRP?<span class="discount">{`$ ${product.MRP}`}</span>:null}</p>
     <p>{product.Qty}</p>
                 </div>
             </div>

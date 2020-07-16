@@ -19,6 +19,8 @@ const reducer=(state=initialState,action)=>{
                     categories:action.payload
                 }
             case FETCH_PRODUCT_DETAIL:{
+
+                console.log(action.payload)
                   return {
                       ...state,
                       productDetail:action.payload

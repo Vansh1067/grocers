@@ -47,16 +47,19 @@ height: 150px;
     margin-left: 10px;
     text-align: left;
 }
-.priceBody> p:first-child{
-    margin: 5px;
-    font-weight: bolder;
-    color: black;
-}
+
 .priceBody p{
    margin: 5px;
    font-weight: bold;
    color: green;
    text-align: center;
+}
+.priceBody> p:first-child{
+    margin: 5px;
+    font-weight: bolder;
+    color: black;
+    
+  
 }
 .ListpriceBody p{
     text-align: left;

@@ -11,35 +11,35 @@ import './productCardComponent.css'
 import img from '../../../assest/Capture.PNG'
 import img2 from '../../../assest/Capture1.PNG'
 const ProductCardComponent=(props)=>{
-    console.log(props)
+
     const [quantity,setQuantity]=useState(1)
     let history=useHistory();
-    const product=props.product;
+    const product={...props.product};
     const DetailHandler=()=>{
-        if(product.cat){
-                history.push('/products/'+product.id);
+        if(product.code){
+                history.push('/products/'+product.code);
 
         }else{
-            history.push('/product/'+product.id);
+            history.push('/product/'+product._id.toString());
 
         }
 
         
     }
 
-    const offer=((product.discPrice-(product.price))/(product.discPrice))*100;
+    const offer=((product.MRP-(product.sellingPrice))/(product.MRP))*100;
     const List=props.list
     return(
         <Hoc class={`Card ${List?'ListCard':null}`} onClick={DetailHandler}>
-               {product.discPrice?<p class="Offer">Save {offer.toFixed(0)}%</p>:null}
+               {product.specialOffer?<p class="Offer">Save {offer.toFixed(0)}%</p>:null}
                 <div class={`imgBody ${List?'ListimgBody':null}`}  >
                     <img src={(Math.random()>0.5?img:img2)}/>
                 </div>
                 <div  class={`priceBody ${List?'ListpriceBody':null}`}>
                     <p>{product.title}</p>
-                    {props.desc?<p style={{textAlign:'justify',color:'indigo'}}>na ncl kasc k c lk lscklk l cll cslk slk sl clk lcsklk sl</p>:null}
-                    {product.price?(<div>
-                        <p>MRP ${product.price}  {product.discPrice?<span class="discount">${product.discPrice}</span>:null}  </p>
+                  {List?<p style={{textAlign:'justify',color:'indigo'}}>{product.Details.description}</p>:null}  
+                    {product.sellingPrice?(<div>
+                        <p>MRP ${product.sellingPrice}  {product.MRP?<span class="discount">${product.MRP}</span>:null}  </p>
                         <div class={`Cart ${List?'ListCart':null}`}>
                         <p>Qty</p>
                         <input type="text" value={quantity} onChange={(event)=>setQuantity(event.target.value)}/>

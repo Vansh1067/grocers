@@ -7,7 +7,7 @@ import FooterSocialComponent from './footerSocialComponent/footerSocialComponent
 const FooterComponent=(props)=>{
     
     return(
-        <Hoc className='footer'>
+        <Hoc className='footer' id="footer">
             <FooterDetailComponent></FooterDetailComponent>
             <FooterSocialComponent></FooterSocialComponent>
             <p className="copy">Copyright <span >&copy; </span>2020 </p>

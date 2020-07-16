@@ -10,6 +10,7 @@ import DescriptionComponent from './descriptionComponent/descriptionComponent'
 import ReviewComponent from '../ReviewComponent/ReviewComponent'
 const ProductDetailComponent=(props)=>{
     const product=props.product
+    console.log(product)
     return(
         <Hoc class="detailContainer">
            <div>
@@ -18,11 +19,11 @@ const ProductDetailComponent=(props)=>{
            </div>
             
            <div>
-          <DescriptionComponent/>
+          <DescriptionComponent product={product.Details}/>
 
           </div>
           <div>
-          <ReviewComponent/>
+          <ReviewComponent reviews={product.reviews}/>
 
           </div>
           

@@ -1,16 +1,21 @@
-import {LOGIN,SIGNUP} from './action'
+import {LOGIN,SIGNUP, USERDATA} from './action'
 
 const initialState={
 isAuth:false,
-user:{}
+token:'',
+expiresIn:'',
+userData:{}
 }
 
 const reducer=(state=initialState,action)=>{
     switch(action.type){
             case LOGIN:
+                
+                    document.cookie=`token=${action.payload.token};Max-Age=${action.payload.expiresIn}`
                     return {
                         ...state,
-                        user:action.payload,
+                        token:action.payload.token,
+                        expiresIn:action.payload.expiresIn,
                         isAuth:true
                     }
             case SIGNUP:
@@ -19,7 +24,13 @@ const reducer=(state=initialState,action)=>{
                     user:action.payload,
                     isAuth:true
                 }
-            
+            case USERDATA:
+                return {
+                       ...state,
+                       userData:action.payload,
+                 
+               }
+               
             default:
                 return state
                 

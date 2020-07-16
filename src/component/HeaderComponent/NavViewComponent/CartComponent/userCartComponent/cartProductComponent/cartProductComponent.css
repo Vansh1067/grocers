@@ -50,9 +50,10 @@ color: black;
     position: relative !important;
     width: max-content;
     text-align: center !important;
-    background-color: green;
+    background-color: rgba(0, 128, 0, 0.762);
     padding:5px;
     border-radius: 5px;
+   
 }
 #Ustatus{
     background-color: orangered;
