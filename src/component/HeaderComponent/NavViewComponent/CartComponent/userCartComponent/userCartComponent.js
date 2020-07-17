@@ -1,65 +1,83 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes,faCartArrowDown,faCaretRight} from '@fortawesome/free-solid-svg-icons'
 import './userCartComponent.css'
 import Hoc from '../../../../../Hoc/hoc'
+import {connect, useSelector} from 'react-redux';
+
+import * as Action from '../../../../../store/cart/action'
 import CartProduct from './cartProductComponent/cartProductComponent'
-class UserCartComponent extends Component{
-    constructor(props){
-        super(props)
-        this.sum=0;
-        this.DiscSum=0;
-        this.delivery=0;
-    }
+const UserCartComponent =props=>{
+    const [sum,setSum]=useState(0)
+    const [DiscSum,setDiscSum]=useState(0)
+    const [delivery,setdelivery]=useState(0)
+    const [cartitems,setcartitems]=useState(props.CART.items)
+    const [totalitems,settotalitems]=useState(props.CART.items.length)
+    const [refresh,setrefresh]=useState(false)
+        console.log(props.CART)
+
+
+   
     
  
   
-   updateCheckOutBox(){
-       this.sum=0;
-       this.DiscSum=0;
-       this.delivery=0;
-       const CartProducts=this.props.cart.items;
-       CartProducts.forEach((product)=>{
-           this.sum+=product.price;
-           this.DiscSum+=product.MRP;
+   const updateCheckOutBox=(cartitems)=>{
+    
+       
+            let sum=0;
+           let DiscSum=0;
+           let delivery=0;
+           cartitems.forEach((product)=>{
+           
+            sum +=product.sellingPrice*product.quantity;
+            DiscSum+=product.MRP*product.quantity;
 
        })
-       this.DiscSum<500&&this.DiscSum>0?this.delivery=10:this.delivery=0;
-     
-
+       DiscSum<500&&DiscSum>0?delivery=10:delivery=0;
+       setSum(sum);
+       setDiscSum(DiscSum);
+       setdelivery(delivery);
+ 
+  
+    }
+    useEffect(()=>{
+        updateCheckOutBox(cartitems);
+        settotalitems(cartitems.length)
+        setcartitems(props.CART.items)
+       return ()=>{  setcartitems(props.CART.items)}
+       })
       
-   }
-   render(){
-    this.updateCheckOutBox()
+
   
-  
-    console.log(this.props.cart.items)
+
+
+
     return(
         <Hoc>
             <div class="userCart">
                 <div class="cartheader">
-                <h3>My Cart <span >({this.props.cart.items.length} item)</span></h3>
-                <FontAwesomeIcon className="userIcon" onClick={this.props.click} icon={faTimes} />
+                <h3>My Cart <span >({totalitems} item)</span></h3>
+                <FontAwesomeIcon className="userIcon" onClick={props.click} icon={faTimes} />
                 </div>
                 <div class="ProductArea">
-                   { this.props.cart.items.length?this.props.cart.items.map((product,i)=>{
-                            return    <CartProduct deleteHandler={this.props.DeleteFromCart} key={i} product={product}/>
+                   { totalitems>0?cartitems.map((product,i)=>{
+                            return    <CartProduct deleteHandler={(id)=>props.DeleteFromCart(id)}  AddHandler={(p,q,a)=>props.AddToCart(p,q,a)} key={i} product={product}/>
                     }):<h4>No Product In your Cart</h4>}
                 
                 </div>
         <div class="priceSummary">
                     <div>
                         <p>Sub Total</p>
-                        <p>${this.DiscSum}</p>
+                        <p>${DiscSum}</p>
                     </div>
                     <div>
                         <p>Delivery Charges</p>
-                        <p>${this.delivery}</p>
+                        <p>${delivery}</p>
                     </div>
                     <div>
                         <p style={{fontWeight:'bold'}}>Your Total Savings</p>
-                        <p>${this.DiscSum-this.sum} ({(((this.DiscSum-this.sum)/this.DiscSum)*100).toFixed(0)| 0 }%)</p>
+                        <p>${DiscSum-sum} ({(((DiscSum-sum)/DiscSum)*100).toFixed(0)| 0 }%)</p>
                     </div>
                     <div class="button">
                         <button>
@@ -67,7 +85,7 @@ class UserCartComponent extends Component{
                             <FontAwesomeIcon icon={faCartArrowDown}/>
                             <span>Proceed to Checkout</span>
                             </div>
-                            <p>${this.sum+this.delivery} &nbsp;<FontAwesomeIcon icon={faCaretRight}/></p> 
+                            <p>${sum+delivery} &nbsp;<FontAwesomeIcon icon={faCaretRight}/></p> 
                           
                         </button>
                     </div>
@@ -75,7 +93,24 @@ class UserCartComponent extends Component{
             </div>
         </Hoc>
     );
+             
                 }
-}
+const mapStateToProps=(state)=>{
 
-export default UserCartComponent
+    return{
+        cart:state.cart.cart,
+        
+    }
+}
+const mapDispatchToProps=dispatch=>{
+    return {
+
+        Cart:()=>dispatch(Action.fetchCart()),
+        AddToCart:(p,q,a)=>dispatch(Action.AddToCart(p,q,a)),
+        DeleteFromCart:(id)=>dispatch(Action.DeleteFromCart(id))
+
+       
+
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(UserCartComponent)

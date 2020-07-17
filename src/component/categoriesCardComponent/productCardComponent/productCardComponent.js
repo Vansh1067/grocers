@@ -29,11 +29,12 @@ const ProductCardComponent=(props)=>{
 
     const offer=((product.MRP-(product.sellingPrice))/(product.MRP))*100;
     const List=props.list
+    
     return(
-        <Hoc class={`Card ${List?'ListCard':null}`} onClick={DetailHandler}>
+        <Hoc class={`Card ${List?'ListCard':null}`} >
                {product.specialOffer?<p class="Offer">Save {offer.toFixed(0)}%</p>:null}
                 <div class={`imgBody ${List?'ListimgBody':null}`}  >
-                    <img src={(Math.random()>0.5?img:img2)}/>
+                    <img src={(Math.random()>0.5?img:img2)} onClick={DetailHandler}/>
                 </div>
                 <div  class={`priceBody ${List?'ListpriceBody':null}`}>
                     <p>{product.title}</p>
@@ -43,7 +44,7 @@ const ProductCardComponent=(props)=>{
                         <div class={`Cart ${List?'ListCart':null}`}>
                         <p>Qty</p>
                         <input type="text" value={quantity} onChange={(event)=>setQuantity(event.target.value)}/>
-                        <FontAwesomeIcon className={'cartIcon'} onClick={()=>props.AddToCart(props.product,quantity)} icon={faCartPlus}/>
+                        <FontAwesomeIcon className={'cartIcon'} onClick={()=>props.AddToCart(props.product,quantity,quantity)} icon={faCartPlus}/>
                         </div>
                         <button>Buy Now</button>
 
@@ -58,7 +59,7 @@ const mapDispatchToProps=dispatch=>{
     return {
 
        
-        AddToCart:(product,qty)=>dispatch(Action.AddToCart(product,qty)),
+        AddToCart:(product,qty,qty2)=>dispatch(Action.AddToCart(product,qty,qty2)),
        
 
        

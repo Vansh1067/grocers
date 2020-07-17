@@ -3,8 +3,8 @@ export const ADD_TO_CART='ADD_TO_CART';
 export const DELETE_FROM_CART='DELETE_FROM_CART';
 
 
-const cart=[{id:0,title:'Baby Care',price:25,discPrice:30,status:"Availabel",Qty:1},{id:1,title:'Banana',Qty:1,discPrice:20,price:15,status:"Availabel"},{id:2,Qty:1,title:'Oil',price:250,discPrice:500,status:"Availabel"}]
-const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk0OTM4NzQyLCJleHAiOjE1OTQ5NDIzNDJ9.kukr1FsyyF65IMSkr-AAIQILrjMDeUHhK_L_BmidIb0'
+const cart={items:[],totalAmount:0}
+const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk1MDE4MTIwLCJleHAiOjE1OTUwMjg5MjB9.Jec45zwSFt14XiHksglRhEGxSs4nFICw49tbFPIniEw'
 export const fetchCart=()=>{
     return (dispatch)=>{
         fetch('http://localhost:3001/cart',{
@@ -15,34 +15,65 @@ export const fetchCart=()=>{
         }).then(response=>{
            return response.json()
         }).then(Cart=>{
-            console.log(Cart.cart.cart)
+         
             dispatch({type:FETCH_CART,payload:Cart.cart.cart})
 
         })
+       /*  setTimeout(()=>{
+           
+            dispatch({type:FETCH_CART,payload:cart})
+
+        },1000) */
        
 }}
-export const AddToCart=(product,qty)=>{
-    console.log(product)
+export const AddToCart=(product,qty,Amt)=>{
+
     const Product={...product};
-   Product.Qty=qty;
-   Product.status="availabel";
-   Product.discPrice=0;
-
+    console.log(Product)
+    const Amts=+Amt 
+   
     return (dispatch)=>{
-        setTimeout(()=>{
-           
-            dispatch({type:ADD_TO_CART,payload:Product})
-
-        },1000)
+       
+        fetch('http://localhost:3001/cart/'+Product._id,{
+            method:'post',
+            body:JSON.stringify({Amt:Amts,qty,MRP:Product.MRP,sellingPrice:Product.sellingPrice}),
+            headers:{
+                'Authorization':token,
+                'Content-Type': 'application/json'
+            },
+        }).then(response=>{
+           return response.json()
+        }).then(Cart=>{
+          console.log(Cart.cart)
+            dispatch({type:ADD_TO_CART,payload:Cart.cart});
+    
+        })
+    
+       
     }
 }
 export const DeleteFromCart=(id)=>{
     
     return (dispatch)=>{
-        setTimeout(()=>{
-           
-            dispatch({type:DELETE_FROM_CART,payload:id})
+        fetch('http://localhost:3001/cart/'+id,{
+            method:'delete',
+            body:JSON.stringify({id}),
+            headers:{
+                'Authorization':token,
+                'Content-Type': 'application/json'
+            },
+        }).then(response=>{
+           return response.json()
+        }).then(Cart=>{
+          console.log(Cart.cart)
+          dispatch({type:DELETE_FROM_CART,payload:Cart.cart})
 
-        },1000)
+    
+        })
+           /*  const Cart=cart.items.filter(product=>product._id!==id);
+            const updatedCart={...cart,items:Cart}
+            dispatch({type:DELETE_FROM_CART,payload:updatedCart})
+ */
+     
     }
 }

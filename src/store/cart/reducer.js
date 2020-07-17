@@ -2,35 +2,42 @@ import {FETCH_CART,ADD_TO_CART,DELETE_FROM_CART} from './action'
 
 const initialState={
 
-cart:[]
+cart:{items:[],totalAmount:0}
 }
 
 const reducer=(state=initialState,action)=>{
     switch(action.type){
         
             case FETCH_CART:
+              
                     return {
                         ...state,
-                        cart:action.payload
+                        cart:{
+                            ...state.cart,
+                            items:action.payload.items,
+                            totalAmount:action.payload.totalAmount
+                        }
                     }
             case ADD_TO_CART:
-                const product=action.payload;
-                const updatedCart=state.cart;
-                const CART=updatedCart.concat(product)
+            
                     return {
                         ...state,
-                        cart:CART
+                        cart:{
+                            ...state.cart,
+                            items:action.payload.items,
+                            totalAmount:action.payload.totalAmount
+                        }
                     }
             case DELETE_FROM_CART:
-                const id=action.payload;
-                console.log(id)
-                const updatedCarts=state.cart;
-                const CARTS=updatedCarts.filter((p,i)=>p.id!==id);
-                console.log(updatedCarts)
+              
                 return {
-                     ...state,
-                    cart:CARTS
-                }       
+                    ...state,
+                    cart:{
+                        ...state.cart,
+                        items:action.payload.items,
+                        totalAmount:action.payload.totalAmount
+                    }
+                    }
             default:
                 return state
                 

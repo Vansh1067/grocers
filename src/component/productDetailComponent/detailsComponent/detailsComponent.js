@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import Hoc from '../../../Hoc/hoc'
 import './detailsComponent.css'
-
+import { useDispatch } from 'react-redux';
+import * as Actions from '../../../store/cart/action'
 
 const DetailsComponent=(props)=>{
+    const [AvalProducts,setAvalProducts]=useState([])
+    const dispatch=useDispatch()
     const product={...props.product}
-  
+  console.log(product)
     const offer=((product.MRP-(product.sellingPrice))/(product.MRP))*100;
-  
+    
+  useEffect(()=>{
+    setAvalProducts(product.AvailabelDetails);
+    console.log(AvalProducts)
+  })
     return(
         <Hoc class="detailsContainer">
          <h1>{product.title}</h1>
@@ -22,14 +29,14 @@ const DetailsComponent=(props)=>{
          </div>
          <div class="availabel">
              <p>Available in :</p>
-        {/*  {AvalProduct.map((prod,i)=>{
+    {AvalProducts?AvalProducts.map((prod,i)=>{
              
              return <span key={i}>{prod}</span>
-             })}
-              */}
+             }):null} 
+       
 
          </div>
-         <button>Add To Cart</button>
+         <button onClick={()=>dispatch(Actions.AddToCart(product,1,1))}>Add To Cart</button>
         <div class="ad">
             <h4>Why Shop from Grocers?</h4>
             <div class="adBox">
