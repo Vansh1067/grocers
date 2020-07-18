@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import {withRouter} from 'react-router-dom'
 import ProductCardComponent from '../../../categoriesCardComponent/productCardComponent/productCardComponent'
-import {connect} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 import * as Actions from '../../../../store/wishList/action'
 import Hoc from '../../../../Hoc/hoc';
 const WishList =props=>{
-    
     useEffect(()=>{
         props.WishList()
-    })
+    },[])
     return (<Hoc className="wishList">
-<h3>WishList</h3>
+ 
+            <h3>WishList</h3>
                 <div className="wishProduct">
 {
                
-                props.wishListProd.map((product)=>{
-                return <ProductCardComponent  product={product}/>
+               props.wishListProd.map((product,i)=>{
+                return <ProductCardComponent key={i} fav={true} product={product}/>
 
                })
            }

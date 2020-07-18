@@ -4,7 +4,7 @@ export const DELETE_FROM_CART='DELETE_FROM_CART';
 
 
 const cart={items:[],totalAmount:0}
-const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk1MDE4MTIwLCJleHAiOjE1OTUwMjg5MjB9.Jec45zwSFt14XiHksglRhEGxSs4nFICw49tbFPIniEw'
+const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk1MTAzMjUyLCJleHAiOjE1OTUxMTQwNTJ9.r99RvewWq2-5vHizzL_aYvpNq8CuR4s2X_RTr7QDeDA'
 export const fetchCart=()=>{
     return (dispatch)=>{
         fetch('http://localhost:3001/cart',{
@@ -19,11 +19,7 @@ export const fetchCart=()=>{
             dispatch({type:FETCH_CART,payload:Cart.cart.cart})
 
         })
-       /*  setTimeout(()=>{
-           
-            dispatch({type:FETCH_CART,payload:cart})
-
-        },1000) */
+      
        
 }}
 export const AddToCart=(product,qty,Amt)=>{
@@ -70,10 +66,7 @@ export const DeleteFromCart=(id)=>{
 
     
         })
-           /*  const Cart=cart.items.filter(product=>product._id!==id);
-            const updatedCart={...cart,items:Cart}
-            dispatch({type:DELETE_FROM_CART,payload:updatedCart})
- */
+    
      
     }
 }

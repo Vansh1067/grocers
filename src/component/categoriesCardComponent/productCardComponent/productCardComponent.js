@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import {connect} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 import {withRouter,Redirect,useHistory,Router} from 'react-router-dom'
 import * as Action from '../../../store/cart/action'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,10 +11,17 @@ import './productCardComponent.css'
 import img from '../../../assest/Capture.PNG'
 import img2 from '../../../assest/Capture1.PNG'
 const ProductCardComponent=(props)=>{
-
+    const Products=useSelector(state=>state.products.product)
     const [quantity,setQuantity]=useState(1)
     let history=useHistory();
-    const product={...props.product};
+    let product;
+    if(props.fav){
+        product={...Products.find(product=>product._id===props.product.productId)}
+    }else{
+        product={...props.product};
+
+    }
+
     const DetailHandler=()=>{
         if(product.code){
                 history.push('/products/'+product.code);
