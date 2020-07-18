@@ -11,7 +11,7 @@ import ProductReducer from './store/product/reducer';
 import CartReducer from './store/cart/reducer';
 import AuthReducer from './store/auth/reducer';
 import OrderReducer from './store/order/reducer';
-import WishListReducer from './store/wishList/reducer';
+import WishListReducer from './store/user/reducer';
 
 
 

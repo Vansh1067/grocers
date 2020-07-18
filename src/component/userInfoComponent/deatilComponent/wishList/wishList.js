@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import {withRouter} from 'react-router-dom'
 import ProductCardComponent from '../../../categoriesCardComponent/productCardComponent/productCardComponent'
 import {connect, useSelector} from 'react-redux';
-import * as Actions from '../../../../store/wishList/action'
+import * as Actions from '../../../../store/user/action'
 import Hoc from '../../../../Hoc/hoc';
 const WishList =props=>{
     useEffect(()=>{

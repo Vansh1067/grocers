@@ -14,8 +14,8 @@ const AsideComponent=(props)=>{
                 </div>
             <div class="linklist">
                 <ul>
-                    <li><NavLink to="/account/12">{<FontAwesomeIcon icon={faUser}/>} My Profile</NavLink></li>
-                    <li><NavLink to="/account/address/12">{<FontAwesomeIcon icon={faAddressCard}/>} My Address</NavLink></li>
+                    <li><NavLink to="/account">{<FontAwesomeIcon icon={faUser}/>} My Profile</NavLink></li>
+                    <li><NavLink to="/account/address/">{<FontAwesomeIcon icon={faAddressCard}/>} My Address</NavLink></li>
                     <li><NavLink to="/account/wishlist">{<FontAwesomeIcon icon={faHeart}/>} Wish List</NavLink></li>
                     <li><NavLink to="/account/orders">{<FontAwesomeIcon icon={faListUl}/>} Orders</NavLink></li>
                     <li><NavLink to="/logout">{<FontAwesomeIcon icon={faUserLock}/>} Logout</NavLink></li>

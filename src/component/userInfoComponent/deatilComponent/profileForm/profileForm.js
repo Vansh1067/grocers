@@ -1,25 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
-import * as Actions from '../../../../store/auth/action'
+import * as Actions from '../../../../store/user/action'
 import Hoc from '../../../../Hoc/hoc'
 const ProfileForm=(props)=>{
     useEffect(()=>{
-        props.UserData(12);
+        props.UserData();
         console.log(props)
    
 
     },[])
-    const [Fname,setFname]=useState(props.userData.FirstName)
-    const [Lname,setLname]=useState(props.userData.LastName)
-    const [Phone,setPhone]=useState(props.userData.Phone)
-    const [Email,setEmail]=useState(props.userData.Email)
-    const [Country,setCountry]=useState(props.userData.Country)
-    const [City,setCity]=useState(props.userData.City)
-    const [ZipCode,setZipCode]=useState(props.userData.ZipCode)
-    const [State,setState]=useState(props.userData.State)
-    const [Address1,setAddress1]=useState(props.userData.Address1)
-
+    const [Fname,setFname]=useState('')
+    const [Lname,setLname]=useState('')
+    const [Phone,setPhone]=useState('')
+    const [Email,setEmail]=useState('')
+    const [Country,setCountry]=useState('')
+    const [City,setCity]=useState('')
+    const [ZipCode,setZipCode]=useState('')
+    const [State,setState]=useState('')
+    const [Address1,setAddress1]=useState('')
+    useEffect(()=>{
+        setFname(props.userData.fName);
+        setLname(props.userData.lName);
+        setPhone(props.userData.phone)
+        setEmail(props.userData.email)
+        setCountry(props.userData.country)
+        setCity(props.userData.city)
+        setZipCode(props.userData.zipCode)
+        setState(props.userData.state)
+        setAddress1(props.userData.Address1)
+    })
 
 
     return(
@@ -80,13 +90,13 @@ const ProfileForm=(props)=>{
 }
 const mapStateToProps=state=>{
     return {
-        userData:state.auth.userData
+        userData:state.wishList.userData
     
     }
     }
     const mapDispatchToProps=dispatch=>{
         return {
-            UserData:(id)=>dispatch(Actions.fetchUserData(+id))
+            UserData:()=>dispatch(Actions.fetchUserData())
     
         }
     }

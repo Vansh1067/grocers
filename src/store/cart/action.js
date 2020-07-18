@@ -4,7 +4,7 @@ export const DELETE_FROM_CART='DELETE_FROM_CART';
 
 
 const cart={items:[],totalAmount:0}
-const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk1MTAzMjUyLCJleHAiOjE1OTUxMTQwNTJ9.r99RvewWq2-5vHizzL_aYvpNq8CuR4s2X_RTr7QDeDA'
+const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk1MTE0MjA0LCJleHAiOjE1OTUxMjUwMDR9.31uVkD2vp6j1fQz8OwZdO2ZOG7Kman8j-G-DerC6mHo'
 export const fetchCart=()=>{
     return (dispatch)=>{
         fetch('http://localhost:3001/cart',{

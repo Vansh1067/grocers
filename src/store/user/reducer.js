@@ -1,7 +1,8 @@
-import {FETCH_WISHLIST} from './action'
+import {FETCH_WISHLIST,FETCH_USER_DATA} from './action'
 
 const initialState={
-wishList:[]
+wishList:[],
+userData:{}
 }
 const reducer=(state=initialState,action)=>{
     switch(action.type){
@@ -10,7 +11,11 @@ const reducer=(state=initialState,action)=>{
                     ...state,
                     wishList:action.payload
                 }
-           
+                case FETCH_USER_DATA:
+                    return {
+                        ...state,
+                        userData:action.payload
+                    }
             default:
                 return state
                 

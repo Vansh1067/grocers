@@ -4,7 +4,7 @@ const initialState={
 isAuth:false,
 token:'',
 expiresIn:'',
-userData:{}
+
 }
 
 const reducer=(state=initialState,action)=>{
@@ -24,12 +24,7 @@ const reducer=(state=initialState,action)=>{
                     user:action.payload,
                     isAuth:true
                 }
-            case USERDATA:
-                return {
-                       ...state,
-                       userData:action.payload,
-                 
-               }
+          
                
             default:
                 return state

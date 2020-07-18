@@ -3,21 +3,9 @@
 export const LOGIN='LOGIN';
 export const SIGNUP='SIGNUP';
 export const LOGOUT='LOGOUT';
-export const USERDATA='USERDATA';
 
-const user={
-    FirstName:'Vansh',
-    LastName:'Tandon',
-    Phone:'9760300288',
-    Email:'vanshtandon1067@gmail.com',
-    Country:'India',
-    City:'Roorkee',
-    ZipCode:'247667',
-    State:'Uttrakhand',
-    Address1:'House Number 4. Ram Bhawan Satti Street',
-    Address2:'Ruder Hostel Room No. 214 GB pant institute of engineering college pauri '
 
-}
+
 export const LoginSuccess=(token)=>{
     console.log("Suceess")
 }
@@ -85,12 +73,3 @@ export const login=(user)=>{
   
 }
 } */
-export const fetchUserData=(id)=>{
-    console.log("user No "+id)
-    return (dispatch)=>{
-    setTimeout(()=>{
-       dispatch({type:USERDATA,payload:user})
-
-    },1000)
-}
-}

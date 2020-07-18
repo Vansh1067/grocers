@@ -15,8 +15,9 @@ const DetailComponent=(props)=>{
 
                 <Route path='/account/orders' exact component={OrderComponent}/>
                 <Route path='/account/wishlist' exact component={WishList}/>
-                <Route path='/account/:token' exact component={ProfileForm}/> 
-                <Route path='/account/address/:token' exact component={AddressForm}/> 
+                <Route path='/account/address' exact component={AddressForm}/> 
+                <Route path='/account' exact component={ProfileForm}/> 
+
 
             </Switch>
             
