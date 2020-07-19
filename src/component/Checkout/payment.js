@@ -72,6 +72,30 @@ const Input=styled.input`
 ${props=>props.styles};
 
 `
+const product={
+    AvailabelDetails: [],
+Details:{
+description: "Never let a buzzing mosquito disrupt your peace again with the All Out Mosquito Repellent Refill. Don’t live your best moments fearing diseases like malaria and dengue anymore and trust All Out to be your shield against it. Sensitive to your presence, it does not harm the air you breathe by maintaining the sanctity of your home. The refill is really enough for you to be rest assured for a long time to come. From the minute you switch it on, it starts acting to your rescue and gives your family the protection you seek.",
+keyFeatures: "Kills Dengue and Malaria mosquitoes 30% faster Unique thermal cut-off designed to shut off if it over-heats Rotating deck enables use in vertical and horizontal outlets Covers the entire room and lets you enjoy peaceful sleep",
+manufacturer: "S C Johnson Products Private Limited, Regd Office : 5th Floor, plot no 68, Sector -44, Gurgaon, Haryana, 122003",
+packagingType: "Refill",
+seller: "LA Super Retail Pvt Ltd (https://bit.ly/2QuoDoe)",
+unit: "6*45ml",
+},
+MRP: 30,
+categories: 1,
+imageUrl: "../max.png",
+preferences: true,
+reviews: [
+{_id: "akjbskjbajbsjcb"},
+{_id: "nsjf bskchsjh"}
+],
+sellingPrice: 25,
+specialOffer: true,
+title: "Baby Care",
+weight: "2kg",
+_id: "5f0e1b346bea1d4c88d52653"
+}
 const Payment=(props)=>{
     return(
         <Wrapper>
@@ -147,6 +171,11 @@ const Payment=(props)=>{
 </Div>
 
 </Card>
+</PaymentBox>
+<P size='25px' weight='bold'>Product Description</P>
+
+<PaymentBox styles={'justify-content:flex-start; '}>
+<ProductComponent list={true} desc={true} product={product}  />
 </PaymentBox>
 </MainWrapper>
         </Wrapper>
