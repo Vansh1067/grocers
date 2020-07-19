@@ -4,7 +4,7 @@ export const DELETE_FROM_CART='DELETE_FROM_CART';
 
 
 const cart={items:[],totalAmount:0}
-const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk1MTE0MjA0LCJleHAiOjE1OTUxMjUwMDR9.31uVkD2vp6j1fQz8OwZdO2ZOG7Kman8j-G-DerC6mHo'
+const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk1MTkwMzI4LCJleHAiOjE1OTUyMDExMjh9.nBKlJ3C_ZYsAyZhJS93yG_drLZy5H85boBZIJesScoA'
 export const fetchCart=()=>{
     return (dispatch)=>{
         fetch('http://localhost:3001/cart',{
@@ -15,8 +15,11 @@ export const fetchCart=()=>{
         }).then(response=>{
            return response.json()
         }).then(Cart=>{
-         
-            dispatch({type:FETCH_CART,payload:Cart.cart.cart})
+            let CART={items:[],totalAmount:0}
+            if(Cart.cart){
+                CART=Cart.cart.cart
+            }
+            dispatch({type:FETCH_CART,payload:CART})
 
         })
       

@@ -6,7 +6,7 @@ import HeaderComponent from './component/HeaderComponent/headerComponent';
 import FooterComponent from './component/FooterComponent/footerComponent';
 import SectionContainer from './containers/sectionConatiners/sectionContainers';
 import ProductListContainer from './containers/productListContainers/productListContainer'
- import ProductDetailtContainer from './containers/ProductDetailContainer/ProductDetailContainer';
+import ProductDetailtContainer from './containers/ProductDetailContainer/ProductDetailContainer';
 
 import UserInfoComponent from './component/userInfoComponent/userInfoComponent' 
 
@@ -20,6 +20,8 @@ function App() {
       <Route path="/product/:id" component={ProductDetailtContainer}/>
 
       <Route path="/account" component={UserInfoComponent}/>
+ 
+
 
       </Switch>
       <FooterComponent></FooterComponent>

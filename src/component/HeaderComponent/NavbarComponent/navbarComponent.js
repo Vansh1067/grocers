@@ -75,7 +75,7 @@ const NavbarComponent=(props)=>{
                <ul>
                   {!auth.isAuth? <li><NavLink to='' onClick={()=>{toggleLoginHandler('login')}}>Login</NavLink></li>:null}
                   {!auth.isAuth? <li><NavLink to=''onClick={()=>{toggleLoginHandler('reg')}}>Register</NavLink></li>:null}
-                  {auth.isAuth? <li><NavLink to="/account/12">profile</NavLink></li>:null}
+                  {auth.isAuth? <li><NavLink to="/account">profile</NavLink></li>:null}
                   {auth.isAuth? <li><NavLink to="/logout">Logout</NavLink></li>:null}
                   
 
