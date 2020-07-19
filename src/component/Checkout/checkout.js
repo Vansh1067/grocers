@@ -63,7 +63,10 @@ justify-content:${props=>props.loc||'space-around'};
 ${props=>props.styles};
 
 `
-
+const Input=styled.input`
+padding:3px;
+width:250px;
+`
 const Checkout=(props)=>{
     return(
 
@@ -96,6 +99,44 @@ const Checkout=(props)=>{
              
                 </Card>
                 </AddressBox>
+                <P size='20px' weight='500' >Add New Address</P>
+                <P styles={'& a{text-decoration:none;}'}>Be sure to click "Deliver to this address" when you've finished. </P>
+                <form>
+                    <Div styles={'flex-direction:column; align-items:flex-start;'} >
+                        <P size='15px' weight={'bold'}>Full Name</P>
+
+                        <Input type='text'></Input>
+                    </Div>
+                    <Div styles={'flex-direction:column; align-items:flex-start;'} >
+                        <P size='15px' weight={'bold'}>Mobile Number</P>
+                        <Input type='text'></Input>
+                    </Div>
+                    <Div styles={'flex-direction:column; align-items:flex-start;'} >
+                        <P size='15px' weight={'bold'}>Pin Code</P>
+                        <Input type='text'></Input>
+                    </Div><Div styles={'flex-direction:column; align-items:flex-start;'} >
+                        <P size='15px' weight={'bold'}>Flat, House no., Building, Apartment: </P>
+                        <Input type='text'></Input>
+                    </Div><Div styles={'flex-direction:column; align-items:flex-start;'} >
+                        <P size='15px' weight={'bold'}>Area, Colony, Street, Sector, Village: </P>
+                        <Input type='text'></Input>
+                    </Div><Div styles={'flex-direction:column; align-items:flex-start;'} >
+                        <P size='15px' weight={'bold'}>Landmark e.g. near apollo hospital: </P>
+                        <Input type='text'></Input>
+                    </Div><Div styles={'flex-direction:column; align-items:flex-start;'} >
+                        <P size='15px' weight={'bold'}>Town/City: </P>
+                        <Input type='text'></Input>
+                    </Div>
+                    <Div styles={'flex-direction:column; align-items:flex-start;'} >
+                        <P size='15px' weight={'bold'}>State: </P>
+                        <Input type='text'></Input>
+                    </Div>
+                    <Div styles={'flex-direction:column; align-items:flex-start;'}>
+                    <Button width='max-content;'>Deliver To This Address</Button>
+
+                    </Div>
+                </form>
+            
                 </MainWrapper>
             
         </Wrapper>
