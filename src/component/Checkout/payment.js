@@ -96,6 +96,16 @@ title: "Baby Care",
 weight: "2kg",
 _id: "5f0e1b346bea1d4c88d52653"
 }
+const Popup=styled.div`
+box-shadow:0px 5px 10px black;
+background-color:white;
+position:absolute;
+width:300px;
+height:200px;
+z-index:15;
+
+`
+
 const Payment=(props)=>{
     return(
         <Wrapper>
@@ -128,7 +138,21 @@ const Payment=(props)=>{
 
 <PaymentBox styles={'justify-content:space-around;align-items:center;'}>
 
+<Popup>
+    <P size='25px' weight='bold' styles={'border-bottom:1px solid gray;text-align:center;'}>Verify Your Account</P>
+    <Div styles={'flex-direction:column;align-items:center;'}>
+    <P size='25px' styles={''}>Enter Your OTP</P>
 
+    <Input type='text' styles={'margin-left:10px;'}></Input>
+    <Div styles={'width:100%'}>
+
+    <Button width="40%"styles={'background-color:green;'}>Confirm</Button>
+    <Button width="40%" styles={'background-color:red; '}>Cancel</Button>
+    </Div>
+
+    </Div>
+
+</Popup>
 <Card>
 <P size='20px' weight="bold">Shipping Address</P>
 <P size='15px' weight='500' >Rudra Hostel(180) Room No. 214 GB Pant Institute of Engineering and Technology Ghurdauri PAURI, UTTARAKHAND 246194 India</P>
