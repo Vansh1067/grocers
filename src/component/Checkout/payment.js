@@ -100,6 +100,54 @@ const Payment=(props)=>{
 </Div>
 </form>
 </PaymentBox>
+<P size='25px' weight='bold'>Review Your Order</P>
+
+<PaymentBox styles={'justify-content:space-around;align-items:center;'}>
+
+
+<Card>
+<P size='20px' weight="bold">Shipping Address</P>
+<P size='15px' weight='500' >Rudra Hostel(180) Room No. 214 GB Pant Institute of Engineering and Technology Ghurdauri PAURI, UTTARAKHAND 246194 India</P>
+<P size='15px' weight='500' >Phone: 9760300288</P>
+</Card>
+
+<Card>
+<P size='20px' weight="bold">Payment Method</P>
+<P size='15px' weight='500' >Pay on delivery(Cash)</P>
+<P size='15px' weight={'bold'} >Gift cards, Voucher &amp; Promotional codes</P>
+
+<Div styles={'flex-direction:column; align-items:flex-start;margin-left:10px'} >
+        <Input type='text'></Input>
+        <Button width="40%" >Apply</Button>
+
+</Div>
+</Card>
+<Card>
+<Button>Place Your Order</Button>
+<P size='15px' weight={'bold'} >Order summary</P>
+<Div styles={'justify-content:space-between;'}>
+<P s ize='15px' styles={"margin:0px"} >Items:</P>
+<P size='15px' styles={"margin:0px"} >100</P>
+</Div>
+<Div styles={'justify-content:space-between;'}>
+<P s styles={'justify-content:space-between;'}ize='15px' styles={"margin:0px"} >Delivery:</P>
+<P size='15px' styles={"margin:0px"} >10</P>
+</Div >
+<Div styles={'justify-content:space-between;'}>
+<P s ize='15px' styles={"margin:0px"} >Total:</P>
+<P size='15px' styles={"margin:0px"} >110</P>
+</Div>
+<Div styles={'justify-content:space-between;'}>
+<P s ize='15px' styles={"margin:0px"} >Savings:</P>
+<P size='15px' styles={"margin:0px"} >-20</P>
+</Div>
+<Div styles={'border-top:1px solid red;padding-top:15px;'}>
+<P size='20px' weight='bold'  styles={"color:red;margin:0px"} >Order Total</P>
+<P size='20px' weight='bold' styles={"margin:0px"} >90 (-22%)</P>
+</Div>
+
+</Card>
+</PaymentBox>
 </MainWrapper>
         </Wrapper>
          
