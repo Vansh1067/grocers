@@ -10,6 +10,8 @@ import ProductDetailtContainer from './containers/ProductDetailContainer/Product
 
 import UserInfoComponent from './component/userInfoComponent/userInfoComponent' 
 
+import Payment from './component/Checkout/payment'
+import Checkout from './component/Checkout/checkout'
 function App() {
   return (
     <div className="App">
@@ -20,7 +22,8 @@ function App() {
       <Route path="/product/:id" component={ProductDetailtContainer}/>
 
       <Route path="/account" component={UserInfoComponent}/>
- 
+      <Route path="/checkout" exact component={Checkout}/>
+<Route path='/checkout/payment'component={Payment}/>
 
 
       </Switch>
