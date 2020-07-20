@@ -75,14 +75,14 @@ const Checkout=(props)=>{
     const [user,setuser]=useState();
     const User=useSelector(state=>state.wishList.userData);
     let UserAddress;
-    const [Fname,setFname]=useState('')
-    const [Lname,setLname]=useState('')
-    const [Phone,setPhone]=useState('')
-    const [City,setCity]=useState('')
-    const [Country,setCountry]=useState('')
+    const [fName,setFname]=useState('')
+    const [lName,setLname]=useState('')
+    const [phone,setPhone]=useState('')
+    const [city,setCity]=useState('')
+    const [country,setCountry]=useState('')
 
-    const [ZipCode,setZipCode]=useState('')
-    const [State,setState]=useState('')
+    const [zipCode,setZipCode]=useState('')
+    const [state,setState]=useState('')
     const [Address1,setAddress1]=useState('')
     const [Address2,setAddress2]=useState('')
     const [Address3,setAddress3]=useState('')
@@ -93,8 +93,8 @@ const Checkout=(props)=>{
         
         if(User){
             UserAddress={
-                Fname:User.fName,
-                Lname:User.lName,
+                fName:User.fName,
+                lName:User.lName,
                 Address1:User.Address1,
                 Address2:User.Address2,
                 Address3:User.Address3,
@@ -110,7 +110,7 @@ const Checkout=(props)=>{
     
     const CheckoutHandler=(address,New=false)=>{
         if(New){
-            address={Fname,Lname,Phone,Address1,Address2,Address3,City,State,ZipCode,Country,New}
+            address={fName,lName,phone,Address1,Address2,Address3,city,state,zipCode,country,New}
         } 
         dispatch(Action.saveAddress(address))
 
@@ -157,15 +157,15 @@ const Checkout=(props)=>{
                     <Div styles={'flex-direction:column; align-items:flex-start;'} >
                         <P size='15px' weight={'bold'}>First Name</P>
 
-                        <Input type='text' value={Fname} onChange={(event)=>setFname(event.target.value)}></Input>
+                        <Input type='text' value={fName} onChange={(event)=>setFname(event.target.value)}></Input>
                     </Div>
                     <Div styles={'flex-direction:column; align-items:flex-start;'} >
                         <P size='15px' weight={'bold'}>Last Name</P>
-                        <Input type='text' value={Lname} onChange={(event)=>setLname(event.target.value)}></Input>
+                        <Input type='text' value={lName} onChange={(event)=>setLname(event.target.value)}></Input>
                     </Div>
                     <Div styles={'flex-direction:column; align-items:flex-start;'} >
                         <P size='15px' weight={'bold'}>Phone</P>
-                        <Input type='text' value={Phone} onChange={(event)=>setPhone(event.target.value)}></Input>
+                        <Input type='text' value={phone} onChange={(event)=>setPhone(event.target.value)}></Input>
                     </Div><Div styles={'flex-direction:column; align-items:flex-start;'} >
                         <P size='15px' weight={'bold'}>Flat, House no., Building, Apartment: </P>
                         <Input type='text' value={Address1} onChange={(event)=>setAddress1(event.target.value)}></Input>
@@ -177,19 +177,19 @@ const Checkout=(props)=>{
                         <Input type='text' value={Address3} onChange={(event)=>setAddress3(event.target.value)}></Input>
                     </Div><Div styles={'flex-direction:column; align-items:flex-start;'} >
                         <P size='15px' weight={'bold'}>Town/City: </P>
-                        <Input type='text' value={City} onChange={(event)=>setCity(event.target.value)}></Input>
+                        <Input type='text' value={city} onChange={(event)=>setCity(event.target.value)}></Input>
                     </Div>
                     <Div styles={'flex-direction:column; align-items:flex-start;'} >
                         <P size='15px' weight={'bold'}>State: </P>
-                        <Input type='text' value={State} onChange={(event)=>setState(event.target.value)}></Input>
+                        <Input type='text' value={state} onChange={(event)=>setState(event.target.value)}></Input>
                     </Div>
                     <Div styles={'flex-direction:column; align-items:flex-start;'} >
                         <P size='15px' weight={'bold'}>Pin Code: </P>
-                        <Input type='text' value={ZipCode} onChange={(event)=>setZipCode(event.target.value)}></Input>
+                        <Input type='text' value={zipCode} onChange={(event)=>setZipCode(event.target.value)}></Input>
                     </Div>
                     <Div styles={'flex-direction:column; align-items:flex-start;'} >
                         <P size='15px' weight={'bold'}>Country: </P>
-                        <Input type='text' value={Country} onChange={(event)=>setCountry(event.target.value)}></Input>
+                        <Input type='text' value={country} onChange={(event)=>setCountry(event.target.value)}></Input>
                     </Div>
                     <Div styles={'flex-direction:column; align-items:flex-start;'}>
                     <Button width='max-content;' onClick={()=>CheckoutHandler({},true)}>Deliver To This Address</Button>
