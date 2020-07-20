@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components';
 import {Link} from 'react-router-dom'
 import img from '../../assest/Capture1.PNG' 
 import ProductComponent from '../categoriesCardComponent/productCardComponent/productCardComponent'
+import {useSelector} from 'react-redux';
+
 const Wrapper=styled.div`
     width:100%;
 
@@ -107,6 +109,16 @@ z-index:15;
 `
 
 const Payment=(props)=>{
+    const [popup,setPopup]=useState(false);
+    const CheckoutDetails=useSelector(state=>state.checkOut);
+    const Cart=useSelector(state=>state.cart.cart);
+    const Address=CheckoutDetails.Address
+    const OrderSummary=CheckoutDetails.OrderSummary
+    console.log(OrderSummary,CheckoutDetails)
+
+    const orderHandler=()=>{
+        setPopup(!popup)
+    }
     return(
         <Wrapper>
            <MainWrapper>
@@ -138,7 +150,7 @@ const Payment=(props)=>{
 
 <PaymentBox styles={'justify-content:space-around;align-items:center;'}>
 
-<Popup>
+{popup?<Popup>
     <P size='25px' weight='bold' styles={'border-bottom:1px solid gray;text-align:center;'}>Verify Your Account</P>
     <Div styles={'flex-direction:column;align-items:center;'}>
     <P size='25px' styles={''}>Enter Your OTP</P>
@@ -147,16 +159,18 @@ const Payment=(props)=>{
     <Div styles={'width:100%'}>
 
     <Button width="40%"styles={'background-color:green;'}>Confirm</Button>
-    <Button width="40%" styles={'background-color:red; '}>Cancel</Button>
+    <Button width="40%" styles={'background-color:red; '} onClick={orderHandler}>Cancel</Button>
     </Div>
 
     </Div>
 
-</Popup>
+</Popup>:null}
 <Card>
 <P size='20px' weight="bold">Shipping Address</P>
-<P size='15px' weight='500' >Rudra Hostel(180) Room No. 214 GB Pant Institute of Engineering and Technology Ghurdauri PAURI, UTTARAKHAND 246194 India</P>
-<P size='15px' weight='500' >Phone: 9760300288</P>
+<P size='15px' weight='500' >{Address.fName} {Address.lName}</P>
+
+<P size='15px' weight='500' >{Address.Address1} {Address.Address2} {Address.Address3} {Address.city} {Address.state} {Address.zipCode} {Address.country}</P>
+<P size='15px' weight='500' >Phone: {Address.phone}</P>
 </Card>
 
 <Card>
@@ -167,31 +181,31 @@ const Payment=(props)=>{
 <Div styles={'flex-direction:column; align-items:flex-start;margin-left:10px'} >
         <Input type='text'></Input>
         <Button width="40%" >Apply</Button>
-
+       
 </Div>
 </Card>
 <Card>
-<Button>Place Your Order</Button>
+<Button onClick={orderHandler}>Place Your Order</Button>
 <P size='15px' weight={'bold'} >Order summary</P>
 <Div styles={'justify-content:space-between;'}>
 <P s ize='15px' styles={"margin:0px"} >Items:</P>
-<P size='15px' styles={"margin:0px"} >100</P>
+<P size='15px' styles={"margin:0px"} >{OrderSummary.items}</P>
 </Div>
 <Div styles={'justify-content:space-between;'}>
 <P s styles={'justify-content:space-between;'}ize='15px' styles={"margin:0px"} >Delivery:</P>
-<P size='15px' styles={"margin:0px"} >10</P>
+<P size='15px' styles={"margin:0px"} >{OrderSummary.Delivery}</P>
 </Div >
 <Div styles={'justify-content:space-between;'}>
 <P s ize='15px' styles={"margin:0px"} >Total:</P>
-<P size='15px' styles={"margin:0px"} >110</P>
+<P size='15px' styles={"margin:0px"} >{OrderSummary.Total}</P>
 </Div>
 <Div styles={'justify-content:space-between;'}>
 <P s ize='15px' styles={"margin:0px"} >Savings:</P>
-<P size='15px' styles={"margin:0px"} >-20</P>
+<P size='15px' styles={"margin:0px"} >-{OrderSummary.savings}</P>
 </Div>
 <Div styles={'border-top:1px solid red;padding-top:15px;'}>
-<P size='20px' weight='bold'  styles={"color:red;margin:0px"} >Order Total</P>
-<P size='20px' weight='bold' styles={"margin:0px"} >90 (-22%)</P>
+<P size='18px' weight='bold'  styles={"color:red;margin:0px"} >Order Total</P>
+<P size='18px' weight='bold' styles={"margin:0px"} >{OrderSummary.OrderTotal} (-{((OrderSummary.savings/OrderSummary.items)*100).toFixed(0)}%)</P>
 </Div>
 
 </Card>

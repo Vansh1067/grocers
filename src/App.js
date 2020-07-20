@@ -23,7 +23,7 @@ function App() {
 
       <Route path="/account" component={UserInfoComponent}/>
       <Route path="/checkout" exact component={Checkout}/>
-<Route path='/checkout/payment'component={Payment}/>
+      <Route path='/checkout/payment'component={Payment}/>
 
 
       </Switch>

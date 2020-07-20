@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes} from '@fortawesome/free-solid-svg-icons'
 import {connect, useSelector} from 'react-redux';
 import {NavLink} from 'react-router-dom'
-import * as Action from '../../store/auth/action'
+import * as Action from '../../store/auth/action';
+import * as Actions from '../../store/user/action';
+
 import Hoc from '../../Hoc/hoc';
 import img from '../../assest/logo2.jpeg'
 import './accountComponent.css'
@@ -17,7 +19,7 @@ const AccountComponent=(props)=>{
     useEffect(()=>{
         if(props.user.isAuth){
             props.toggleHandler(false);
-           
+            props.FetchUser();
         }
        
     },[props.user.isAuth])
@@ -46,7 +48,7 @@ const AccountComponent=(props)=>{
         
 
     }
-    console.log(check)
+  
     return(
         
         <Hoc class="AccountContainer">
@@ -101,6 +103,7 @@ const mapStateToProps=state=>{
 const mapDispatchToProps=dispatch=>{
     return {
         Login:(user)=>dispatch(Action.login(user)),
+        FetchUser:()=>dispatch(Actions.fetchUserData()),
    
 
     }

@@ -12,6 +12,8 @@ import CartReducer from './store/cart/reducer';
 import AuthReducer from './store/auth/reducer';
 import OrderReducer from './store/order/reducer';
 import WishListReducer from './store/user/reducer';
+import CheckoutReducer from './store/Checkout/reducer';
+
 
 
 
@@ -20,7 +22,9 @@ const rootReducer=combineReducers({
     cart:CartReducer,
     auth:AuthReducer,
     order:OrderReducer,
-    wishList:WishListReducer
+    wishList:WishListReducer,
+    checkOut:CheckoutReducer,
+
 })
 const store=createStore(rootReducer,applyMiddleware(thunk))
 console.log(store.getState())

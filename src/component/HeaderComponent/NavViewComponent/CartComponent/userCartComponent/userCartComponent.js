@@ -4,10 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes,faCartArrowDown,faCaretRight} from '@fortawesome/free-solid-svg-icons'
 import './userCartComponent.css'
 import Hoc from '../../../../../Hoc/hoc'
-import {connect, useSelector} from 'react-redux';
-
+import {connect} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 import * as Action from '../../../../../store/cart/action'
-import CartProduct from './cartProductComponent/cartProductComponent'
+import * as Actions from '../../../../../store/Checkout/action'
+
+import CartProduct from './cartProductComponent/cartProductComponent';
+import { saveOrderDetails } from '../../../../../store/Checkout/action';
 const UserCartComponent =props=>{
     const [sum,setSum]=useState(0)
     const [DiscSum,setDiscSum]=useState(0)
@@ -15,7 +18,8 @@ const UserCartComponent =props=>{
     const [cartitems,setcartitems]=useState(props.CART.items)
     const [totalitems,settotalitems]=useState(props.CART.items.length)
     const [refresh,setrefresh]=useState(false)
-        console.log(props.CART)
+     
+    let history=useHistory();
 
 
    
@@ -48,13 +52,20 @@ const UserCartComponent =props=>{
        return ()=>{  setcartitems(props.CART.items)}
        })
       
-
+const CheckoutHandler=()=>{
+    const OrderSummary={items:DiscSum,Delivery:delivery,Total:DiscSum+delivery,savings:DiscSum-sum,OrderTotal:sum+delivery}
+    
+    props.SaveOrderDetails(OrderSummary)
+    history.push('/checkout');
+    props.click()
+}
   
 
 
 
     return(
         <Hoc>
+            
             <div class="userCart">
                 <div class="cartheader">
                 <h3>My Cart <span >({totalitems} item)</span></h3>
@@ -80,7 +91,8 @@ const UserCartComponent =props=>{
                         <p>${DiscSum-sum} ({(((DiscSum-sum)/DiscSum)*100).toFixed(0)| 0 }%)</p>
                     </div>
                     <div class="button">
-                        <button>
+
+                        <button onClick={CheckoutHandler}>
                             <div>
                             <FontAwesomeIcon icon={faCartArrowDown}/>
                             <span>Proceed to Checkout</span>
@@ -107,7 +119,8 @@ const mapDispatchToProps=dispatch=>{
 
         Cart:()=>dispatch(Action.fetchCart()),
         AddToCart:(p,q,a)=>dispatch(Action.AddToCart(p,q,a)),
-        DeleteFromCart:(id)=>dispatch(Action.DeleteFromCart(id))
+        DeleteFromCart:(id)=>dispatch(Action.DeleteFromCart(id)),
+        SaveOrderDetails:(details)=>dispatch(Actions.saveOrderDetails(details))
 
        
 

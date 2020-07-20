@@ -10,7 +10,7 @@ export const FETCH_USER_DATA='FETCH_USER_DATA'
 
 const product=[{id:0,title:'Baby Care',price:25,discPrice:30,fav:true},{id:1,title:'Banana',price:15,discPrice:15,fav:false},{id:2,title:'Oil',price:250,discPrice:300,fav:true},{id:3,title:'Chips',price:5,discPrice:5,fav:true},{id:4,title:'Baby Care',price:25,discPrice:35,fav:false},{id:5,title:'Banana',price:15,discPrice:25,fav:true},{id:6,title:'Oil',price:50,discPrice:75,fav:false},{id:7,title:'Chips',price:5,discPrice:15,fav:false}]
 
-const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk1MTkwMzI4LCJleHAiOjE1OTUyMDExMjh9.nBKlJ3C_ZYsAyZhJS93yG_drLZy5H85boBZIJesScoA'
+const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk1MjgyNDAwLCJleHAiOjE1OTUyOTMyMDB9.phpTYN7ivK0l9zkOjFOc7xfvNEH4YcM-aZVVttNXBmw'
 
 export const fetchWishlist=()=>{
     const Products=product.filter((prod)=>prod.fav)

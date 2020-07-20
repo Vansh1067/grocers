@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faShoppingCart} from '@fortawesome/free-solid-svg-icons'
+import Checkout from '../../../Checkout/checkout'
 
 import * as Action from '../../../../store/cart/action'
 import './cartComponent.css'
@@ -38,6 +39,7 @@ const CartComponent =props=>{
   
     return(
         <Hoc className="cart">
+
             <div className="cartbox">
                 <div className="icon" >
                     
