@@ -74,7 +74,7 @@ const Input=styled.input`
 ${props=>props.styles};
 
 `
-const product={
+/* const product={
     AvailabelDetails: [],
 Details:{
 description: "Never let a buzzing mosquito disrupt your peace again with the All Out Mosquito Repellent Refill. Don’t live your best moments fearing diseases like malaria and dengue anymore and trust All Out to be your shield against it. Sensitive to your presence, it does not harm the air you breathe by maintaining the sanctity of your home. The refill is really enough for you to be rest assured for a long time to come. From the minute you switch it on, it starts acting to your rescue and gives your family the protection you seek.",
@@ -97,7 +97,7 @@ specialOffer: true,
 title: "Baby Care",
 weight: "2kg",
 _id: "5f0e1b346bea1d4c88d52653"
-}
+} */
 const Popup=styled.div`
 box-shadow:0px 5px 10px black;
 background-color:white;
@@ -114,7 +114,7 @@ const Payment=(props)=>{
     const Cart=useSelector(state=>state.cart.cart);
     const Address=CheckoutDetails.Address
     const OrderSummary=CheckoutDetails.OrderSummary
-    console.log(OrderSummary,CheckoutDetails)
+    console.log(Cart)
 
     const orderHandler=()=>{
         setPopup(!popup)
@@ -212,8 +212,12 @@ const Payment=(props)=>{
 </PaymentBox>
 <P size='25px' weight='bold'>Product Description</P>
 
-<PaymentBox styles={'justify-content:flex-start; '}>
-<ProductComponent list={true} desc={true} product={product}  />
+<PaymentBox styles={'flex-direction:column '}>
+{Cart.items.map((product)=>{
+    console.log(product)
+       return  <ProductComponent list={true} desc={true} product={product} order={true} fav={true} />
+    
+})}
 </PaymentBox>
 </MainWrapper>
         </Wrapper>

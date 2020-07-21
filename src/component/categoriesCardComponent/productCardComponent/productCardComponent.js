@@ -49,11 +49,11 @@ const ProductCardComponent=(props)=>{
                     {product.sellingPrice?(<div>
                         <p>MRP ${product.sellingPrice}  {product.MRP?<span class="discount">${product.MRP}</span>:null}  </p>
                         <div class={`Cart ${List?'ListCart':null}`}>
-                        <p>Qty</p>
-                        <input type="text" value={quantity} onChange={(event)=>setQuantity(event.target.value)}/>
-                        <FontAwesomeIcon className={'cartIcon'} onClick={()=>props.AddToCart(props.product,quantity,quantity)} icon={faCartPlus}/>
+                        <p>Qty :</p>
+                    {!props.order?<input type="text" value={quantity} onChange={(event)=>setQuantity(event.target.value)}/>:<p>{props.product.quantity}</p>}
+                    {!props.order?<FontAwesomeIcon className={'cartIcon'} onClick={()=>props.AddToCart(props.product,quantity,quantity)} icon={faCartPlus}/>:null}
                         </div>
-                        <button>Buy Now</button>
+                       {!props.order? <button>Buy Now</button>:null}
 
                         </div>):null}
                     
