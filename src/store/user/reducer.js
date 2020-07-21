@@ -1,4 +1,4 @@
-import {FETCH_WISHLIST,FETCH_USER_DATA} from './action'
+import {FETCH_WISHLIST,FETCH_USER_DATA,DELETE_ADDRESS} from './action'
 
 const initialState={
 wishList:[],
@@ -16,6 +16,15 @@ const reducer=(state=initialState,action)=>{
                         ...state,
                         userData:action.payload
                     }
+                case DELETE_ADDRESS:
+                    const AddressData=state.userData.OthersAddress.filter(add=>add.id!==action.payload)
+                    return {
+                            ...state,
+                            userData:{
+                                ...state.userData,
+                                OthersAddress:AddressData
+                            }
+                        }
             default:
                 return state
                 

@@ -7,6 +7,8 @@ import Payment from './payment'
 import {useHistory} from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux';
 import * as Action from '../../store/Checkout/action'
+import * as Actions from '../../store/user/action'
+
 const Wrapper=styled.div`
     width:100%;
 
@@ -73,21 +75,21 @@ const Checkout=(props)=>{
     const dispatch=useDispatch()
     let history=useHistory();
     const [user,setuser]=useState();
-    const User=useSelector(state=>state.wishList.userData);
     let UserAddress;
     const [fName,setFname]=useState('')
     const [lName,setLname]=useState('')
     const [phone,setPhone]=useState('')
     const [city,setCity]=useState('')
     const [country,setCountry]=useState('')
-
+    let User=useSelector(state=>state.wishList.userData);
+    console.log(User)
     const [zipCode,setZipCode]=useState('')
     const [state,setState]=useState('')
     const [Address1,setAddress1]=useState('')
     const [Address2,setAddress2]=useState('')
     const [Address3,setAddress3]=useState('')
 
-  
+    
     useEffect(()=>{
         setuser(User);
         
@@ -106,8 +108,11 @@ const Checkout=(props)=>{
             }
         }
          
-    },[user])
-    
+    },[user,User.OthersAddress])
+    useEffect(()=>{
+        dispatch(Actions.fetchUserData())
+
+    },[])
     const CheckoutHandler=(address,New=false)=>{
         if(New){
             address={fName,lName,phone,Address1,Address2,Address3,city,state,zipCode,country,New}
@@ -116,7 +121,14 @@ const Checkout=(props)=>{
 
         history.push('/checkout/payment'); 
     }
-  
+    const DeleteHandler=(id)=>{
+        alert("Are you sure")
+        dispatch(Actions.deleteAddress(id))
+        dispatch(Actions.fetchUserData())
+    console.log(User)
+
+        setuser('')
+    }
     return(
 
         <Wrapper>
@@ -133,7 +145,7 @@ const Checkout=(props)=>{
                 <Div >
 
                 <Button width="40%"styles={'background-color:green;'}>Edit</Button>
-                <Button width="40%" styles={'background-color:red; '}>Delete</Button>
+                
                 </Div>
              
                 </Card>
@@ -145,7 +157,7 @@ const Checkout=(props)=>{
                 <Div >
 
                 <Button width="40%"styles={'background-color:green;'}>Edit</Button>
-                <Button width="40%" styles={'background-color:red; '}>Delete</Button>
+                <Button width="40%" styles={'background-color:red; '} onClick={()=>DeleteHandler(address.id)}>Delete</Button>
                 </Div>
              
                 </Card>)
