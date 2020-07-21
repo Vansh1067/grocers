@@ -10,7 +10,7 @@ const reducer=(state=initialState,action)=>{
     switch(action.type){
         
             case SAVE_ADDRESS:
-              
+                    console.log(action.payload)
                     return {
                         ...state,
                         Address:action.payload
