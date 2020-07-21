@@ -1,4 +1,4 @@
-import {FETCH_WISHLIST,FETCH_USER_DATA,DELETE_ADDRESS} from './action'
+import {FETCH_WISHLIST,FETCH_USER_DATA,DELETE_ADDRESS,EDIT_ADDRESS} from './action'
 
 const initialState={
 wishList:[],
@@ -25,6 +25,15 @@ const reducer=(state=initialState,action)=>{
                                 OthersAddress:AddressData
                             }
                         }
+                case EDIT_ADDRESS:
+                  
+                    return {
+                             ...state,
+                             userData:{
+                                 ...state.userData,
+                                 OthersAddress:AddressData
+                            }
+                       }
             default:
                 return state
                 

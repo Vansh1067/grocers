@@ -5,6 +5,8 @@ export const ADD_PRODUCT_TO_WISHLIST='ADD_PRODUCT_TO_WISHLIST';
 export const REMOVE_PRODUCT_FROM_WISHLIST='REMOVE_PRODUCT_FROM_WISHLIST';
 export const FETCH_USER_DATA='FETCH_USER_DATA'
 export const DELETE_ADDRESS='DELETE_ADDRESS';
+export const EDIT_ADDRESS='EDIT_ADDRESS';
+
 
 
 
@@ -31,7 +33,7 @@ export const fetchWishlist=()=>{
     
     }
 }
-const user={
+/* const user={
     fName:'Vansh',
     lName:'Tandon',
     phone:'9760300288',
@@ -43,9 +45,9 @@ const user={
     Address1:'House Number 4. Ram Bhawan Satti Street',
     Address2:'Ruder Hostel Room No. 214 GB pant institute of engineering college pauri '
 
-}
+} */
 export const fetchUserData=()=>{
-
+  
     return (dispatch)=>{
         fetch('http://localhost:3001/account/',{
             method:'get',
@@ -77,6 +79,23 @@ export const deleteAddress=(addressId)=>{
                         console.log(res)
                     dispatch({type:DELETE_ADDRESS,payload:addressId})
         
+                }).catch(err=>console.log(err))
+           
+            }
+}
+export const updateAddress=(address)=>{
+    console.log(address)
+        return dispatch=>{
+           
+                fetch('http://localhost:3001/account/add',{
+                    method:'put',
+                    body:JSON.stringify(address),
+                    headers:{
+                        'Authorization':token,
+                        'Content-Type': 'application/json'
+                    },
+                    }).then(res=>{
+                        
                 }).catch(err=>console.log(err))
            
             }

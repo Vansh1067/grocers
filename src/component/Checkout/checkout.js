@@ -139,12 +139,13 @@ const Checkout=(props)=>{
                 <P size='20px' weight='500' >Saved Address</P>
                 <AddressBox>
                 <Card>
+                    <P size='15px' weight="bold" styles={'color:red;'}>*This Address is change only in your Myaccount {'->'} profile section</P>
                     <P size='20px' weight="400">{User.fName}  {User.lName}</P>
                 <P size='15px' weight='500' styles={'color:gray'}>{User.Address1} {User.Address2} {User.Address3} {User.city} {User.state} {User.zipCode} {User.country}</P>
                 <Button onClick={()=>CheckoutHandler(UserAddress)} >Deliver to This Address</Button>
                 <Div >
 
-                <Button width="40%"styles={'background-color:green;'}>Edit</Button>
+                
                 
                 </Div>
              

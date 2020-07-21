@@ -17,6 +17,9 @@ const AddressForm=(props)=>{
     const [State,setState]=useState('')
     const [Address1,setAddress1]=useState('')
     const [Address2,setAddress2]=useState('')
+    const [Address3,setAddress3]=useState('')
+    const [same,setSame]=useState('')
+    const [ContactAddress,setContactAddress]=useState('')
 
     useEffect(()=>{
        
@@ -26,9 +29,21 @@ const AddressForm=(props)=>{
         setState(props.userData.state)
         setAddress1(props.userData.Address1)
         setAddress2(props.userData.Address2)
+        setAddress3(props.userData.Address3)
+        
+       
 
     })
-
+ 
+    const checkedHandler=()=>{
+        
+        setSame(!same)
+        if(!same){
+            setContactAddress(`${Address1} ${Address2} ${Address3} `)
+        }else{
+            setContactAddress('')
+        }
+    }
     return(
         <Hoc>
             <div class="form">
@@ -37,41 +52,41 @@ const AddressForm=(props)=>{
                    
                    <div>
                    <label>Country</label>
-                    <input placeholder="India" type="text" value={Country} onChange={(event)=>setCountry(event.target.value)}></input>
-                   </div><div>
+                    <input  type="text" value={Country} readOnly></input>
+                   </div>
+                   <div>
                    <label>City</label>
-                   <input placeholder="Roorkee" type="text" value={City} onChange={(event)=>setCity(event.target.value)}></input>
-                   </div><div>
+                   <input  type="text" value={City} readOnly></input>
+                   </div>
+                   <div>
                    <label>Zip Code</label>
-                    <input placeholder="247667" type="text" value={ZipCode} onChange={(event)=>setZipCode(event.target.value)}></input>
-                   </div><div>
+                    <input  type="text" value={ZipCode} readOnly></input>
+                   </div>
+                   <div>
                    <label>State</label>
-                    <select value={State} onChange={(event)=>setState(event.target.value)}>
-                        <option selected={true} disabled={true}>State</option>
-                        <option>Uttrakhand</option>
-                        <option>Uttrapradesh</option>
-                        <option>Himachal</option>
-                        <option>Delhi</option>
-                        <option>Harayana</option>
-
-                        </select>
+                    <input  type="text" value={State} readOnly></input>
+                    </div>
+                   <div className="textarea">
+                   <label>Flat, House no., Building, Apartment:</label>
+                    <input   value={Address1} type="text" readOnly></input>
                    </div>
-                   <div class="textarea">
-                   <label>Address 1.</label>
-                    <textarea placeholder="Address" rows={5} type="text"value={Address1} type="text" onChange={(event)=>setAddress1(event.target.value)}></textarea>
+                   <div className="textarea">
+                   <label>Area, Colony, Street, Sector, Village:</label>
+                    <input   value={Address2} type="text" readOnly></input>
                    </div>
+                   <div className="textarea">
+                   <label>Landmark e.g. near apollo hospital:</label>
+                    <input    value={Address3} type="text" readOnly></input>
+                    </div>
                    <div class="textarea">
                    <label>Address 2.</label>
-                    <textarea placeholder="Address" rows={5} value={Address2} type="text" onChange={(event)=>setAddress2(event.target.value)}></textarea>
+                    <textarea  rows={5} value={ContactAddress} type="text" >{ContactAddress}</textarea>
                    </div>
                    <div id="checkbox">
-                    <input type="checkbox" />
+                    <input type="checkbox" onClick={checkedHandler}/>
                     <p> Same as contact address</p> 
                     </div>
-                   <div id="btnn">
-                   <button type="submit">Cancel</button>
-                    <button type="submit">Save Changes</button>
-                   </div>
+                 
                     
 
                   
