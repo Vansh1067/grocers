@@ -58,8 +58,8 @@ const NavbarComponent=(props)=>{
                    <li><NavLink  to={{pathname:"/products/4"}}>Daily Needs</NavLink></li>
                    <li><NavLink  to={{pathname:"/products/5"}}>Dairy &amp; Bakery</NavLink></li>
                    <li><NavLink  to={{pathname:"/products/6"}}>Fruits</NavLink></li>
-                   <li><NavLink  to={{pathname:"/products/7"}}>Oil &amp; Spices</NavLink></li>
-                   <li><NavLink  to={{pathname:"/products/8"}}>Personal Care</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/8"}}>Oil &amp; Spices</NavLink></li>
+                   <li><NavLink  to={{pathname:"/products/7"}}>Personal Care</NavLink></li>
                    <li><NavLink  to={{pathname:"/products/9"}}>Rice Grains</NavLink></li>
                    <li><NavLink  to={{pathname:"/products/10"}}>Snaks &amp; Foods</NavLink></li>
 

@@ -20,11 +20,15 @@ const ProductListContainer=(props)=>{
         const Cat={...props.categories.find(cat=>cat.code==Code)}
         let products;
         let title;
-        if(Code>0){
+        if(Code>0 && Code<11){
             products=props.product.filter(prod=>prod.categories==Code);
             title=Cat.title
 
-        }else{
+        }else if(Code===12){
+            products=props.product.filter(prod=>prod.preferences);
+            title=Cat.title
+        }
+        else{
             products=props.product;
             title="All Products"
         }

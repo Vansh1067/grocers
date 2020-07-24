@@ -1,9 +1,10 @@
-import {LOGIN,SIGNUP, USERDATA} from './action'
+import {LOGIN,SIGNUP, USERDATA, POPUP} from './action'
 
 const initialState={
 isAuth:false,
 token:'',
 expiresIn:'',
+toggleOpen:false
 
 }
 
@@ -24,7 +25,11 @@ const reducer=(state=initialState,action)=>{
                     user:action.payload,
                     isAuth:true
                 }
-          
+            case POPUP:
+                return {
+                    ...state,
+                    toggleOpen:!action.payload
+                }
                
             default:
                 return state

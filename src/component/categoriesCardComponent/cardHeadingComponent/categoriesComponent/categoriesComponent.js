@@ -7,6 +7,7 @@ const CategoriesComponent=(props)=>{
         <Hoc class="categories">
             {
                 props.links.map((link)=>{
+                    
                 return  <NavLink to={{pathname:`/products/${link.id}`}} key={link.id}>{link.title}</NavLink>
                 })
             }

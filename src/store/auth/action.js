@@ -3,6 +3,8 @@
 export const LOGIN='LOGIN';
 export const SIGNUP='SIGNUP';
 export const LOGOUT='LOGOUT';
+export const POPUP='POPUP';
+
 
 
 
@@ -44,6 +46,11 @@ export const login=(user)=>{
         
           
   
+}
+export const popup=(state)=>{
+    return dispatch=>{
+        dispatch({type:POPUP,payload:state})
+    }
 }
 /* export const signup=(user)=>{
     console.log(user)

@@ -26,13 +26,13 @@ const SectionComponent=(props)=>{
 
            { <CategoriesCardComponent title="Top Categories" id="#top" link={[]}
              product={Categories}/>}
-            <CategoriesCardComponent title="All Products" link={[{title:'Baby & Care',id:'1'},{title:'Diary & Bakery',id:'5'},{title:'oil & Spices',id:'7'},{title:'Cleaning & HouseHolds',id:'3'}]}
+            <CategoriesCardComponent title="All Products" link={[{title:'Baby & Care',id:'1'},{title:'Diary & Bakery',id:'5'},{title:'oil & Spices',id:'8'},{title:'Cleaning & HouseHolds',id:'3'}]}
              product={AllProduct}/>
             <SliderComponent img={img}></SliderComponent>
 
             <CategoriesCardComponent title="Trendings Products" link={[{title:'Featured',id:'11'},{title:'Best Seller',id:'12'},{title:'Latest',id:'13'}]}
              product={TrendingProducts}/>
-             <CategoriesCardComponent id="specials" title="Special Offer" link={[{title:'Baby & Care',id:'1'},{title:'Diary & Bakery',id:'5'},{title:'oil & Spices',id:'7'},{title:'Cleaning & HouseHolds',id:'3'}]}
+             <CategoriesCardComponent id="specials" title="Special Offer" link={[{title:'Baby & Care',id:'1'},{title:'Diary & Bakery',id:'5'},{title:'oil & Spices',id:'8'},{title:'Cleaning & HouseHolds',id:'3'}]}
              product={SpecialOfferproducts}/>
           
         </Hoc>

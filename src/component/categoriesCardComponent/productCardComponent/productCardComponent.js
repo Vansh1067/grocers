@@ -1,8 +1,11 @@
 
-import React, { useState } from 'react';
-import {connect, useSelector} from 'react-redux';
+import React, { useState, useRef } from 'react';
+import {connect, useSelector,useDispatch} from 'react-redux';
+
 import {withRouter,Redirect,useHistory,Router} from 'react-router-dom'
 import * as Action from '../../../store/cart/action'
+import * as Action1 from '../../../store/auth/action'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCartPlus} from '@fortawesome/free-solid-svg-icons'
 import Hoc from '../../../Hoc/hoc'
@@ -10,9 +13,19 @@ import styled from 'styled-components'
 import './productCardComponent.css'
 import img from '../../../assest/Capture.PNG'
 import img2 from '../../../assest/Capture1.PNG'
+import Input from './Input/input';
+
+
+
 const ProductCardComponent=(props)=>{
+    let QTY=1;
+  
     const Products=useSelector(state=>state.products.product)
     const [quantity,setQuantity]=useState(1)
+    const auth=useSelector(state=>state.auth)
+    const dispatch=useDispatch();
+   
+ 
     let history=useHistory();
     let product;
     if(props.fav){
@@ -23,7 +36,8 @@ const ProductCardComponent=(props)=>{
     }
 
     const DetailHandler=()=>{
-        if(product.code){
+      
+        if(props.product.code>=0){
                 history.push('/products/'+product.code);
 
         }else{
@@ -36,13 +50,27 @@ const ProductCardComponent=(props)=>{
 
     const offer=((product.MRP-(product.sellingPrice))/(product.MRP))*100;
     const List=props.list
-    
+    const qtyHandler=(v)=>{
+            QTY=v;
+          
+    }
+    const AddToCartHandler=()=>{
+        if(!auth.isAuth){
+            dispatch(Action1.popup(auth.toggleOpen))
+       
+            return
+        }
+     
+        props.AddToCart(props.product,QTY,QTY) 
+    }
     return(
         <Hoc class={`Card ${List?'ListCard':null}`} >
+      
                {product.specialOffer?<p class="Offer">Save {offer.toFixed(0)}%</p>:null}
                 <div class={`imgBody ${List?'ListimgBody':null}`}  >
                     <img src={(Math.random()>0.5?img:img2)} onClick={DetailHandler}/>
                 </div>
+   
                 <div  class={`priceBody ${List?'ListpriceBody':null}`}>
                     <p>{product.title}</p>
                   {List?<p style={{textAlign:'justify',color:'indigo'}}>{product.Details.description}</p>:null}  
@@ -50,10 +78,10 @@ const ProductCardComponent=(props)=>{
                         <p>MRP ${product.sellingPrice}  {product.MRP?<span class="discount">${product.MRP}</span>:null}  </p>
                         <div class={`Cart ${List?'ListCart':null}`}>
                         <p>Qty :</p>
-                    {!props.order?<input type="text" value={quantity} onChange={(event)=>setQuantity(event.target.value)}/>:<p>{props.product.quantity}</p>}
-                    {!props.order?<FontAwesomeIcon className={'cartIcon'} onClick={()=>props.AddToCart(props.product,quantity,quantity)} icon={faCartPlus}/>:null}
+                    {!props.order?<Input  type="text" value={QTY} qty={qtyHandler} />:<p>{props.product.quantity}</p>}
+                    {!props.order?<FontAwesomeIcon className={'cartIcon'}  icon={faCartPlus}/>:null}
                         </div>
-                       {!props.order? <button>Buy Now</button>:null}
+                       {!props.order? <button onClick={AddToCartHandler}  >Add to Cart</button>:null}
 
                         </div>):null}
                     

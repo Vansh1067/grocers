@@ -14,6 +14,8 @@ const CartComponent =props=>{
     const [totalItems,setTotalItems]=useState(0)
     const dispatch=useDispatch();
     const CartItems=useSelector(state=>state.cart.cart)
+    const auth=useSelector(state=>state.auth)
+
     console.log(CartItems)
   
 
@@ -22,12 +24,14 @@ const CartComponent =props=>{
          
     }
    useEffect(()=>{
+        if(auth.isAuth){
+            dispatch(Action.fetchCart())
 
-        dispatch(Action.fetchCart())
+        }
         
-    },[])
+    },[auth.isAuth])
   useEffect(()=>{
-            if(CartItems.items.length>=0){
+            if(CartItems){
                         setTotalItems(CartItems.items.length)
                 }
                 

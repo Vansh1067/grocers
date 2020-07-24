@@ -129,6 +129,22 @@ const Checkout=(props)=>{
 
         setuser('')
     }
+    const EditHandler=(address)=>{
+        setFname(address.fName)
+        setLname(address.lName)
+        setAddress1(address.Address1)
+        setAddress2(address.Address2)
+        setAddress3(address.Address3)
+        setCountry(address.country)
+        setCity(address.city)
+        setZipCode(address.zipCode)
+        setState(address.state)
+        setPhone(address.phone)
+        dispatch(Actions.deleteAddress(address.id))
+        
+        
+
+    }
     return(
 
         <Wrapper>
@@ -157,7 +173,7 @@ const Checkout=(props)=>{
                 <Button onClick={()=>CheckoutHandler(address)} >Deliver to This Address</Button>
                 <Div >
 
-                <Button width="40%"styles={'background-color:green;'}>Edit</Button>
+                <Button width="40%"styles={'background-color:green;'} onClick={()=>EditHandler(address)}>Edit</Button>
                 <Button width="40%" styles={'background-color:red; '} onClick={()=>DeleteHandler(address.id)}>Delete</Button>
                 </Div>
              

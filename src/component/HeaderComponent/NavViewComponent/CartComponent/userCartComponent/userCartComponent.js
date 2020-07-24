@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTimes,faCartArrowDown,faCaretRight} from '@fortawesome/free-solid-svg-icons'
 import './userCartComponent.css'
 import Hoc from '../../../../../Hoc/hoc'
-import {connect} from 'react-redux';
+import {connect, useSelector,useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import * as Action from '../../../../../store/cart/action'
 import * as Actions from '../../../../../store/Checkout/action'
+import * as Action1 from '../../../../../store/auth/action'
+
 
 import CartProduct from './cartProductComponent/cartProductComponent';
 import { saveOrderDetails } from '../../../../../store/Checkout/action';
@@ -17,7 +19,8 @@ const UserCartComponent =props=>{
     const [delivery,setdelivery]=useState(0)
     const [cartitems,setcartitems]=useState(props.CART.items)
     const [totalitems,settotalitems]=useState(props.CART.items.length)
-    const [refresh,setrefresh]=useState(false)
+    const dispatch=useDispatch();
+    const auth=useSelector(state=>state.auth)
      
     let history=useHistory();
 
@@ -53,6 +56,11 @@ const UserCartComponent =props=>{
        })
       
 const CheckoutHandler=()=>{
+    if(!auth.isAuth){
+        dispatch(Action1.popup(auth.toggleOpen))
+        props.click()
+        return
+    }
     const OrderSummary={items:DiscSum,Delivery:delivery,Total:DiscSum+delivery,savings:DiscSum-sum,OrderTotal:sum+delivery}
     
     props.SaveOrderDetails(OrderSummary)
@@ -107,17 +115,11 @@ const CheckoutHandler=()=>{
     );
              
                 }
-const mapStateToProps=(state)=>{
 
-    return{
-        cart:state.cart.cart,
-        
-    }
-}
 const mapDispatchToProps=dispatch=>{
     return {
 
-        Cart:()=>dispatch(Action.fetchCart()),
+        
         AddToCart:(p,q,a)=>dispatch(Action.AddToCart(p,q,a)),
         DeleteFromCart:(id)=>dispatch(Action.DeleteFromCart(id)),
         SaveOrderDetails:(details)=>dispatch(Actions.saveOrderDetails(details))
@@ -126,4 +128,4 @@ const mapDispatchToProps=dispatch=>{
 
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(UserCartComponent)
+export default connect(null,mapDispatchToProps)(UserCartComponent)
