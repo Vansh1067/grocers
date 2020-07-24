@@ -2,7 +2,7 @@ export const SAVE_ADDRESS='SAVE_ADDRESS';
 export const SAVE_ORDER_DETAILS='SAVE_ORDER_DETAILS';
 
 
-const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk1MzYyNzUyLCJleHAiOjE1OTUzNzM1NTJ9.WSZvTw_PDc5VnBLRI_tVCdH-et6sW57e4aRz92fH47U'
+const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhbnNoZG9uOTkjZ21haWwuY29tIiwidXNlcklkIjoiNWYxYTA1YTBlMWI2MjgyZDJjZTIyNzBlIiwiaWF0IjoxNTk1NTQwOTQyLCJleHAiOjE1OTU1NTE3NDJ9.AMsvdR-RuV4xv89kd9y5uspXmDy8i_ze4H88yKFV0Y0'
 
 export const saveAddress=(address)=>{
     const ADDRESS={...address,id:Math.random()}

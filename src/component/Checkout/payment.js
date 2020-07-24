@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom'
 import img from '../../assest/Capture1.PNG' 
 import ProductComponent from '../categoriesCardComponent/productCardComponent/productCardComponent'
-import {useSelector} from 'react-redux';
-
+import {useSelector, useDispatch} from 'react-redux';
+import * as Action from '../../store/order/action'
 const Wrapper=styled.div`
     width:100%;
 
@@ -113,10 +113,27 @@ const Payment=(props)=>{
     const CheckoutDetails=useSelector(state=>state.checkOut);
     const Cart=useSelector(state=>state.cart.cart);
     const Address=CheckoutDetails.Address
-    const OrderSummary=CheckoutDetails.OrderSummary
+    const OrderSummary=CheckoutDetails.OrderSummary;
+    const dispatch=useDispatch();
     console.log(Cart)
 
     const orderHandler=()=>{
+        setPopup(!popup)
+    }
+    const confirmOrderHandler=()=>{
+      const productIds=Cart.items.map((product)=>product);
+      let totalqty=0;
+      Cart.items.forEach((product)=>{
+        totalqty+=product.quantity
+        });
+        const OrderData={
+            productsId:productIds,
+            totalquantity:totalqty,
+            OrderDate:'20-07-2019',
+            totalAmount:OrderSummary.OrderTotal,
+            Address:Address
+        }
+        dispatch(Action.AddOrder(OrderData)) 
         setPopup(!popup)
     }
     return(
@@ -158,7 +175,7 @@ const Payment=(props)=>{
     <Input type='text' styles={'margin-left:10px;'}></Input>
     <Div styles={'width:100%'}>
 
-    <Button width="40%"styles={'background-color:green;'}>Confirm</Button>
+    <Button width="40%"styles={'background-color:green;'} onClick={confirmOrderHandler}>Confirm</Button>
     <Button width="40%" styles={'background-color:red; '} onClick={orderHandler}>Cancel</Button>
     </Div>
 

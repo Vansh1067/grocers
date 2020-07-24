@@ -45,6 +45,11 @@
    padding: 0;
    color: gray;
 }
+.productArray{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
 .shipping p{
     font-weight: bold;
 

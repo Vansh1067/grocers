@@ -43,7 +43,7 @@
    color: green;
 }
 
-#orderDetailButton{
+.orderDetailButton{
     background-color: indigo;
     color: white;
    padding: 5px 10px;
@@ -54,7 +54,17 @@
     text-decoration: none;
     
 }
-
+.orderCancelButton{
+    background-color: red;
+    color: white;
+   padding: 5px 10px;
+    width: 140px;
+    margin:15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size:20px;
+}
 
 @media screen and (max-width:768px){
     .OCard{

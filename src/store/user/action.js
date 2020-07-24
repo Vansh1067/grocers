@@ -13,7 +13,7 @@ export const EDIT_ADDRESS='EDIT_ADDRESS';
 
 const product=[{id:0,title:'Baby Care',price:25,discPrice:30,fav:true},{id:1,title:'Banana',price:15,discPrice:15,fav:false},{id:2,title:'Oil',price:250,discPrice:300,fav:true},{id:3,title:'Chips',price:5,discPrice:5,fav:true},{id:4,title:'Baby Care',price:25,discPrice:35,fav:false},{id:5,title:'Banana',price:15,discPrice:25,fav:true},{id:6,title:'Oil',price:50,discPrice:75,fav:false},{id:7,title:'Chips',price:5,discPrice:15,fav:false}]
 
-const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6bnVsbCwidXNlcklkIjoiNWYwZTJhNmNkMmNjNDMyM2Q0YTMzNzQxIiwiaWF0IjoxNTk1MzYyNzUyLCJleHAiOjE1OTUzNzM1NTJ9.WSZvTw_PDc5VnBLRI_tVCdH-et6sW57e4aRz92fH47U'
+const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhbnNoZG9uOTkjZ21haWwuY29tIiwidXNlcklkIjoiNWYxYTA1YTBlMWI2MjgyZDJjZTIyNzBlIiwiaWF0IjoxNTk1NTQwOTQyLCJleHAiOjE1OTU1NTE3NDJ9.AMsvdR-RuV4xv89kd9y5uspXmDy8i_ze4H88yKFV0Y0'
 
 
 export const fetchWishlist=()=>{

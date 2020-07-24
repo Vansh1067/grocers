@@ -3,7 +3,10 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
 import * as Actions from '../../../../store/user/action'
 import Hoc from '../../../../Hoc/hoc'
+import {useDispatch} from 'react-redux'
 const AddressForm=(props)=>{
+
+
     useEffect(()=>{
         props.UserData();
         console.log(props)
@@ -18,9 +21,9 @@ const AddressForm=(props)=>{
     const [Address1,setAddress1]=useState('')
     const [Address2,setAddress2]=useState('')
     const [Address3,setAddress3]=useState('')
-    const [same,setSame]=useState('')
+    const [same,setSame]=useState(false)
     const [ContactAddress,setContactAddress]=useState('')
-
+   
     useEffect(()=>{
        
         setCountry(props.userData.country)
@@ -30,15 +33,27 @@ const AddressForm=(props)=>{
         setAddress1(props.userData.Address1)
         setAddress2(props.userData.Address2)
         setAddress3(props.userData.Address3)
-        
-       
+        setContactAddress(props.userData.contactAddress)
 
+     
+
+
+      
     })
- 
+    const SaveHandler=()=>{
+    
+        const  address={contactAddress:ContactAddress,contact:true}
+        props.SaveAddress(address)
+
+    
+        }
     const checkedHandler=()=>{
-        
-        setSame(!same)
-        if(!same){
+        const s=!!ContactAddress;
+        const p=!s
+       
+        setSame(p)
+        alert(same)
+        if(same){
             setContactAddress(`${Address1} ${Address2} ${Address3} `)
         }else{
             setContactAddress('')
@@ -83,10 +98,13 @@ const AddressForm=(props)=>{
                     <textarea  rows={5} value={ContactAddress} type="text" >{ContactAddress}</textarea>
                    </div>
                    <div id="checkbox">
-                    <input type="checkbox" onClick={checkedHandler}/>
-                    <p> Same as contact address</p> 
+                    <input type="checkbox" checked={ContactAddress} />
+                    <p onClick={()=>checkedHandler()}> Same as contact address</p> 
                     </div>
-                 
+                   {same? <div id="btnn">
+                  
+                  <button  onClick={SaveHandler}>Save Changes</button>
+                 </div>:null}
                     
 
                   
@@ -98,13 +116,12 @@ const AddressForm=(props)=>{
 const mapStateToProps=state=>{
     return {
         userData:state.wishList.userData
-    
-    }
+        }
     }
     const mapDispatchToProps=dispatch=>{
         return {
-            UserData:()=>dispatch(Actions.fetchUserData())
-    
+            UserData:()=>dispatch(Actions.fetchUserData()),
+            SaveAddress:(address)=>dispatch(Actions.updateAddress(address))
         }
     }
 export default connect(mapStateToProps,mapDispatchToProps)(withRouter(AddressForm))

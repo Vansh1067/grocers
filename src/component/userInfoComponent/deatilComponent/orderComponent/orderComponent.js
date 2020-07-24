@@ -1,20 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {withRouter} from 'react-router-dom'
 
 import Hoc from '../../../../Hoc/hoc'
 import './orderComponent.css'
-import {connect} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 import * as Actions from '../../../../store/order/action'
 import OrderBox from './orderBox/orderBox';
-import OrderDetail from './orderDetail/orderDetail'
 import { Route, Switch } from 'react-router-dom';
 
 const OrderComponent=(props)=>{
-  
-    useEffect(()=>{
-            props.Order()
-    },[])
+  const Orders=useSelector(state=>state.order.orders);
+  const [refersh,setRefersh]=useState(false)
    
+    useEffect(()=>{
+        props.Order()
+    },[refersh])
+    const ReftreshHAndler=()=>{
+        setRefersh(!refersh)
+    }
     return(
         <Hoc>
            
@@ -42,12 +45,11 @@ const OrderComponent=(props)=>{
                     <Route path="/account/orders/"  exact render={ ()=><div class="">
                             {
                                 props.orders.map((product)=>{
-                                    return (<OrderBox product={product}/>)
+                                    return (<OrderBox refresh={ReftreshHAndler}product={product}/>)
                                 })
                             }
                             
                         </div>}/>
-                    <Route path="/account/orders/:id" component={OrderDetail}/>
                     
                     </Switch>
                        
