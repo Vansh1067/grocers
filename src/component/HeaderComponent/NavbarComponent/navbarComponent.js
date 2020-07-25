@@ -7,7 +7,8 @@ import BrandComponent from '../BrandComponent/brandComponent'
 import Hoc from '../../../Hoc/hoc';
 import AccountComponent from '../../accountComponent/accountComponent';
 import Backdrop from '../../backdrop/backdrop';
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import {logout} from '../../../store/auth/action'
 const NavbarComponent=(props)=>{
     const [isOpen,setIsOpen]=useState(false);
     const [styles,setStyles]=useState({});
@@ -16,7 +17,7 @@ const NavbarComponent=(props)=>{
     const [loginForm,setLoginForm]=useState(false);
 
     const auth=useSelector(state=>state.auth)
-
+    const dispatch=useDispatch()
     const toggleLoginHandler=(dir)=>{
         dir==="login"?setLoginForm(true):setLoginForm(false)
         setLoginOpen(!loginOpen)
@@ -34,6 +35,9 @@ const NavbarComponent=(props)=>{
            setIcon(faBars)
 
         }
+    }
+    const logouthandler=()=>{
+        dispatch(logout())
     }
     return(
         <Hoc className="navbar">
@@ -76,7 +80,7 @@ const NavbarComponent=(props)=>{
                   {!auth.isAuth? <li><NavLink to='' onClick={()=>{toggleLoginHandler('login')}}>Login</NavLink></li>:null}
                   {!auth.isAuth? <li><NavLink to=''onClick={()=>{toggleLoginHandler('reg')}}>Register</NavLink></li>:null}
                   {auth.isAuth? <li><NavLink to="/account">profile</NavLink></li>:null}
-                  {auth.isAuth? <li><NavLink to="/logout">Logout</NavLink></li>:null}
+                  {auth.isAuth? <li><a onClick={()=>logouthandler()} >Logout</a></li>:null}
                   
 
                </ul>

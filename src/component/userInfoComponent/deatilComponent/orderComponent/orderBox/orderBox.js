@@ -34,11 +34,11 @@ props.refresh()
                         <p>Total items <span>{product.totalquantity}</span></p>
                         <h4>Total <span>{product.totalAmount}</span></h4>
                         <h4>Order Date <span> {product.OrderDate}</span></h4>
-                        <p>Status :<span> {product.Status}</span></p>
+                        <p>Status :<span> {product.Status==='cancel'?<strong className="CancelOrder">Cancel</strong>:product.Status}</span></p>
 
                         <br></br>
                         <Link className="orderDetailButton" to={{pathname:`/account/orders/${product._id}`}} id="orderDetailButton">View Details</Link>
-                        <button className="orderCancelButton"  onClick={()=>DeleteHandler(product._id)} id="orderDetailButton">Cancel</button>
+                        {product.Status!=='cancel'?<button className="orderCancelButton"  onClick={()=>DeleteHandler(product._id)} id="orderDetailButton">Cancel</button>:null}
 
 
                         </div>

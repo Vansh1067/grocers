@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useStore, useDispatch } from 'react-redux'
 import * as Action from '../../store/auth/action'
+import Backdrop from '../backdrop/backdrop'
 const Button=styled.button`
 background-color:orange;
 font-weight:500;
@@ -33,7 +34,7 @@ box-shadow:0px 5px 10px black;
 background-color:white;
 position:fixed;
 width:300px;
-z-index:15;
+z-index:1500;
 top:40vh;
 `
 const P=styled.div`
@@ -54,7 +55,7 @@ const dispatch=useDispatch()
        }
    }
     return <Div loc="center" >
-        
+        <Backdrop/>
         <Popup>
     <P size='25px' weight='500' styles={'border-bottom:1px solid gray;text-align:center;'}>Please Login first</P>
     <Div styles={'flex-direction:column;align-items:center;'}>

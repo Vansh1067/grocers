@@ -22,19 +22,23 @@ const ProfileForm=(props)=>{
     const [Address1,setAddress1]=useState('')
     const [Address2,setAddress2]=useState('')
     const [Address3,setAddress3]=useState('')
+    console.log(props)
 
     useEffect(()=>{
-        setFname(props.userData.fName);
-        setLname(props.userData.lName);
-        setPhone(props.userData.phone)
-        setEmail(props.userData.email)
-        setCountry(props.userData.country)
-        setCity(props.userData.city)
-        setZipCode(props.userData.zipCode)
-        setState(props.userData.state)
-        setAddress1(props.userData.Address1)
-        setAddress2(props.userData.Address2)
-        setAddress3(props.userData.Address3)
+        if(props.userData){
+            setFname(props.userData.fName);
+            setLname(props.userData.lName);
+            setPhone(props.userData.phone)
+            setEmail(props.userData.email)
+            setCountry(props.userData.country)
+            setCity(props.userData.city)
+            setZipCode(props.userData.zipCode)
+            setState(props.userData.state)
+            setAddress1(props.userData.Address1)
+            setAddress2(props.userData.Address2)
+            setAddress3(props.userData.Address3)
+        }
+        
 
     },[props.userData])
 

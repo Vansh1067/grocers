@@ -1,20 +1,24 @@
+import setHeaders from '../reducer'
 export const SAVE_ADDRESS='SAVE_ADDRESS';
 export const SAVE_ORDER_DETAILS='SAVE_ORDER_DETAILS';
 
 
-const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhbnNoZG9uOTkjZ21haWwuY29tIiwidXNlcklkIjoiNWYxYTA1YTBlMWI2MjgyZDJjZTIyNzBlIiwiaWF0IjoxNTk1NjMyMjc4LCJleHAiOjE1OTU2NDMwNzh9.C8WXGVXe4KbGqBOcK7y62QCUW7tvHLvqdJV0JjdRqls'
+let x = document.cookie;
+
+const token=`${x.split('=')[1]}`
 
 export const saveAddress=(address)=>{
+    if(!token){
+        return
+    }
     const ADDRESS={...address,id:Math.random()}
         return dispatch=>{
             if(ADDRESS.New){
                 fetch('http://localhost:3001/account/add',{
                     method:'put',
                     body:JSON.stringify(ADDRESS),
-                    headers:{
-                        'Authorization':token,
-                        'Content-Type': 'application/json'
-                    },
+                    headers:setHeaders({'Content-Type': 'application/json'})
+                    ,
                     }).then(res=>{
 
                     dispatch({type:SAVE_ADDRESS,payload:ADDRESS})
@@ -27,6 +31,9 @@ export const saveAddress=(address)=>{
 }
 
 export const saveOrderDetails=(details)=>{
+    if(!token){
+        return
+    }
     console.log(details)
     return dispatch=>{
         setTimeout(()=>{
@@ -35,19 +42,3 @@ export const saveOrderDetails=(details)=>{
     }
 }
 
-/* {
-    "Address1": "House No. 4",
-"Address2": "satti Street",
-"Address3": "Near Badshah Hotel",
-"city": "Roorkee",
-"country": "India",
-"fName": "vansh",
-"lName": "Tandon",
-"phone": "9760300288",
-"state": "uttrakhand",
-"zipCode": "247667"
-} */
-/* {
-    "email":"9760300288",
-    "password":"12345"
-} */

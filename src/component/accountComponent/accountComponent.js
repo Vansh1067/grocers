@@ -73,7 +73,7 @@ const AccountComponent=(props)=>{
                 <div id="checkbox">
                     <input type="checkbox" onChange={(event)=>{setCheck(event.target.checked)}} /><p> Remeber Me</p> 
                 </div>}
-                    <NavLink id="accBtn" className="button" to='' onClick={clickhandler} >Enter To your Account</NavLink>
+                    <a id="accBtn" className="button"  onClick={clickhandler} >Enter To your Account</a>
              </form>
                 <div class="socialhandler">
                     <p>Or {loginForm?'Register':'login'} with your social profile</p>

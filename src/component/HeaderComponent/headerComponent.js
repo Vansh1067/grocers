@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Redirect} from 'react-router-dom'
 import './headerComponent.css'
 import Hoc from '../../Hoc/hoc';
 import NavViewComponent from './NavViewComponent/navViewComponent';

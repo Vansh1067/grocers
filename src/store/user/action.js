@@ -1,4 +1,5 @@
 
+import setHeaders from '../reducer'
 
 export const FETCH_WISHLIST='FETCH_WISHLIST';
 export const ADD_PRODUCT_TO_WISHLIST='ADD_PRODUCT_TO_WISHLIST';
@@ -13,17 +14,22 @@ export const EDIT_ADDRESS='EDIT_ADDRESS';
 
 const product=[{id:0,title:'Baby Care',price:25,discPrice:30,fav:true},{id:1,title:'Banana',price:15,discPrice:15,fav:false},{id:2,title:'Oil',price:250,discPrice:300,fav:true},{id:3,title:'Chips',price:5,discPrice:5,fav:true},{id:4,title:'Baby Care',price:25,discPrice:35,fav:false},{id:5,title:'Banana',price:15,discPrice:25,fav:true},{id:6,title:'Oil',price:50,discPrice:75,fav:false},{id:7,title:'Chips',price:5,discPrice:15,fav:false}]
 
-const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZhbnNoZG9uOTkjZ21haWwuY29tIiwidXNlcklkIjoiNWYxYTA1YTBlMWI2MjgyZDJjZTIyNzBlIiwiaWF0IjoxNTk1NjMyMjc4LCJleHAiOjE1OTU2NDMwNzh9.C8WXGVXe4KbGqBOcK7y62QCUW7tvHLvqdJV0JjdRqls'
+let x = document.cookie;
+
+const token=`${x.split('=')[1]}`
+ 
 
 
 export const fetchWishlist=()=>{
+    if(!token){
+        return
+    }
     const Products=product.filter((prod)=>prod.fav)
     return (dispatch)=>{
         fetch('http://localhost:3001/account/wishlist',{
             method:'get',
-            headers:{
-                'Authorization':token
-            }
+            headers:setHeaders({'Content-Type': 'application/json'})
+
         }).then(response=>{
             return response.json()
         }).then(products=>{
@@ -33,27 +39,16 @@ export const fetchWishlist=()=>{
     
     }
 }
-/* const user={
-    fName:'Vansh',
-    lName:'Tandon',
-    phone:'9760300288',
-    email:'vanshtandon1067@gmail.com',
-    country:'India',
-    city:'Roorkee',
-    zipCode:'247667',
-    state:'Uttrakhand',
-    Address1:'House Number 4. Ram Bhawan Satti Street',
-    Address2:'Ruder Hostel Room No. 214 GB pant institute of engineering college pauri '
 
-} */
 export const fetchUserData=()=>{
-  
+    if(!token){
+        return
+    }
     return (dispatch)=>{
         fetch('http://localhost:3001/account/',{
             method:'get',
-            headers:{
-                'Authorization':token
-            }
+            headers:setHeaders({'Content-Type': 'application/json'})
+
         }).then(response=>{
             return response.json()
         }).then(userData=>{
@@ -65,16 +60,16 @@ export const fetchUserData=()=>{
     }
 }
 export const deleteAddress=(addressId)=>{
-    console.log(addressId)
+    if(!token){
+        return
+    }
         return dispatch=>{
            
                 fetch('http://localhost:3001/account/add',{
                     method:'DELETE',
                     body:JSON.stringify({id:addressId}),
-                    headers:{
-                        'Authorization':token,
-                        'Content-Type': 'application/json'
-                    },
+                    headers:setHeaders({'Content-Type': 'application/json'})
+                    ,
                     }).then(res=>{
                         console.log(res)
                     dispatch({type:DELETE_ADDRESS,payload:addressId})
@@ -84,16 +79,16 @@ export const deleteAddress=(addressId)=>{
             }
 }
 export const updateAddress=(address)=>{
-    console.log(address)
+    if(!token){
+        return
+    }
         return dispatch=>{
            
                 fetch('http://localhost:3001/account/add',{
                     method:'put',
                     body:JSON.stringify(address),
-                    headers:{
-                        'Authorization':token,
-                        'Content-Type': 'application/json'
-                    },
+                    headers:setHeaders({'Content-Type': 'application/json'})
+                    ,
                     }).then(res=>{
                         
                 }).catch(err=>console.log(err))

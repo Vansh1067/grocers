@@ -8,16 +8,21 @@ import CategoriesCardComponent from '../../component/categoriesCardComponent/cat
 import img from '../../assest/promo.jpg';
 import SlideShow from '../../assest/1.jpg';
 import * as Action from '../../store/product/action'
+import * as Actions from '../../store/auth/action'
+
 const SectionComponent=(props)=>{
     useEffect(()=>{
             props.Product();
             props.Categories();
+            props.AutoLogin();
     },[])
+    
+   
    const AllProduct=props.product;
    const TrendingProducts=props.product.filter(prod=>prod.preferences);
    const SpecialOfferproducts=props.product.filter(prod=>prod.specialOffer);
    const Categories=props.categories;
-   console.log(Categories)
+   
     return(
         <Hoc class="section">
             <SliderComponent img={SlideShow}></SliderComponent>
@@ -50,6 +55,7 @@ const mapDispatchToProps=dispatch=>{
 
         Product:()=>dispatch(Action.fetchProduct()),
         Categories:()=>dispatch(Action.fetchCategories()),
+        AutoLogin:()=>dispatch(Actions.autoLogin())
 
     }
 }
