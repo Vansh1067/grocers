@@ -23,7 +23,7 @@ const ProductDetailComponent=(props)=>{
 
           </div>
           <div>
-          <ReviewComponent reviews={product.reviews}/>
+          <ReviewComponent reviews={product._id}/>
 
           </div>
           

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {Switch,Route, Redirect} from 'react-router-dom';
 import { GuardProvider, GuardedRoute } from 'react-router-guards';
 import HashLinkObserver from 'react-hash-link';
@@ -18,6 +18,7 @@ import { useSelector,useDispatch } from 'react-redux';
 function App() {
   const auth=useSelector(state=>state.auth)
   const dispatch=useDispatch()
+ 
   const requireLogin = (to, from, next) => {
     if (to.meta.auth) {
       if (auth.isAuth) {
@@ -27,9 +28,7 @@ function App() {
 
       if(!auth.isAuth){
         dispatch(Action1.popup(auth.toggleOpen))
-        
-        
-      }
+        }
     } else {
       next();
     }

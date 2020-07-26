@@ -2,7 +2,7 @@ import {FETCH_WISHLIST,FETCH_USER_DATA,DELETE_ADDRESS,EDIT_ADDRESS} from './acti
 
 const initialState={
 wishList:[],
-userData:{fName:'',lName:'',phone:'',email:'',country:'',city:'',state:'',Address1:'',Address2:'',Address3:''}
+userData:{}
 }
 const reducer=(state=initialState,action)=>{
     switch(action.type){

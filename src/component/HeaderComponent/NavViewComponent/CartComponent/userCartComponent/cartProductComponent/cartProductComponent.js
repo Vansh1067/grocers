@@ -16,18 +16,18 @@ const CartProduct=(props)=>{
 
     return(
         <Hoc>
-            <div className='userCard'>
-                <FontAwesomeIcon className="cartIcons" icon={faTimes} onClick={()=>props.deleteHandler(Product._id)}/>
-                <div className="cardImage">
+            <div className='userCard2'>
+                <FontAwesomeIcon className="cartIcons2" icon={faTimes} onClick={()=>props.deleteHandler(Product._id)}/>
+                <div className="cardImage2">
                     <img src={img}/>
                 </div>
-                <div className="UUsercardBody">
-                   {Product.specialOffer? <p id="UOffer">Save {offer.toFixed(0)}%</p>:null}
+                <div className="UUsercardBody2">
+                   {Product.specialOffer? <p id="UOffer2">Save {offer.toFixed(0)}%</p>:null}
                     <p>{Product.title}</p>
-                    <p id="Ustatus">  <span><FontAwesomeIcon icon={faCheckCircle}/></span>{'Available'}</p>
-                    <p>Selling Price: ${Product.sellingPrice} {Product.MRP?<span className="discount">{`$ ${Product.MRP}`}</span>:null}</p>
+                    <p id="Ustatus2">  <span><FontAwesomeIcon icon={faCheckCircle}/></span>{'Available'}</p>
+                    <p>Selling Price: ${Product.sellingPrice} {Product.MRP?<span className="discount2">{`$ ${Product.MRP}`}</span>:null}</p>
                    
-                <div className={'Quantity'}>
+                <div className={'Quantity2'}>
                         <p style={{'margin-right':'10px'}}>Qty: </p>
                         <FontAwesomeIcon className={'cartIcon'} icon={faMinus} onClick={()=>{props.AddHandler(Product,product.quantity,-1)}}/>
                         <p> {product.quantity} </p>

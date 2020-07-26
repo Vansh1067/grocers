@@ -4,6 +4,8 @@ import Hoc from '../../Hoc/hoc';
 import * as Action from '../../store/cart/action'
 
 
+
+
 import CartComponent from '../../component/HeaderComponent/NavViewComponent/CartComponent/cartComponent'
 const UserCartContainer=(props)=>{
 
@@ -15,6 +17,7 @@ const UserCartContainer=(props)=>{
         dispatch(Action.fetchCart())
         
     },[])
+   
     return(
         <Hoc>
             <CartComponent cartProducts={CartItems}></CartComponent>

@@ -53,7 +53,7 @@ const NavbarComponent=(props)=>{
            <ul className="nav-ul" >
            <li><NavLink to="/">Home</NavLink></li>
 
-               <li><NavLink to=''>Categories</NavLink>
+               <li><a >Categories</a>
                <ul className="nest-ul">
                    <li><NavLink  to={{pathname:"/products/0"}}>All Products</NavLink></li>
                    <li><NavLink  to={{pathname:"/products/1"}}>Baby Care</NavLink></li>

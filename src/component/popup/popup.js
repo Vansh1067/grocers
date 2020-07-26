@@ -49,6 +49,7 @@ const POPUP=(props)=>{
 const dispatch=useDispatch()
    const dismisHandler=()=>{
        const state=store.getState().auth
+      
        if(!state.isAuth){
         dispatch(Action.popup(state.toggleOpen))
 

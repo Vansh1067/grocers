@@ -13,6 +13,8 @@ import AuthReducer from './store/auth/reducer';
 import OrderReducer from './store/order/reducer';
 import WishListReducer from './store/user/reducer';
 import CheckoutReducer from './store/Checkout/reducer';
+import ReviewReducer from './store/reviews/reducer';
+
 
 
 
@@ -24,6 +26,7 @@ const rootReducer=combineReducers({
     order:OrderReducer,
     wishList:WishListReducer,
     checkOut:CheckoutReducer,
+    review:ReviewReducer
 
 })
 const store=createStore(rootReducer,applyMiddleware(thunk))

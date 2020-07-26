@@ -74,18 +74,18 @@ const CheckoutHandler=()=>{
     return(
         <Hoc>
             
-            <div class="userCart">
-                <div class="cartheader">
+            <div className="userCart">
+                <div className="cartheader">
                 <h3>My Cart <span >({totalitems} item)</span></h3>
                 <FontAwesomeIcon className="userIcon" onClick={props.click} icon={faTimes} />
                 </div>
-                <div class="ProductArea">
+                <div className="ProductArea">
                    { totalitems>0?cartitems.map((product,i)=>{
                             return    <CartProduct deleteHandler={(id)=>props.DeleteFromCart(id)}  AddHandler={(p,q,a)=>props.AddToCart(p,q,a)} key={i} product={product}/>
                     }):<h4>No Product In your Cart</h4>}
                 
                 </div>
-        <div class="priceSummary">
+        <div className="priceSummary">
                     <div>
                         <p>Sub Total</p>
                         <p>${DiscSum}</p>
@@ -98,7 +98,7 @@ const CheckoutHandler=()=>{
                         <p style={{fontWeight:'bold'}}>Your Total Savings</p>
                         <p>${DiscSum-sum} ({(((DiscSum-sum)/DiscSum)*100).toFixed(0)| 0 }%)</p>
                     </div>
-                    <div class="button">
+                    <div className="button">
 
                         <button onClick={CheckoutHandler}>
                             <div>

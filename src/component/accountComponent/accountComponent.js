@@ -31,7 +31,8 @@ const AccountComponent=(props)=>{
      
         const user={
             email,
-            password
+            password,
+            check
         }
         if(loginForm){
             user.confirmPassword=confirmPassword;

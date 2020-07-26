@@ -4,6 +4,8 @@ import {faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 import Checkout from '../../../Checkout/checkout'
 
 import * as Action from '../../../../store/cart/action'
+import * as Action1 from '../../../../store/auth/action'
+
 import './cartComponent.css'
 import Hoc from '../../../../Hoc/hoc';
 import UserCartComponent from './userCartComponent/userCartComponent'
@@ -28,6 +30,7 @@ const CartComponent =props=>{
             dispatch(Action.fetchCart())
 
         }
+        dispatch(Action1.autoLogin()); 
         
     },[auth.isAuth])
   useEffect(()=>{
@@ -40,7 +43,9 @@ const CartComponent =props=>{
     })
 
 
-  
+    useEffect(()=>{
+           
+             })
     return(
         <Hoc className="cart">
 
@@ -52,7 +57,7 @@ const CartComponent =props=>{
                             <span className="k">{totalItems}</span>
 
                 </div>
-                <p>My Cart</p>
+                <p className="mycart">My Cart</p>
             </div>
 
            {isOpen ? <UserCartComponent  CART={CartItems} click={toggleHandler}/>:null}

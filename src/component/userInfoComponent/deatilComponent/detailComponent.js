@@ -6,9 +6,12 @@ import AddressForm from './addressForm/addressForm'
 import OrderComponent from './orderComponent/orderComponent'
 import WishList from './wishList/wishList'
 import OrderDetail from './orderComponent/orderDetail/orderDetail'
-
+import styled from 'styled-components'
 import { Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
+
+
 const DetailComponent=(props)=>{
     return(
         <Hoc class="details">

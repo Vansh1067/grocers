@@ -9,8 +9,10 @@ const ProductDetailContainer=(props)=>{
     const productId=props.match.params.id;
     useEffect(()=>{
         props.FetchDetail(productId);
-        console.log('sjj')
+        window.scrollTo(0, 0)
+
     },[])
+  
     console.log(props.prod)
     return(
         <Hoc class="section">

@@ -14,7 +14,6 @@ const SectionComponent=(props)=>{
     useEffect(()=>{
             props.Product();
             props.Categories();
-            props.AutoLogin();
     },[])
     
    

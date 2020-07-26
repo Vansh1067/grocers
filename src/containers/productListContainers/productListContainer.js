@@ -15,8 +15,9 @@ const ProductListContainer=(props)=>{
         useEffect(()=>{
             props.Categories();
             props.Product();
-
+            window.scrollTo(0, 0)
         },[])
+      
         const Cat={...props.categories.find(cat=>cat.code==Code)}
         let products;
         let title;

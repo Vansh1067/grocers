@@ -4,6 +4,18 @@ import {withRouter} from 'react-router-dom'
 import * as Actions from '../../../../store/user/action'
 import Hoc from '../../../../Hoc/hoc'
 import {useDispatch} from 'react-redux'
+import styled from 'styled-components'
+const Button=styled.button`
+width:150px;
+    padding: 10px;
+    border: none;
+    margin: 0px auto;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: green;
+    color:black;
+    font-weight:bold ;
+`
 const AddressForm=(props)=>{
 
 
@@ -21,9 +33,9 @@ const AddressForm=(props)=>{
     const [Address1,setAddress1]=useState('')
     const [Address2,setAddress2]=useState('')
     const [Address3,setAddress3]=useState('')
-    const [same,setSame]=useState(false)
+    const [check,setCheck]=useState(false)
     const [ContactAddress,setContactAddress]=useState('')
-   
+ 
     useEffect(()=>{
        
         setCountry(props.userData.country)
@@ -33,32 +45,38 @@ const AddressForm=(props)=>{
         setAddress1(props.userData.Address1)
         setAddress2(props.userData.Address2)
         setAddress3(props.userData.Address3)
-        setContactAddress(props.userData.contactAddress)
-
+        
+        if(ContactAddress===`${Address1} ${Address2} ${Address3}`){
+            setCheck(true)
+        }
+        if(props.userData.contactAddress){
+            setContactAddress(props.userData.contactAddress)
+        } 
      
 
 
       
-    })
+    },[])
     const SaveHandler=()=>{
-    
+        alert(ContactAddress)
         const  address={contactAddress:ContactAddress,contact:true}
         props.SaveAddress(address)
 
     
         }
-    const checkedHandler=()=>{
-        const s=!!ContactAddress;
-        const p=!s
-       
-        setSame(p)
-        alert(same)
-        if(same){
-            setContactAddress(`${Address1} ${Address2} ${Address3} `)
-        }else{
+  useEffect(()=>{
+       if(!check && props.userData.contactAddress){
             setContactAddress('')
+
+       /*  const Ad=`${Address1} ${Address2} ${Address3}`
+        setContactAddress(Ad); */
+        }if(check && props.userData.contactAddress){
+            const Ad=`${Address1} ${Address2} ${Address3}`
+        setContactAddress(Ad);
+
         }
-    }
+    
+   },[check]) 
     return(
         <Hoc>
             <div class="form">
@@ -95,20 +113,22 @@ const AddressForm=(props)=>{
                     </div>
                    <div class="textarea">
                    <label>Address 2.</label>
-                    <textarea  rows={5} value={ContactAddress} type="text" >{ContactAddress}</textarea>
+                    <textarea  rows={5} value={ContactAddress} onChange={(event)=>{setContactAddress(event.target.value)} } type="text" >{ContactAddress}</textarea>
                    </div>
                    <div id="checkbox">
-                    <input type="checkbox" checked={ContactAddress} />
-                    <p onClick={()=>checkedHandler()}> Same as contact address</p> 
+                    <input type="checkbox" checked={check} onChange={(event)=>{setCheck(event.target.checked)} }/>
+                    <p > Same as contact address</p> 
                     </div>
-                   {same? <div id="btnn">
+                   
                   
-                  <button  onClick={SaveHandler}>Save Changes</button>
-                 </div>:null}
+                
                     
 
                   
                 </form>
+                {props.userData.contactAddress&&!check||ContactAddress&&check? <div id="btnn">
+                <Button  onClick={()=>SaveHandler()}>Save Changes</Button>
+                </div>:null}
             </div>
         </Hoc>
     );

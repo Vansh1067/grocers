@@ -4,7 +4,8 @@ const initialState={
 isAuth:false,
 token:'',
 expiresIn:'',
-toggleOpen:false
+toggleOpen:false,
+userId:''
 
 }
 

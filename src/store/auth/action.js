@@ -20,12 +20,30 @@ let TimeOut;
 export const autoLogin=()=>{
     let x = document.cookie;
     const token=x.split('=')[1]
-    
     return (dispatch)=>{
  
         if(token){
+  
+
             dispatch({type:AUTO_LOGIN,payload:{token:token}})
 
+        }else{
+           const time_now  = (new Date()).getTime();
+           const lastclear = localStorage.getItem('lastclear');
+
+
+            if((time_now - lastclear) > 1000*60*60*24*7) {
+              
+                localStorage.clear();
+            
+            }else{
+                const email = localStorage.getItem("Grocers-user-email");
+                const password = localStorage.getItem("Grocers-user-password");
+                const user={
+                    email,password
+                }
+                dispatch(login(user))
+            }
             
 
         }
@@ -65,6 +83,7 @@ export const login=(user)=>{
     if(user.confirmPassword){
         URL='http://localhost:3001/auth/register'
     }
+    
     return (dispatch)=>{
       
         const User=user
@@ -80,14 +99,25 @@ export const login=(user)=>{
             return response.json()
             
         }).then(data=>{
-            console.log(data)
-            const Data={
-                token:data.token,
-                expiresIn:3600
+            if(data.token){
+                const Data={
+                    token:data.token,
+                    expiresIn:3600
+                }
+                dispatch({type:LOGIN,payload:Data})
+                 
+                dispatch(checkAuthTimer(3600))
+                if(User.check){
+                    localStorage.setItem("Grocers-user-email", User.email);
+                    localStorage.setItem("Grocers-user-password", User.password);
+                  localStorage.setItem('lastclear', (new Date()).getTime());
+
+                    
+              
+               
+                }
             }
-            dispatch({type:LOGIN,payload:Data})
-             
-            dispatch(checkAuthTimer(3600))
+            
 
         })
         .catch(err=>{console.log(err)}) 

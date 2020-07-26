@@ -79,9 +79,12 @@ export const deleteAddress=(addressId)=>{
             }
 }
 export const updateAddress=(address)=>{
+    console.log(address)
     if(!token){
         return
     }
+    alert("save")
+
         return dispatch=>{
            
                 fetch('http://localhost:3001/account/add',{
@@ -90,7 +93,7 @@ export const updateAddress=(address)=>{
                     headers:setHeaders({'Content-Type': 'application/json'})
                     ,
                     }).then(res=>{
-                        
+                        dispatch(fetchUserData())
                 }).catch(err=>console.log(err))
            
             }

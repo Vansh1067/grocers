@@ -1,8 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import {connect, useDispatch} from 'react-redux';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import styled from 'styled-components'
 import * as Actions from '../../../../store/user/action'
 import Hoc from '../../../../Hoc/hoc'
+const Button=styled.button`
+width:120px;
+    padding: 10px;
+    border: none;
+    margin: 0px auto;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: green;
+    color:black;
+    font-weight:bold ;
+`
 const ProfileForm=(props)=>{
     const dispatch=useDispatch()
     useEffect(()=>{
@@ -25,7 +37,7 @@ const ProfileForm=(props)=>{
     console.log(props)
 
     useEffect(()=>{
-        if(props.userData){
+       
             setFname(props.userData.fName);
             setLname(props.userData.lName);
             setPhone(props.userData.phone)
@@ -37,14 +49,14 @@ const ProfileForm=(props)=>{
             setAddress1(props.userData.Address1)
             setAddress2(props.userData.Address2)
             setAddress3(props.userData.Address3)
-        }
+       
         
 
     },[props.userData])
 
     const SaveHandler=()=>{
     
-           const  address={fName,lName,phone,Address1,Address2,Address3,city,state,zipCode,country}
+           const  address={fName,lName,email,phone,Address1,Address2,Address3,city,state,zipCode,country}
      
         dispatch(Actions.updateAddress(address))
 
@@ -105,12 +117,13 @@ const ProfileForm=(props)=>{
                     </div>
                    <div id="btnn">
                   
-                    <button  onClick={SaveHandler}>Save Changes</button>
                    </div>
                     
 
                   
                 </form>
+                <Button  onClick={SaveHandler}>Save Changes</Button>
+
             </div>
         </Hoc>
     );
